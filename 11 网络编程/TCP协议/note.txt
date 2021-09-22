@@ -1,0 +1,56 @@
+TCP协议
+server:
+    1.创建一个基于IPv4和TCP协议的Socket：
+        AF_INET （又称 PF_INET）代表协议族，是 IPv4 网络协议的套接字类型，
+        AF_INET6 则是 IPv6 的，而 AF_UNIX 则是 Unix 系统本地通信
+        SOCK_STREAM 是指流式套接字，也就是基于 TCP 协议的 socket
+            sv_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    2.服务器进程需要绑定一个IP，其中0,0,0,0代表本机上的所有IP都可以：
+        该 IP 代表 本机回送127.0.0.1 或者本机公网 IP 或者本机局域网 IP，
+        然后服务器进程还需要绑定一个端口并监听来自其他客户端的连接，
+        如果某个客户端连接过来了，服务器就与该客户端建立 socket 连接，随后的通信就靠这个 socket 连接了。
+            sv_socket.bind(('0.0.0.0', 8889))
+
+    3.listen
+        代表TCP/IP协议栈缓存区最大阻塞监听连接数，
+        也就是可以存储的返回给 accept 的客户端的连接请求最大个数。
+            sv_socket.listen(5)
+
+    4.accept
+        是服务器进程从操作系统的 TCP/IP 协议栈缓冲区中取出发起连接的客户端的套接字，
+        这个套接字就是 listen 对接的客户端的套接字，当 accept 取出该套接字返回给应用层，
+        协议栈就把该套接字去掉，listen 可处理的客户端连接就多出来一个。
+            server_socket, addr = sv_socket.accept()
+
+    5.recv
+        很多人认为 recv 是接收客户端发来的字节流，这是错误的认知，
+        实际上 recv 是从当前操作系统的 TCP/IP 协议栈缓冲区内取出网卡已经接收到的客户端发来的字节流。
+        注意：我们用 recv 接收到的数据是客户端发来的字节流（因为网络上只能传输字节流），所以我们用 decode("utf-8") 解码成字符串。
+            client_data = server_socket.recv(1024).decode("utf-8")
+
+    6.break
+        如果客户端调用 close 关闭套接字，我们服务器端就会收到客户端发来的空字节流（注意：这个空字节流是客户端的操作系统的 TCP 协议栈发送的），
+        所以我们判断 client_data 为空时，我就认为客户端关闭连接。
+
+    7.send
+        send 函数并不是把数据发送到对方机器上，而是发送数据到本机操作系统的 TCP/IP 协议栈缓冲区，
+        然后由协议栈缓冲区通过网卡把数据发送到网络上，数据在网络上通过路由器找到客户端的 IP 地址，
+        然后在通过端口号找到客户端的通信进程。
+            if (client_data == "exit") or (not client_data)
+                break
+
+    8.编码
+        因为网络上只能传送字节流，我们首先用代码 encode("utf-8")要把发送的数据编码成字节流，
+        然后调用 send 发送到本机的 TCP/IP 协议栈缓冲区。
+            server_socket.send(server_data.encode("utf-8"))
+
+client:
+    1.首先，客户端应该知道通信的服务器端的 IP 和端口，注意，客户端不能用 "0.0.0.0"这个地址去连接服务器，
+    如果客户端和服务器是在一台机器上，我们一般用 "127.0.0.1"，如果是在同一个局域网的不同机器上，
+    我们用服务器的局域网 IP 地址（192.168.X.X 或者10.X.X.X）开头的 IP 地址，如果不在同一局域网上，
+    我们用服务器的公网 IP。当然，如果是同一台机器，我们可以使用 "127.0.0.1"，也可以使用局域网 IP 或者公网 IP。
+        ip_port = ("127.0.0.1", 8889)       # 要连接的服务器的 ip 和端口
+
+    2.connect 函数向服务器端发起来三次握手，三次握手成功后，就和服务器建立了连接
+        client_socket.connect(ip_port)      # 连接服务器

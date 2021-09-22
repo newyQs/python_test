@@ -1,0 +1,11 @@
+number=0;start_weight=7020.1;end_weight=7088.0;differ_weight=67.90;
+number=1;start_weight=6807.4;end_weight=6877.6;differ_weight=70.20;
+number=2;start_weight=7033.3;end_weight=7033.5;differ_weight=0.20;
+number=3;start_weight=7082.9;end_weight=7155.2;differ_weight=72.30;
+number=4;start_weight=6686.9;end_weight=6756.8;differ_weight=69.90;
+number=5;start_weight=6755.9;end_weight=6854.7;differ_weight=98.80;
+number=6;start_weight=7141.9;end_weight=7224.2;differ_weight=82.30;
+number=7;start_weight=7253.0;end_weight=7258.4;differ_weight=5.40;
+number=8;start_weight=6967.4;end_weight=6967.4;differ_weight=0.00;
+number=9;start_weight=6905.8;end_weight=6972.2;differ_weight=66.40;
+number=10;start_weight=7099.2;end_weight=7189.5;differ_weight=90.30;
