@@ -1,4 +1,4 @@
-# 1.传统的%号格式化
+# 1.典型的"%"格式化
 '''
 %s
 %d
@@ -8,9 +8,7 @@
 
 # 2.str.format()格式化
 "{} {}".format("hello", "world")  # 不设置指定位置，按默认顺序
-
 "{0} {1}".format("hello", "world")  # 设置指定位置
-
 "{1} {0} {1}".format("hello", "world")  # 设置指定位置
 
 print("网站名：{name}, 地址 {url}".format(name="菜鸟教程", url="www.runoob.com"))
@@ -32,4 +30,6 @@ class AssignValue(object):
 my_value = AssignValue(6)
 print('value 为: {0.value}'.format(my_value))  # "0" 是可选的
 
-# 3.f-string
+# 3.f-string 格式化
+st = 'good  '
+print(f'this is {st} day')

@@ -24,7 +24,7 @@ def func_three(data):
     return data
 
 
-# 改动一
+# 改动1
 def timer(func, data):
     before = time()
     func(data)
@@ -38,7 +38,7 @@ print('该函数用时：', timer(func_two, 25000))
 print('该函数用时：', timer(func_three, 25000))
 
 
-# 改动二
+# 改动2
 def timer(func):
     def wraper(data):
         before = time()
@@ -60,7 +60,7 @@ func_two(25000)
 func_three(25000)
 
 
-# 改动三
+# 改动3
 def timer(func):
     def wraper(*args, **kwargs):
         before = time()

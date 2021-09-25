@@ -29,11 +29,9 @@ update(self,s)
 
 # 创建：
 s1 = {1, 3, 4}
-
 s2 = set([1, 2, 3])
 
-#
-print(dir(set))
+# set对象类的全部方法
 '''
 ['__and__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
 '__getattribute__', '__gt__', '__hash__', '__iand__', '__init__', '__init_subclass__', '__ior__', '__isub__', 

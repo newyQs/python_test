@@ -11,7 +11,7 @@ index(object,start,stop) =>返回元素第一次出现的位置
 count(object)            =>统计元素出现的次数
 '''
 
-# 创建
+# 1.创建元祖
 t1 = (1, 2, 3)
 t2 = ('abc',)
 
@@ -21,31 +21,26 @@ t4 = tuple([2])
 print(t1, t2, t3, t4, end=' ')
 print()
 
-# 获取元组元素
+# 2.获取元组元素：有序集合通过索引获取
 print(t1[1])
 
-# 常见操作：
+e = ('a', 'b', 'c', 'd', 'd', 'e', 'f', 'g', 'f', 'd')
+# 3.统计元组中指定元素出现的次数
+print(e.count('f'))
 
-tt = (1, 3, 2, 5, 5, 6, 2, 5, 6, 7, 2, 2, 4, 8)
-# 1.统计元组中指定元素出现的次数
-print(tt.count(2))
+# 4.获取元组中指定元素第一次出现的位置（索引）
+print(e.index('d'))  # 元素不存在则报错
 
-# 2.获取元组中指定元素第一次出现的位置（索引）
-print(tt.index(2))
-# print(tt.index(12)) 元素不存在则会报错
-
-# 切片操作
-ts = tt[2:8]
+# 5.有序序列支持切片操作
+ts = e[2:8]
 print(ts)
-
 print(ts[:])
 
-# 获取元组长度
-print(len(tt))
-print(tt.__len__())
+# 6.获取元组长度:实际len()调用的是对象类内部的__len__()方法
+print(len(e))
+print(e.__len__())
 
-# tuple对象所有方法
-print(dir(tuple))
+# tuple对象类所有方法
 '''
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', 
 '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', 

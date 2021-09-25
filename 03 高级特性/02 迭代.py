@@ -37,8 +37,7 @@ for items in mydict.items():
     print(items, end='\t')
 print()
 
-# Iterable
-# 可迭代对象
+# Iterable,可迭代对象
 myint = 2
 myfloat = 2.2
 mybool = True

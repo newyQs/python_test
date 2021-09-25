@@ -16,4 +16,4 @@ gen = multiple_generator(500, 1000)
 # for num in gen:
 #     print(num)
 
-# yield关键字不存结束整个函数，只是暂停函数的操作，直到下一次的调用
+# yield关键字不是结束整个函数，只是暂停函数的操作，直到下一次的调用

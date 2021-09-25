@@ -1,8 +1,7 @@
 '''
-字符串：不可变的数据类型。有序集合
-可以使用切片，可以被遍历
+字符串：不可变的数据类型。
+有序集合，可以使用切片，可以被遍历
 '''
-
 # 字符串常见方法汇总：
 '''
 index(self,sub,__start,__end)
@@ -14,7 +13,6 @@ center(self,width,fillchar)
 encode(self,encoding,errors)
 '''
 
-# print(dir(str))
 '''
 ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
 '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', 
@@ -26,6 +24,6 @@ encode(self,encoding,errors)
 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 
 'title', 'translate', 'upper', 'zfill']
 '''
-#
+
 s = 'hello nihao'
 

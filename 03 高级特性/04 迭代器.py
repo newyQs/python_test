@@ -56,7 +56,9 @@ for item in data:
 data = iter(data)  # TypeError: 'int' object is not iterable
 
 # 总之：
-# python的int，float，bool，NoneType类型都是不可迭代对象，更不是迭代器；
-# python的str,list,dict,set都是可迭代对象，但不是迭代器,可通过iter()函数将其转为迭代器；
-# 迭代器的充分必要条件是：含有 __iter__函数和__next__函数；
-# 生成器一定是迭代器，但迭代器未必是生成器，即迭代器包含生成器。
+'''
+1. python的int，float，bool，NoneType类型都是不可迭代对象，更不是迭代器；
+2. python的str,list,dict,set都是可迭代对象，但不是迭代器,可通过iter()函数将其转为迭代器；
+3. 迭代器的充分必要条件是：含有 __iter__函数和__next__函数；
+4. 生成器一定是迭代器，但迭代器未必是生成器，即迭代器包含生成器。
+'''

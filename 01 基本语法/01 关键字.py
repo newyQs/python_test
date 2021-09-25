@@ -1,6 +1,7 @@
 import keyword
 
 print(keyword.kwlist)
+print(len((keyword.kwlist)))  # python总共有35个关键字
 kwlist = [
     'False',
     'None',

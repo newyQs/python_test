@@ -32,4 +32,4 @@ print([[matrix[row][col] for row in range(3)] for col in range(3)])
 
 # 从列表推导式开始，当表达式变得复杂时再转为循环
 ages = [23, 56, 12, 34, 51, 8, 34, 21, 18]
-print([age for age in ages if age>10 and age ])
+print([age for age in ages if age > 10 and age])

@@ -1,6 +1,5 @@
 '''
-字典：哈希表，关联数组。由多个键值对组合。
-{key:value}
+字典{key:value}：哈希表，关联数组。由多个键值对组合。
 1.字典中的数据必须以键值对形式出现；
 2.键不可重复，值可重复，若键重复则只记住最后一个值；
 3.键（key）必须是可hash的，即不可变对象，不能进行修改，而值可以修改，也可以是任意对象；
@@ -10,34 +9,34 @@
 '''
 copy(self)
 clear(self)
+
 fromkeys(seq)
 
+get(self,key) 
+
 pop(self,key)
-get(self,key)
+popitem(self)
+
+update(self,__m,kwargs)
 
 keys(self)
 values(self)
 items(self)
 
-popitem(self)
 setdefault(key,default)
-update(self,__m,kwargs)
 '''
 
 # 创建
 d1 = {'name': 'lee', 'age': 18, 'city': 'chaohu'}
-
 d2 = dict(((1, 2), (3, 4)))
 
-# 增删改查
 dd = {'name': 'lee', 'age': 18, 'city': 'chaohu'}
-
-# 查
+# 查询
 print(dd['name'])
 # print(dd['sex']) # KeyError: 'sex'
 print(dd.get('sex'))  # key不存在返回None
 
-# 增
+# 增加
 dd['sex'] = 'male'
 print(dd)
 
@@ -46,11 +45,11 @@ print(dd)
 dd.update({'gender': 'male'})
 print(dd)
 
-# 改
+# 修改
 dd['sex'] = 'male'
 print(dd)
 
-# 删
+# 删除
 dd.pop('sex')  # 指定键删除
 print(dd)
 
@@ -88,7 +87,6 @@ d = dict.fromkeys(key, value)
 print(d)
 
 # 列举dict全部方法
-# print(dir(dict))
 '''
 ['__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', 
 '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__init_subclass__', 

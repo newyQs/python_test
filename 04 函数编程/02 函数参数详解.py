@@ -1,5 +1,4 @@
-# 1.位置参数
-# 又称必传参数，一一对应，数量一直
+# 1.位置参数：又称必传参数，一一对应，数量一直
 def myfunc(name, age):
     print(name)
     print(age)
@@ -8,8 +7,7 @@ def myfunc(name, age):
 # myfunc("ruhua", 18)  # 实参 "ruhua" 对应形参 name，实参 18 对应形参 age
 # myfunc("ruhua", "zhaoritian", 18)  # 错误，实参和形参的参数个数不匹配
 
-# 2.默认参数
-# 确保位置参数在前，默认参数在后
+# 2.默认参数：确保位置参数在前，默认参数在后
 def girlsschool(name, sex="f"):
     print(name)
     print(sex)

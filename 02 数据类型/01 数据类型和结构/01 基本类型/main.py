@@ -9,8 +9,7 @@ float()
 # 字符串类型（str）
 str(12)
 
-# 布尔类型（bool）
-# True False
+# 布尔类型（bool） ==> True/False
 bool(1)
 
 # 空值类型（NoneType）
