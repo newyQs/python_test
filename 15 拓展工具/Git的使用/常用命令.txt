@@ -1,0 +1,62 @@
+1.最基础的git操作：
+git clone [-b 目标分支] <url>
+git branch [-v]
+git checkout [-b] 分支名
+
+git status
+
+# 以下是提交代码：3步
+git add <some-file .>
+git commit -m 'some-message'
+git push origin 分支名
+
+简单来说：
+git add .
+git commit -m '...'
+git push origin master
+
+2.git base 操作
+下载代码：git clone <some-git-url> [-b 分支名 ]
+分支操作：git branch 和 git checkout
+查看状态：git status
+添加到暂存区：git add <some-file>
+从暂存区提交：git commit -m '...'
+推送到服务器：git push origin master
+从服务器拉取：git pull origin master 或者 git pull
+
+查看修改：git diff
+查看已暂存的内容： git diff --cached
+提交修改：git commit 和 git commit -m '...'
+
+# 移除文件：
+将文件删除，git不再跟踪：git rm <some-file>
+文件不删除，git不再跟踪：git rm --cache <some-file>
+删除文件夹：             git rm --cache -r <some folder>
+
+# 日志
+查看提交日志：git log
+查看内容差异：git log -p
+查看统计信息：git log --stat
+一行显示日志信息：git log --pretty=oneline
+查看某用户的提交：git log --author='author_name'
+
+# 撤销修改
+取消上一次修改：git reset HEAD^
+修改上一次提交：git commit --amend
+撤销文件在暂存区的修改（回到工作区）：git reset HEAD <some-file>
+撤销文件的修改（恢复原状）：git checkout -- <some-file>
+撤销所有文件的修改：git checkout -- .
+
+# 远程仓库拉取和推送
+显示远程仓库：git remote
+显示远程仓库详情：git remote -v
+显示origin仓库详情：git remote show origin
+从远程仓库获取同步：git fetch <some-remote-branch>
+从远程仓库拉取：git pull origin master
+推送到远程仓库：git push origin master
+
+3.git的四个区，五种状态
+四个区：      工作区、暂存区、本地仓库、远程仓库
+五种状态：未修改、已修改&未追踪、已暂存、已提交、已推送
+
+4.git的分支

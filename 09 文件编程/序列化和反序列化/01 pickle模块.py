@@ -1,9 +1,12 @@
-# 文件对象只能处理字符流和字节流
-# 如何处理其他类型，如int,float,dict,list...
-# 序列化即把变量从内存中变成可存储或传输的过程（也就是变成字符流或字节流的过程）
-
 import pickle
-import os
+
+'''
+open() 只能处理字符（str）或字节（bytes）流类型的数据
+对于其他数据类型(int,float,dict,list...)，我们需要先将其序列化成字符或字节流类型
+于是，python中pickle模块出现了，但该模块只局限于python语言中
+
+序列化即把变量从内存中变成可存储或传输的过程（也就是变成字符流或字节流的过程）
+'''
 
 # 1.可序列化的数据
 # data = [1, True, "hello"]
@@ -36,18 +39,21 @@ import os
 # print(data, type(data))
 
 # 4.序列化的作用
-# 类似中介的作用，将内存中某个类型的数据根据一定的算法转换成字符流或字节流
-# 同样，反序列化就是将序列化后的字符流或字节流转换成原来的样子
-# pickle模块序列化只局限在Python语言中
+'''
+类似中介的作用，将内存中某个类型的数据根据一定的算法转换成字符流或字节流
+同样，反序列化就是将序列化后的字符流或字节流转换成原来的样子
+pickle模块序列化只局限应用于python语言
+'''
 
 # 5.pickle模块的主要方法
 # dumps 和 loads
+# 先序列化原对象，再写入(write)磁盘文件，再读取（read）磁盘文件，最后反序列化原对象
 msg = ['ad', 1, 4, True]
 seq_msg = pickle.dumps(msg)
 
 with open('./msg.txt', 'wb') as f:
     f.write(seq_msg)
-# 分割线
+
 with open('./msg.txt', 'rb') as f:
     seq_msg = f.read()
 
@@ -55,6 +61,7 @@ msg = pickle.loads(seq_msg)
 print(msg, type(msg))
 
 # dump 和 load
+# 直接可以写入和读取磁盘中的文件，不需要write和read方法
 info = ['jkl', 23, None]
 
 with open('./info.txt', 'wb') as f:

@@ -23,7 +23,7 @@ if __name__ == '__main__':
     print(share_data)
 
 '''
-通过 Manager 类也可以实现进程间数据的共享。
+通过 Manager 类也可以实现进程间数据的共享:
 Manager() 返回的 manager 对象提供一个服务进程，使得其他进程可以通过代理的方式操作 Python 对象。
 manager 对象支持 list, dict, Namespace, Lock, RLock, Semaphore, BoundedSemaphore, Condition, Event, Barrier, Queue, Value ,Array等多种格式
 '''

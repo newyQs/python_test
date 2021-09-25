@@ -1,5 +1,8 @@
-import time
+# import time
+#
+# print('等待3s就会跳出来')
+# time.sleep(1)
+# print('jump here')
 
-print('等待3s就会跳出来') #
-time.sleep(1)
-print('jump here')
+d = {'a': 2}
+d.dict()

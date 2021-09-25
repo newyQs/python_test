@@ -11,13 +11,13 @@ def counter():
 
 
 if __name__ == '__main__':
-    bgtime = time.time()
+    bg_time = time.time()
     p1 = Process(target=counter)
     p2 = Process(target=counter)
     p1.start()
     p2.start()
     p1.join()
     p2.join()
-    endtime = time.time()
+    end_time = time.time()
 
-    print(f'多进程耗时：{endtime - bgtime}')
+    print(f'多进程耗时：{end_time - bg_time}')

@@ -45,6 +45,7 @@ def timer(func):
         rst = func(data)
         after = time()
         print("该函数耗时：", after - before)
+
         return rst
 
     return wraper
@@ -66,6 +67,7 @@ def timer(func):
         rst = func(*args, **kwargs)
         after = time()
         print("该函数耗时：", after - before)
+
         return rst
 
     return wraper

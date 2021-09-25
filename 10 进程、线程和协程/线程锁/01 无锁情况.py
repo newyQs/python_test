@@ -2,15 +2,15 @@ import threading
 
 
 def calculate(num):
-    global totalnum
+    global total_num
 
     for i in range(1000000):    # 注意：高级语言的一条语句在CPU执行时可能是若干条语句
-        totalnum += num
-        totalnum -= num
+        total_num += num
+        total_num -= num
 
 
 if __name__ == '__main__':
-    totalnum = 0
+    total_num = 0
 
     t1 = threading.Thread(target=calculate, args=(3,))
     t2 = threading.Thread(target=calculate, args=(7,))
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     t1.join()
     t2.join()
 
-    print(totalnum)
+    print(total_num)
 
 '''
 线程之间的任务执行是CPU随机调度的，并且每个线程可能只执行了n条指令之后就被切换到别的线程了。

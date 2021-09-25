@@ -7,7 +7,6 @@ data = divmod(250, 0)  # 抛出异常
 
 
 # 2.try...except...finally
-#
 def division(ldata, rdata):
     if not isinstance(ldata, (int, float)) or not isinstance(rdata, (int, float)):
         raise TypeError("类型错误")

@@ -11,13 +11,13 @@ def counter():
 
 
 if __name__ == '__main__':
-    bgtime = time.time()
+    bg_time = time.time()
     t1 = Thread(target=counter)
     t2 = Thread(target=counter)
     t1.start()
     t2.start()
     t1.join()
     t2.join()
-    endtime = time.time()
+    end_time = time.time()
 
-    print(f'多线程用时：{endtime - bgtime}')
+    print(f'多线程用时：{end_time - bg_time}')

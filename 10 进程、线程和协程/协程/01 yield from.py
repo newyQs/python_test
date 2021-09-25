@@ -1,5 +1,6 @@
 import asyncio
 
+
 @asyncio.coroutine
 def func(i):
     print('test1', i)

@@ -5,10 +5,11 @@ monkey.patch_all()
 
 
 def func(name):
+    a = 0
     print(name)
     print("我下面做计算导致的阻塞，你协程库也没啥卵用啊。。。")
     while True:  # CPU（计算）密集型
-        1 + 1
+        a += 1
 
 
 if __name__ == '__main__':
