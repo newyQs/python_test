@@ -11,19 +11,19 @@ data = [1, True, ("hello", None)]
 json_data = json.dumps(data)
 print(type(json_data))  # json序列化后都是字符流
 
-with open('./json.txt', 'w') as f:
+with open('./io/json.txt', 'w') as f:
     f.write(json_data)
 
-with open('./json.txt', 'r') as f:
+with open('./io/json.txt', 'r') as f:
     info = f.read()
 
 print(info, type(info))
 
 # 2.dump和load
-with open('./jd.txt', 'w') as f:
+with open('./io/jd.txt', 'w') as f:
     json_data = json.dump(data, f)
 
-with open('./jd.txt', 'r') as f:
+with open('./io/jd.txt', 'r') as f:
     msg = json.load(f)
 
 print(msg, type(msg))

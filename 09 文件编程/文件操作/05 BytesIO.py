@@ -13,15 +13,15 @@ f = BytesIO(data)  # data 是字节类型
 f.close()
 
 # 2. 简单示例
-# rst = request.urlopen("http://birdpython.com/static/img/logo.png")  # 下载图片
-# print(rst.read()) # 字节码bytes
-# f = BytesIO(rst.read())  # 把图片二进制文件放入 BytesIO 对象中
-#
-# fdisk = open("./io/logo.png", "wb")
-# fdisk.write(f.getvalue())
-# fdisk.close()
+rst = request.urlopen("http://birdpython.com/static/img/logo.png")  # 下载图片
+print(rst.read()) # 字节码bytes
+f = BytesIO(rst.read())  # 把图片二进制文件放入 BytesIO 对象中
 
-# f.close()
+fdisk = open("./io/logo.png", "wb")
+fdisk.write(f.getvalue())
+fdisk.close()
+
+f.close()
 
 # 3.将下载的图片处理成64像素高，64像素宽，然后存储起来
 rst = request.urlopen("http://birdpython.com/static/img/logo.png")  # 下载图片

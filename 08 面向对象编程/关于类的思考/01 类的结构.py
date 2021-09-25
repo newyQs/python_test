@@ -24,7 +24,7 @@ class Employee(person):
         self._recalculated_age()
 
     def __str__(self):
-        return ('Name:' + self.name + '\nDepartment:' + self.department)
+        return 'Name:' + self.name + '\nDepartment:' + self.department
 
     @classmethod
     def no_position_allowed(cls, position):
@@ -39,7 +39,7 @@ class Employee(person):
         return self.id, self.name
 
     def age(self):
-        if (datetime.date.today() > self._age_last_calculated):
+        if datetime.date.today() > self._age_last_calculated:
             self._recalculated_age()
         return self.age
 

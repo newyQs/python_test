@@ -1,17 +1,17 @@
 # 1.写文件
-# f = open("./io/collect.txt", "w")
-# f.write("hello nihao")
-# f.close()
+f = open("./io/collect.txt", "w")
+f.write("hello nihao")
+f.close()
 
 # 2.多次写入
 # f.write()：多次写入
 # f.seek(index)：从index位置写入
-# f = open("./io/collect.txt", "w")
-# f.write("nihao shijie")
-# f.write("byebye")  # 在上次写入内容的最后面（e）写入 "byebye"
-# f.seek(1)
-# f.write("haha")  # 会从 "i" 位置开始往后写如 "haha"
-# f.close()
+f = open("./io/collect.txt", "w")
+f.write("nihao shijie")
+f.write("byebye")  # 在上次写入内容的最后面（e）写入 "byebye"
+f.seek(1)
+f.write("haha")  # 会从 "i" 位置开始往后写如 "haha"
+f.close()
 
 # 3.正确调用close方法
 
