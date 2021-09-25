@@ -1,0 +1,5 @@
+python编程入门到实践
+精通python网络爬虫
+利用python进行数据分析
+Python设计模式
+python cookbook
