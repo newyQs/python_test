@@ -10,7 +10,7 @@
 
 在 Python3 中，字符串前面什么都不要加，默认就是采用 UTF-8 编码；如果加上 u 就是 UNICODE 编码。
 
-gbk 编码是微软出的对含有中文的字符串进行编码的一种格式，gbk 对 ascii 使用 1 个字节，对中文使用 2 个字节。
+GBK 编码是微软出的对含有中文的字符串进行编码的一种格式，GBK 对 ASCII 使用 1 个字节，对中文使用 2 个字节。
 '''
 print('hello'.encode())
 print(b'hello'.decode())

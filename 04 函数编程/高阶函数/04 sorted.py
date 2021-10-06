@@ -1,9 +1,11 @@
+# sorted(iterable,key,reversed)
+# 对数据进行排序：
 # {}
-d = {'chinese': 89, 'math': 98, 'englise': 82}
+d = {'chinese': 89, 'math': 98, 'english': 82}
 
-# print(d.keys())  # dict_keys(['chinese', 'math', 'englise'])
+# print(d.keys())  # dict_keys(['chinese', 'math', 'english'])
 # print(d.values())  # dict_values([89, 98, 82])
-# print(d.items())  # [('englise', 82), ('chinese', 89), ('math', 98)]
+# print(d.items())  # [('english', 82), ('chinese', 89), ('math', 98)]
 print(sorted(d.items(), key=lambda x: x[1]))
 
 # [{},{},{}]

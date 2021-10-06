@@ -1,6 +1,6 @@
 import csv
 
-filename = './collect.txt'
+filename = './04 collections.txt'
 
 with open(filename, 'r') as f:
     data_list = f.readlines()

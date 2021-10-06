@@ -5,5 +5,5 @@ sort_numbers = sorted(numbers, key=lambda num: abs(num))
 
 
 # 使用函数
-def sort_numbers(numbers):
+def sort_numbers1(numbers):
     return sorted(numbers, reverse=True)

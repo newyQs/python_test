@@ -2,31 +2,31 @@ from time import time
 
 
 def timer(func):
-    def wraper(*args, **kwargs):
+    def wrapper(*args, **kwargs):
         before = time()
         rst = func(*args, **kwargs)
         after = time()
         print("该函数耗时：", after - before)
         return rst
 
-    return wraper
+    return wrapper
 
 
-@timer  # timer=timer(func_one)
+@timer  # func_one=timer(func_one)
 def func_one(data):
     for i in range(1, data):
         data += i
     return data
 
 
-@timer
+@timer  # func_two=timer(func_two)
 def func_two(data):
     for i in range(1, data):
         data -= i
     return data
 
 
-@timer
+@timer  # func_three=timer(func_three)
 def func_three(data):
     for i in range(1, data):
         data *= i

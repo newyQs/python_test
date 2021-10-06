@@ -15,15 +15,15 @@ test = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 '''
 sort(key,reverse)          =>返回None                    ==>修改原列表
 remove(object)             =>返回None                    ==>修改原列表
-pop(index)                 ==返回删除的元素              ==>修改原列表
+pop(index)                 ==返回删除的元素                ==>修改原列表
 extend(iterable)           =>返回None                    ==>修改原列表
 insert(index,object)       =>返回None                    ==>修改原列表
 append(object)             =>返回None                    ==>修改原列表
 clear()                    =>返回None                    ==>修改原列表
 reverse()                  =>返回None                    ==>修改原列表
 
-index(object,start,stop)   =>返回元素第一次出现的位置     ==>不修改原列表
-count(object)              =>统计元素出现的次数           ==>不修改原列表
+index(object,start,stop)   =>返回元素第一次出现的位置       ==>不修改原列表
+count(object)              =>统计元素出现的次数            ==>不修改原列表
 copy()                     =>返回拷贝的列表               ==>不修改原列表
 '''
 

@@ -1,7 +1,7 @@
 # 迭代是指通过 for 循环遍历集合中每一个成员的过程，Python 的 for 语句可以遍历任何可迭代的对象，
-# 在 Python 中，list，tuple，str，set，dict等类型的对象都是可以迭代的
+# 在 Python 中，list，tuple，str，set，dict等类型的对象都是可以迭代的,
 # 迭代器是一种可以被遍历的对象，并且能作用于 Python 内置的 next 函数，迭代器对象从集合的第一个元素开始访问，
-# 直到所有的元素被访问完结束，迭代器只能往后遍历不能回溯，迭代器必须实现两个基本的函数，__iter__ 函数和 __next__ 函数
+# 直到所有的元素被访问完结束，迭代器只能往后遍历不能回溯，迭代器必须实现两个基本的函数:__iter__()和 __next__()
 
 from collections.abc import Iterator
 

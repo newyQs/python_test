@@ -3,15 +3,13 @@ from time import time
 
 def timer(funcname):
     def decorate(func):
-        def wraper(*args, **kwargs):
+        def wrapper(*args, **kwargs):
             before = time()
             rst = func(*args, **kwargs)
             after = time()
             print(funcname + "耗时：", after - before)
             return rst
-
-        return wraper
-
+        return wrapper
     return decorate
 
 

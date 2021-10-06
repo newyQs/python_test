@@ -4,13 +4,13 @@
 '''
 # 字符串常见方法汇总：
 '''
-index(self,sub,__start,__end)
-count(self,x,__start,__end)
-join(self,iterable)
-capitalize(self)
-casefold(self)
-center(self,width,fillchar)
-encode(self,encoding,errors)
+index(sub,__start,__end)
+count(x,__start,__end)
+join(iterable)
+capitalize()
+casefold()
+center(width,fillchar)
+encode(encoding,errors)
 '''
 
 '''

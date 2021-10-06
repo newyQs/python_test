@@ -1,0 +1,44 @@
+git 分布式版本控制系统
+svn 集中式版本控制系统
+
+（1） 下载
+官网：https://git-scm.com/
+镜像源：https://npm.taobao.org/mirrors/git-for-windows/
+
+（2）本地配置
+git config --global user.name 'your name'
+git config --global user.email 'your email'
+注意：设置这两个信息的原因在于远程库进行关联时需要一个key，配置这两个信息以确保你的唯一性；
+     使用global表示你这台机器上所有的仓库都进行相同的配置；
+
+（3）关联远程仓库
+配置ssh密钥：ssh-keygen -t rsa -C 'your email'
+查看密钥：cat ~/.ssh/id_rsa.pub
+
+（4）本地/远程仓库关联
+
+      add         commit      push
+工作区      暂存区      本地仓库        远程仓库
+
+上行：
+    首先，使用add命令把工作目录中的文件添加到工作区中；
+    然后，使用commit命令提交到本地仓库中；
+    最后，使用push命令推送到远程仓库中；
+
+下行：
+    第一次需要使用clone命令从远程仓库中克隆一份至本地；
+    之后若是远程仓库有所内容更新，使用pull命令拉取更新的内容到本地；
+
+1、本地代码管理
+mkdir git_test
+cd git_test
+git init
+touch README.md
+
+git add .
+git commit -m 'first commit '
+git remote add origin <url>
+git push -u origin master
+
+先拉去最新代码到本地
+git pull origin master

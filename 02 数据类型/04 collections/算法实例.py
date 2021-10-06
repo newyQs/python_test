@@ -1,7 +1,7 @@
 import time
 
 
-# a+b+c=1000,a^2+b^2=c^2
+# 若a+b+c=1000,a^2+b^2=c^2，求a,b,c
 
 # 算法1
 def calc1():
@@ -18,7 +18,7 @@ def calc1():
 
 # 算法2
 def calc2():
-    began_time = time.time()
+    start_time = time.time()
     for i in range(1001):
         for j in range(1001):
             k = 1000 - i - j
@@ -26,7 +26,7 @@ def calc2():
                 print(i, j, k)
 
     finish_time = time.time()
-    print(f'算法2消耗时间：{finish_time - began_time}')
+    print(f'算法2消耗时间：{finish_time - start_time}')
 
 
 calc2()

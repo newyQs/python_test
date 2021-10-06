@@ -8,7 +8,7 @@ def sum(f1, f2):
 def find_first_odd_number(numbers):
     odd_numbers = []
     if isinstance(numbers, list):
-        raise ValueError('only accept list,wrong data type')
+        raise ValueError('only accept list, wrong data type')
 
     for item in numbers:
         if item % 2 == 0:

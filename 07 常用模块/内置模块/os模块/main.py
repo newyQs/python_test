@@ -21,9 +21,9 @@ import os
 # 1.目录的增删改查
 # print(os.listdir('.'))  # 列举指定目录下所有的文件（.表示当前目录）
 
-# os.mkdir('./collect')  # 创建一个空目录
+# os.mkdir('./04 collections')  # 创建一个空目录
 
-# os.rmdir('./collect') # 删除一个空目录。注意：无法删除非空目录
+# os.rmdir('./04 collections') # 删除一个空目录。注意：无法删除非空目录
 
 # os.makedirs('./test1/test2')  # 创建多层递归目录。注意：如果目录全部存在则创建失败
 
@@ -57,4 +57,4 @@ import os
 
 # print(os.path.abspath('e:/code/lnodes/setup.py'))  # 获取绝对路径
 
-# print(os.path.join('c:/user', 'collect.py'))  # 拼接路径
+# print(os.path.join('c:/user', '04 collections.py'))  # 拼接路径

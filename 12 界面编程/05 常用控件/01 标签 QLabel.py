@@ -28,7 +28,7 @@ class LableExample(QWidget):
         label3.setOpenExternalLinks(True)  # 点击超链接可以打开网页
         pic = QPixmap("birdpython.png")  # 确保当前目录下有该图片文件
         label4.setPixmap(pic)  # 把图片加入标签
-        movie = QMovie("collect.gif")  # 确保当前目录下有该动画文件
+        movie = QMovie("04 collections.gif")  # 确保当前目录下有该动画文件
         label5.setMovie(movie)  # 把动画加入标签
         movie.start()  # 播放动画
 

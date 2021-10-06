@@ -7,11 +7,20 @@ print(mylist)
 
 print([item * item for item in range(11)])
 
-# 将mylist中是字符串类型的成员的变成大写字母
-mylist = ['Hello', "老鸟Python", 2, ["Ok"]]
+# 将mylist中是字符串类型的成员变成大写
+mylist = ['Hello', "老鸟Python", 2, ('nihao',), True, ["ok"]]
 print([item.upper() if isinstance(item, str) else item for item in mylist])
 
+# 思考：如何将成员里的所有成员都进行转换呢？
+
 # 使用字典推导式打印9X9乘法口诀表
+for i in range(1, 10):
+    for j in range(1, i + 1):
+        print(f'{j}*{i}={i * j}', end='\t')
+    print()
+
+print('\n'.join(
+    ['\t'.join([f'{j}*{i}={i * j}' for j in range(1, i + 1)]) for i in range(1, 10)]))
 
 # 转置矩阵
 '''
