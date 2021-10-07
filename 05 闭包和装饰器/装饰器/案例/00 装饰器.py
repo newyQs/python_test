@@ -6,7 +6,6 @@ def count_time(func):
     """
     给目标函数加上计算运行时间统计
     """
-
     # 这个装上器和update_wrapper一样，默认参数WRAPPER_ASSIGNMENTS, WRAPPER_UPDATES
     @wraps(func)
     def wrapper(*args, **kwargs):
