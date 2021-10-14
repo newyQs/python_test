@@ -1,0 +1,140 @@
+https://www.runoob.com/git/git-basic-operations.html
+
+常见命令：15个
+git clone
+git status
+git add
+git commit
+git push
+git pull
+git branch
+git checkout
+
+git config
+git init
+git merge
+git log
+git diff
+git reset
+git remote
+
+一、创建仓库
+(1) git int
+作用：用于在目录中创建新的 Git 仓库
+mkdir runoob
+cd runoob/
+git init
+
+(2) git clone
+作用：用于拷贝一个 Git 仓库到本地，让自己能够查看该项目，或者进行修改
+git clone https://github.com/tianqixin/runoob-git-test
+cd runoob-git-test/
+ls -a
+
+二、提交与修改
+(1) git add
+作用：用于将修改的文件添加到暂存区
+命令：1 git add [file1] [file2] ...         # 添加一个或多个文件到暂存区
+     2 git add [dir]                       # 添加指定目录到暂存区，包括子目录
+     3 git add .                           # 添加当前目录下的所有文件到暂存区
+
+touch README                # 创建文件
+touch hello.php             # 创建文件
+ls
+git status -s
+git add README hello.php
+
+(2) git status
+作用：用于查看在你上次提交之后是否有对文件进行再次修改
+通常我们使用 -s 参数来获得简短的输出结果
+git status -s
+
+(3) git diff
+作用：比较文件的不同，即比较文件在暂存区和工作区的差异
+git diff 命令显示已写入暂存区和已经被修改但尚未写入暂存区文件对区别。
+
+尚未缓存的改动：git diff
+查看已缓存的改动： git diff --cached
+查看已缓存的与未缓存的所有改动：git diff HEAD
+显示摘要而非整个 diff：git diff --stat
+
+# 显示工作区和暂存区的差异
+git diff [file]
+# 显示暂存区和上一次提交(commit)的差异
+git diff --cached [file]
+或
+git diff --staged [file]
+# 显示两次提交之间的差异
+git diff [first-branch]...[second-branch]
+
+(4) git commit
+作用：将暂存区内容添加到本地仓库中
+前面我们使用git add 将内容写入到暂存区--提交缓存
+git commit允许我们将暂存区内容添加到本地仓库中
+git commit -m [message]
+
+提交暂存区的指定文件到仓库区：
+git commit [file1] [file2] ... -m [message]
+
+-a 参数设置修改文件后不需要执行 git add 命令，直接来提交
+git commit -a
+
+(5) git reset
+作用：用于回退版本，可以指定退回某一次提交的版本
+命令：git reset [--soft | --mixed | --hard] [HEAD]
+--mixed 为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。
+
+git reset  [HEAD]          # 取消已缓存的内容
+git reset HEAD^            # 回退所有内容到上一个版本
+git reset HEAD^ hello.php  # 回退 hello.php 文件的版本到上一个版本
+git reset  052e            # 回退到指定版本
+
+--soft 参数用于回退到某个版本：
+git reset --soft HEAD
+git reset --soft HEAD~3 # 回退上上上一个版本
+
+--hard 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交：
+git reset --hard HEAD
+git reset –hard HEAD~3  # 回退上上上一个版本
+git reset –hard bae128  # 回退到某个版本回退点之前的所有信息。
+git reset --hard origin/master    # 将本地的状态回退到和远程的一样
+
+注意：谨慎使用 –hard 参数，它会删除回退点之前的所有信息。
+
+HEAD 说明：
+    HEAD 表示当前版本
+    HEAD^ 上一个版本
+    HEAD^^ 上上一个版本
+    HEAD^^^ 上上上一个版本
+    以此类推...
+可以使用 ～数字表示
+    HEAD~0 表示当前版本
+    HEAD~1 上一个版本
+    HEAD^2 上上一个版本
+    HEAD^3 上上上一个版本
+    以此类推...
+
+(6) git rm
+作用：用于删除文件
+
+(7) git mv
+作用：用于移动或重命名一个文件、目录或软连接
+
+三、提交日志
+(1) git log
+作用：提交历史
+
+(2) git blame <file>
+
+四、远程操作
+(1) git remote
+作用：用于在远程仓库的操作
+
+(2) git fetch
+作用：用于从远程获取代码库
+
+(3) git pull
+作用：用于从远程获取代码并合并本地的版本
+
+(4) git push
+作用：用于从将本地的分支版本上传到远程并合并

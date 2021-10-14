@@ -1,0 +1,35 @@
+
+使用当前目录作为git仓库，只需要：
+git init
+
+使用指定目录作为git仓库，只需要：
+git init newrepo
+
+将仓库中的目录及文件纳入版本控制：
+git add *.py
+git add README
+git commit -m '初始化项目版本'
+
+# 以上命令，将所有.py结果的文件和README文件提交到暂存区中
+注： 在 Linux 系统中，commit 信息使用单引号 '，Windows 系统，commit 信息使用双引号 "。
+所以在 git bash 中 git commit -m '提交说明' 这样是可以的，在 Windows 命令行中就要使用双引号 git commit -m "提交说明"。
+
+克隆已存在的仓库到本地：
+git clone <repo>
+指定克隆分支
+git clone <repo> -b 分支名
+指定克隆到本地目录名
+git clone <repo> <directory>
+
+配置：
+git config --list
+
+编辑 git 配置文件:
+git config -e   # 针对当前仓库
+git config -e --global  # 针对系统上所有仓库
+
+设置提交代码时的用户信息：
+git config --global user.name "runoob"
+git config --global user.email test@runoob.com
+如果去掉 --global 参数只对当前仓库有效。
+

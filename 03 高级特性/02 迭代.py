@@ -1,7 +1,6 @@
 from collections.abc import Iterable, Iterator
 
 # 无论是有序集合(str,list,tuple),还是无序集合(dict,set)，我们都可以使用for循环来遍历它，这种遍历叫迭代。
-
 mystr = "hello, how are you"
 mylist = [1, 2, 3, 4, 5]
 mytuple = (1, 2, 3, 4, 5)
@@ -82,7 +81,9 @@ print(isinstance(mydict, Iterable))  # True
 
 # 判断是否是迭代器:Iteration
 
+
 # 判断是够是生成器:Generation
+
 
 # 使用enumerate
 mylist = [1, 2, 3]
