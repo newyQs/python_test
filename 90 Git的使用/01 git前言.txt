@@ -28,6 +28,9 @@ Mac系统
 git config --global user.name "runoob"
 git config --global user.email test@runoob.com
 
+配置秘钥：
+ssh-keygen -t rsa -C "your_email@youremail.com"
+
 git工作区，暂存区和版本库：
 工作区：即你的电脑里能看到的目录，本地文件夹
 暂存区：英文名叫stage或index。一般放在.git目录下的index文件中（.git/index），一般可称为索引
