@@ -1,0 +1,33 @@
+fsck命令 – 检查并修复Linux文件系统
+
+fsck命令的英文全称是“filesystem check”，即检查文件系统的意思，常用于检查并修复Linux文件系统的一些错误信息，操作文件系统需要先备份重要数据，以防丢失。
+
+Linux fsck命令用于检查并修复Linux文件系统，可以同时检查一个或多个 Linux 文件系统；若系统掉电或磁盘发生问题，可利用fsck命令对文件系统进行检查。
+
+fsck [参数] [文件系统]
+
+-a	自动修复文件系统，不询问任何问题
+-A	依照/etc/fstab配置文件的内容，检查文件内所列的全部文件系统
+-N	不执行指令，仅列出实际执行会进行的动作
+-P	当搭配”-A”参数使用时，则会同时检查所有的文件系统
+-r	采用互动模式，在执行修复时询问问题，让用户得以确认并决定处理方式
+-R	当搭配”-A”参数使用时，则会略过/目录的文件系统不予检查
+-t	指定要检查的文件系统类型
+-T	执行fsck指令时，不显示标题信息
+-V	显示指令执行过程
+
+修复坏的分区文件系统：
+[root@linuxcool ~]# fsck -t ext3 -r /usr/local
+ fsck from util-linux 2.23.2
+ e2fsck 1.42.9 (28-Dec-2013)
+ fsck.ext3: Is a directory while trying to open /usr/local
+ The superblock could not be read or does not describe a correct ext2
+ filesystem.  If the device is valid and it really contains an ext2
+ filesystem (and not swap or ufs or something else), then the superblock
+ is corrupt, and you might try running e2fsck with an alternate superblock:
+     e2fsck -b 8193
+ /usr/local: status 8, rss 1232, real 0.020288, user 0.002022, sys 0.005354
+
+显示fsck系统安装的版本号：
+[root@linuxcool ~]# fsck --version
+fsck from util-linux 2.23.2

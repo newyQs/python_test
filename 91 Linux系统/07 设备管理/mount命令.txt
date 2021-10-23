@@ -1,0 +1,28 @@
+mount命令 – 文件系统挂载
+
+mount命令用于加载文件系统到指定的加载点。此命令的最常用于挂载cdrom，使我们可以访问cdrom中的数据，因为你将光盘插入cdrom中，Linux并不会自动挂载，必须使用Linux mount命令来手动完成挂载。
+
+mount [参数]
+
+-t	指定挂载类型
+-l	显示已加载的文件系统列表
+-h	显示帮助信息并退出
+-V	显示程序版本
+-n	加载没有写入文件“/etc/mtab”中的文件系统
+-r	将文件系统加载为只读模式
+-a	加载文件“/etc/fstab”中描述的所有文件系统
+
+查看版本：
+[root@linuxcool ~]# mount -V
+
+启动所有挂载：
+[root@linuxcool ~]# mount -a
+
+挂载 /dev/cdrom 到 /mnt：
+[root@linuxcool ~]# mount /dev/cdrom /mnt
+
+挂载nfs格式文件系统：
+[root@linuxcool ~]# mount -t nfs /123 /mnt
+
+挂载第一块盘的第一个分区到/etc目录 ：
+[root@linuxcool ~]# mount -t ext4 -o loop,default /dev/sda1 /etc

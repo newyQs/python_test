@@ -1,0 +1,19 @@
+ftpwho命令 – 显示ftp会话信息
+
+ftpwho命令用于显示当前所有以FTP登入的用户会话信息。
+
+执行该命令可得知当前用FTP登入系统的用户有哪些人，以及他们正在进行的操作。
+
+ftpwho [参数]
+
+-h	显示帮助信息
+-v	详细模式，输出更多信息
+
+查询当前正在登录FTP 服务器的用户：
+[root@linuxcool ~]# ftpwho
+
+在详细模式下，查询当前正在登录FTP 服务器的用户：
+[root@linuxcool ~]# ftpwho -v
+
+显示帮助信息：
+[root@linuxcool ~]# ftpwho -h

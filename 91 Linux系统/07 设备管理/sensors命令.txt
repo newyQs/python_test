@@ -1,0 +1,13 @@
+sensors命令 – 检测服务器内部温度及电压
+
+sensors命令用于检测服务器内部降温系统是否健康，可以监控主板，CPU的工作电压，风扇转速、温度等数据 。
+
+sensors
+
+检测cpu工作电压，温度等：
+[root@linuxcool ~]# sensors
+coretemp-isa-0000
+Core 0:      +48.0°C  (high = +87.0°C, crit = +97.0°C)
+Core 1:      +46.0°C  (high = +87.0°C, crit = +97.0°C)
+Core 2:      +47.0°C  (high = +87.0°C, crit = +97.0°C)
+Core 3:      +46.0°C  (high = +87.0°C, crit = +97.0°C)

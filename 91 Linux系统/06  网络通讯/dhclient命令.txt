@@ -1,0 +1,28 @@
+dhclient命令 – 动态获取或释放IP地址
+
+dhclient命令的作用是：使用动态主机配置协议动态的配置网络接口的网络参数，也支持BOOTP协议。
+
+dhclient [参数] [网络接口]
+
+-p	指定dhcp客户端监听的端口号（默认端口号86）
+-d	总是以前台方式运行程序
+-q	安静模式，不打印任何错误的提示信息
+-r	释放ip地址
+-n	不配置任何接口
+-x	停止正在运行的DHCP客户端，而不释放当前租约，杀死现有的dhclient
+-s	在获取ip地址之前指定DHCP服务器
+-w	即使没有找到广播接口，也继续运行
+
+在指定网络接口上发出DHCP请求：
+[root@linuxcool ~]# dhclient eth0
+
+释放IP地址：
+[root@linuxcool ~]# dhclient -r
+Killed old client process
+
+从指定的服务器获取ip地址：
+[root@linuxcool ~]# dhclient -s 192.168.60.240
+
+停止运行dhclient：
+[root@linuxcool ~]# dhclient -x
+Killed old client process

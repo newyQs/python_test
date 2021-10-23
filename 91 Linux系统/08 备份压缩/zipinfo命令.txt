@@ -1,0 +1,42 @@
+zipinfo命令 – 查看压缩文件信息
+
+zipinfo命令的全称为“zip information”，该命令用于列出压缩文件信息。执行zipinfo指令可得知zip压缩文件的详细信息。
+
+语法格式：zipinfo [参数]
+
+常用参数：
+-1	只列出文件名称
+-2	此参数的效果和指定”-1″参数类似，但可搭配”-h”,”-t”和”-z”参数使用
+-h	只列出压缩文件的文件名称
+-l	此参数的效果和指定”-m”参数类似，但会列出原始文件的大小而非每个文件的压缩率
+-m	此参数的效果和指定”-s”参数类似，但多会列出每个文件的压缩率
+-M	若信息内容超过一个画面，则采用类似more指令的方式列出信息
+-s	用类似执行”ls -l”指令的效果列出压缩文件内容
+-t	只列出压缩文件内所包含的文件数目，压缩前后的文件大小及压缩率
+-T	将压缩文件内每个文件的日期时间用年，月，日，时，分，秒的顺序列出
+-v	详细显示压缩文件内每一个文件的信息
+-x<范本样式>	不列出符合条件的文件的信息
+-z	如果压缩文件内含有注释，就将注释显示出来
+
+参考实例
+显示压缩文件信息：
+[root@linuxcool ~]# zipinfo file.zip
+Archive: file.zip  486 bytes  3 files
+-rw-r--r-- 2.3 unx    0 bx stor 24-May-10 18:54 a.c
+-rw-r--r-- 2.3 unx    0 bx stor 24-May-10 18:54 b.c
+-rw-r--r-- 2.3 unx    0 bx stor 24-May-10 18:54 c.c
+3 files, 0 bytes uncompressed, 0 bytes compressed: 0.0%
+
+显示压缩文件中每个文件的信息：
+[root@linuxcool ~]# zipinfo -v file.zip
+
+只显示压缩包大小、文件数目：
+[root@linuxcool ~]# zipinfo -h file.zip
+Archive:  file.zip
+Zip file size: 907 bytes, number of entries: 3
+
+生成一个基本的、长格式的列表(而不是冗长的)，包括标题和总计行：
+[root@linuxcool ~]# zipinfo -l file
+
+查看存档中最近修改的文件：
+[root@linuxcool ~]# zipinfo -T file | sort –nr -k 7 | sed 15q

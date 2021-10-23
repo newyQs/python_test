@@ -1,0 +1,31 @@
+hash命令 – 显示与清除命令运行时查询的哈希表
+
+hash命令负责显示与清除命令运行时系统优先查询的哈希表（hash table）。
+
+当执行hash命令不指定参数或标志时，hash命令向标准输出报告路径名列表的内容。此报告含有先前hash命令调用找到的当前shell环境中命令的路径名。
+而且还包含通过正常命令搜索进程调用并找到的那些命令。
+
+语法格式: hash [参数] [目录]
+
+常用参数：﻿
+-d	在哈希表中清除记录
+-l	显示哈希表中的命令
+-p<指令>	将具有完整路径的命令加入到哈希表中
+-r	清除哈希表中的记录
+-t	显示哈希表中命令的完整路径
+
+参考实例
+显示哈希表中的命令：
+[root@linuxcool ~]# hash -l
+
+删除哈希表中的命令：
+[root@linuxcool ~]# hash -r
+
+向哈希表中添加命令：
+[root@linuxcool ~]# hash -p /usr/sbin/adduser myadduser
+
+在哈希表中清除记录：
+[root@linuxcool ~]# hash -d
+
+显示哈希表中命令的完整路径：
+[root@linuxcool ~]# hash -t

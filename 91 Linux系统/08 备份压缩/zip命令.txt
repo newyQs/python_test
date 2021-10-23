@@ -1,0 +1,31 @@
+zip命令 – 压缩文件
+
+zip程序将一个或多个压缩文件与有关文件的信息(名称、路径、日期、上次修改的时间、保护和检查信息以验证文件完整性)一起放入一个压缩存档中。
+可以使用一个命令将整个目录结构打包到zip存档中。
+
+对于文本文件来说，压缩比为2：1和3：1是常见的。
+zip只有一种压缩方法(通缩)，并且可以在不压缩的情况下存储文件。(如果添加了bzip 2支持，zip也可以使用bzip 2压缩，但这些条目需要一个合理的现代解压缩来解压缩。
+当选择bzip 2压缩时，它将通货紧缩替换为默认方法。)zip会自动为每个要压缩的文件选择更好的两个文件(通缩或存储，如果选择bzip2，则选择bzip2或Store)。
+
+zip [参数] [文件]
+
+-q	            不显示指令执行过程
+-r	            递归处理，将指定目录下的所有文件和子目录一并处理
+-z	            替压缩文件加上注释
+-v	            显示指令执行过程或显示版本信息
+-n<字尾字符串>	不压缩具有特定字尾字符串的文件
+
+将 /home/html/ 这个目录下所有文件和文件夹打包为当前目录下的 html.zip：
+[root@linuxcool ~]# zip -q -r html.zip /home/html
+
+压缩文件 cp.zip 中删除文件 a.c：
+[root@linuxcool ~]# zip -dv cp.zip a.c
+
+把/home目录下面的mydata目录压缩为mydata.zip：
+[root@linuxcool ~]# zip -r mydata.zip mydata
+
+把/home目录下面的abc文件夹和123.txt压缩成为abc123.zip：
+[root@linuxcool ~]# zip -r abc123.zip abc 123.txt
+
+将 logs目录打包成 log.zip：
+[root@linuxcool ~]# zip -r log.zip ./logs

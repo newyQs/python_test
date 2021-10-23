@@ -1,0 +1,17 @@
+MAKEDEV命令 – 建立设备
+
+MAKEDEV是一个脚本程序, 用于在 /dev 目录下建立设备, 通过这些设备文件可以 访问位于内核的驱动程序。
+
+MAKEDEV 脚本创建静态的设备节点，通常位于/dev目录下。
+
+MAKEDEV [参数]
+
+-v	显示出执行的每一个动作
+-n	并不做真正的更新, 只是显示一下它的执行效果
+-d	删除设备文件
+
+显示出执行的每一个动作:
+[root@linuxcool ~]# ./MAKEDEV -v update
+
+删除设备:
+[root@linuxcool ~]# ./MAKEDEV -d device

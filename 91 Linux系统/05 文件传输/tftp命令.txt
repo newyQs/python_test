@@ -1,0 +1,33 @@
+tftp命令 – 上传及下载文件
+
+tftp命令用于传输文件。ftp让用户得以下载存放于远端主机的文件，也能将文件上传到远端主机放置。
+
+tftp是简单的文字模式ftp程序，它所使用的指令和ftp类似。
+
+tftp [参数]
+
+connect	    连接到远程tftp服务器
+mode	    文件传输模式
+put	        上传文件
+get	        下载文件
+quit	    退出
+verbose	    显示详细的处理信息
+trace	    显示包路径
+status	    显示当前状态信息
+binary	    二进制传输模式
+ascii	    ascii 传送模式
+rexmt	    设置包传输的超时时间
+timeout	    设置重传的超时时间
+help	    帮助信息
+?	        帮助信息
+
+连接远程服务器”218.28.188.288″：
+[root@linuxcool ~]# tftp 218.28.188.288
+
+远程下载file文件：
+tftp> get file
+getting from 218.28.188.288 to /dir
+Recived 168236 bytes in 1.5 seconds[112157 bit/s]
+
+退出tftp：
+tftp> quit

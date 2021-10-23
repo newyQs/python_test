@@ -1,0 +1,18 @@
+curl命令 – 文件传输工具
+
+curl命令是一个利用URL规则在shell终端命令行下工作的文件传输工具；它支持文件的上传和下载，所以是综合传输工具，但按传统，习惯称curl为下载工具。
+
+作为一款强力工具，curl支持包括HTTP、HTTPS、ftp等众多协议，还支持POST、cookies、认证、从指定偏移处下载部分文件、用户代理字符串、限速、文件大小、进度条等特征；
+做网页处理流程和数据检索自动化。
+
+curl [参数] [网址]
+
+-O	把输出写到该文件中，保留远程文件的文件名
+-u	通过服务端配置的用户名和密码授权访问
+
+将下载的数据写入到文件，必须使用文件的绝对地址：
+[root@linuxcool ~]# curl https://www.linuxcool.com/abc.txt --silent -O
+
+访问需要授权的页面时，可通过-u选项提供用户名和密码进行授权：
+[root@linuxcool ~]# curl -u root https://www.linuxprobe.com/
+ Enter host password for user 'root':

@@ -1,0 +1,33 @@
+ping命令 – 测试主机间网络连通性
+
+ping命令主要用来测试主机之间网络的连通性，也可以用于。执行ping指令会使用ICMP传输协议，发出要求回应的信息，若远端主机的网络功能没有问题，就会回应该信息，因而得知该主机运作正常。
+
+不过值得我们注意的是：Linux系统下的ping命令与Windows系统下的ping命令稍有不同。Windows下运行ping命令一般会发出4个请求就结束运行该命令；而Linux下不会自动终止，此时需要我们按CTR+C终止或者使用-c参数为ping命令指定发送的请求数目。
+
+ping [参数] [目标主机]
+
+-d	使用Socket的SO_DEBUG功能
+-c	指定发送报文的次数
+-i	指定收发信息的间隔时间
+-I	使用指定的网络接口送出数据包
+-l	设置在送出要求信息之前，先行发出的数据包
+-n	只输出数值
+-p	设置填满数据包的范本样式
+-q	不显示指令执行过程
+-R	记录路由过程
+-s	设置数据包的大小
+-t	设置存活数值TTL的大小
+-v	详细显示指令的执行过程
+
+检测与linuxcool网站的连通性：
+[root@linuxcool ~]# ping www.linuxcool.com
+
+连续ping4次：
+[root@linuxcool ~]# ping -c 4 www.linuxcool.com
+
+设置次数为4，时间间隔为3秒：
+[root@linuxcool ~]# ping -c 4 -i 3 www.linuxcool.com
+
+利用ping命令获取指定网站的IP地址：
+[root@linuxcool ~]# ping -c 1 linuxcool.com | grep from | cut -d " " -f 4
+220.181.57.216

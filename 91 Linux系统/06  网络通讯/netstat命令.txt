@@ -1,0 +1,45 @@
+netstat命令 – 显示网络状态
+
+netstat 命令用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等。
+
+从整体上看，netstat的输出结果可以分为两个部分：一个是Active Internet connections，称为有源TCP连接，其中”Recv-Q”和”Send-Q”指%0A的是接收队列和发送队列。
+这些数字一般都应该是0。如果不是则表示软件包正在队列中堆积。这种情况只能在非常少的情况见到；另一个是Active UNIX domain sockets，称为有源Unix域套接口(和网络套接字一样，但是只能用于本机通信，性能可以提高一倍)。
+
+netstat [参数]
+
+-a	显示所有连线中的Socket
+-p	显示正在使用Socket的程序识别码和程序名称
+-u	显示UDP传输协议的连线状况
+-i  显示网络界面信息表单
+-n	直接使用IP地址，不通过域名服务器
+
+显示详细的网络状况：
+[root@linuxcool ~]# netstat -a
+
+显示当前户籍UDP连接状况：
+[root@linuxcool ~]# netstat -nu
+
+显示UDP端口号的使用情况：
+
+[root@linuxcool ~]# netstat -apu
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address  Foreign Address  State  PID/Program name
+udp        0      0 0.0.0.0:bootpc          0.0.0.0:*      4000/dhclient
+udp        0      0 localhost:323           0.0.0.0:*      3725/chronyd
+udp6       0      0 localhost:323           [::]:*         3725/chronyd
+
+显示网卡列表：
+[root@linuxcool ~]# netstat -i
+Kernel Interface table
+Iface MTU Met  RX-OK  RX-ERR  RX-DRP RX-OVR  TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0 1500   0  181864   0      0       0     141278   0     0     0    BMRU
+lo   16436  0   3362    0      0       0     3362     0     0     0    LRU
+
+显示组播组的关系：
+[root@linuxcool ~]# netstat -g
+IPv6/IPv4 Group Memberships Interface
+RefCnt Group
+--------------- ------ ---------------------
+lo        1   ALL-SYSTEMS.MCAST.NET
+eth0      1   ALL-SYSTEMS.MCAST.NET lo       1   ff02::1
+eth0      1   ff02::1:ff0a:b0c eth0          1   ff02::1
