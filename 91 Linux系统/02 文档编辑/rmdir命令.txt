@@ -1,0 +1,38 @@
+rmdir命令 – 删除空目录
+
+rmdir命令作用是删除空的目录，英文全称：“remove directory”。
+
+注意：rmdir命令只能删除空目录。当要删除非空目录时，就要使用带有“-R”选项的rm命令。
+
+rmdir命令的“-p”参数可以递归删除指定的多级目录，但是要求每个目录也必须是空目录。
+
+rmdir [参数] [目录名称]
+
+-p	用递归的方式删除指定的目录路径中的所有父级目录，非空则报错
+-- -- ignore-fail-on-non-empty	忽略由于删除非空目录时导致命令出错而产生的错误信息
+-v	显示命令的详细执行过程
+-- -- help	显示命令的帮助信息
+-- -- version	显示命令的版本信息
+
+删除空目录：
+[root@linuxcool ~]# rmdir dir
+
+递归删除指定的目录树：
+rmdir -p dir/dir_1/dir_2
+
+显示指令详细执行过程：
+[root@linuxcool ~]# rmdir -v dir
+rmdir: 正在删除目录 'dir'
+
+[root@linuxcool ~]# rmdir -p -v dir/dir_1/dir_2
+rmdir: 正在删除目录 'dir/dir_1/dir_2
+rmdir: 正在删除目录 'dir/dir_1'
+rmdir: 正在删除目录 'dir_2'
+
+显示命令的版本信息：
+[root@linuxcool ~]# rmdir --version
+rmdir (GNU coreutils) 8.30
+Copyright (C) 2018 Free Software Foundation, Inc.
+许可证 GPLv3+：GNU 通用公共许可证第 3 版或更新版本https://gnu.org/licenses/gpl.html。
+本软件是自由软件：您可以自由修改和重新发布它。
+在法律范围内没有其他保证。

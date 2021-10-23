@@ -1,0 +1,27 @@
+fdisk命令 – 磁盘分区
+
+fdisk命令的英文全称是“Partition table manipulator for Linux”，即作为磁盘的分区工具。
+进行硬盘分区从实质上说就是对硬盘的一种格式化， 用一个形象的比喻，分区就好比在一张白纸上画一个大方框，而格式化好比在方框里打上格子。
+
+fdisk [参数]
+
+-b	指定每个分区的大小
+-l	列出指定的外围设备的分区表状况
+-s	将指定的分区大小输出到标准输出上，单位为区块
+-u	搭配”-l”参数列表，会用分区数目取代柱面数目，来表示每个分区的起始地址
+-v	显示版本信息
+
+查看所有分区情况：
+[root@linuxcool ~]# fdisk -l
+
+选择分区磁盘：
+[root@linuxcool ~]# fdisk /dev/sdb
+
+在当前磁盘上建立扩展分区：
+[root@linuxcool ~]# fdisk /ext
+
+不检查磁盘表面加快分区操作：
+[root@linuxcool ~]# fdisk /actok
+
+重建主引导记录：
+[root@linuxcool ~]# fdisk /cmbr

@@ -1,0 +1,20 @@
+startx命令 – 初始化X-windows
+
+startx命令用来启动X-Window，它负责调用X-Window系统的初始化程序xinit。以完成 X-Window运行所必要的初始化工作，并启动X-Window系统。
+
+startx [参数]
+
+-d	指定在启动过程中传递给客户机的X服务器的显示名称
+-m	当未找到启动脚本时，启动窗口管理器
+-r	当未找到启动脚本时，装入资源文件
+-w	强制启动
+-x	使用startup脚本启动X-windows会话
+
+已默认方式启动X-windows系统：
+[root@linuxcool ~]# startx
+
+以16位颜色深度启动X-windows系统：
+[root@linuxcool ~]# startx -- -depth 16
+
+强制启动 X-windows系统：
+[root@linuxcool ~]# startx -w

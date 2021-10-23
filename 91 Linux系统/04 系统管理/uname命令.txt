@@ -1,0 +1,35 @@
+uname命令 – 显示系统信息
+
+uname命令的英文全称即“Unix name”。
+
+用于显示系统相关信息，比如主机名、内核版本号、硬件架构等。
+
+如果未指定任何选项，其效果相当于执行”uname -s”命令，即显示系统内核的名字。
+
+uname [参数]
+
+-a	显示系统所有相关信息
+-m	显示计算机硬件架构
+-n	显示主机名称
+-r	显示内核发行版本号
+-s	显示内核名称
+-v	显示内核版本
+-p	显示主机处理器类型
+-o	显示操作系统名称
+-i	显示硬件平台
+
+显示系统主机名、内核版本号、CPU类型等信息：
+[root@linuxcool ~]# uname -a
+Linux linuxcool 3.10.0-123.el7.x86_64 #1 SMP Mon May 5 11:16:57 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux
+
+仅显示系统主机名：
+[root@linuxcool ~]# uname -n
+linuxcool
+
+显示当前系统的内核版本 :
+[root@linuxcool ~]# uname -r
+3.10.0-123.el7.x86_64
+
+显示当前系统的硬件架构：
+[root@linuxcool ~]# uname -i
+x86_64

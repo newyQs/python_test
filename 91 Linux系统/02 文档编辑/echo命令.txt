@@ -1,0 +1,47 @@
+echo命令 – 输出字符串或提取Shell变量的值
+
+echo命令用于在终端设备上输出字符串或变量提取后的值，这是在Linux系统中最常用的几个命令之一，但操作却非常简单。
+
+人们一般使用在变量前加上$符号的方式提取出变量的值，例如：$PATH，然后再用echo命令予以输出。或者直接使用echo命令输出一段字符串到屏幕上，起到给用户提示的作用。
+
+echo [参数] [字符串]
+
+-n	不输出结尾的换行符
+-e “\a”	发出警告音
+-e “\b”	删除前面的一个字符
+-e “\c”	结尾不加换行符
+-e “\f”	换行，光标扔停留在原来的坐标位置
+-e “\n”	换行，光标移至行首
+-e “\r”	光标移至行首，但不换行
+-E	禁止反斜杠转移，与-e参数功能相反
+—version	查看版本信息
+--help	查看帮助信息
+
+输出一段字符串：
+[root@linuxcool ~]# echo "LinuxCool.com"
+LinuxCool.com
+
+输出变量提取后的值：
+[root@linuxcool ~]# echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+
+对内容进行转义，不让$符号的提取变量值功能生效：
+[root@linuxcool ~]# echo \$PATH
+$PATH
+
+结合输出重定向符，将字符串信息导入文件中：
+[root@linuxcool ~]# echo "It is a test"
+> linuxcool
+
+使用反引号符执行命令，并输出其结果到终端：
+[root@linuxcool ~]# echo `date`
+
+输出带有换行符的内容：
+[root@linuxcool ~]# echo -e "a\nb\nc"
+a
+b
+c
+
+输出信息中删除某个字符，注意看数字3消失了：
+[root@linuxcool ~]# echo -e "123\b456"
+12456

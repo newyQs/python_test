@@ -1,0 +1,31 @@
+hdparm命令 – 显示与设定硬盘参数
+
+hdparm命令用于检测，显示与设定IDE或SCSI硬盘的参数。
+
+hdparm [参数]
+
+-a	设定读取文件时，预先存入块区的分区数
+-f	将内存缓冲区的数据写入硬盘，并清空缓冲区
+-g	显示硬盘的磁轨，磁头，磁区等参数
+-I 	直接读取硬盘所提供的硬件规格信息
+-X	设定硬盘的传输模式
+
+显示硬盘的相关设置：
+[root@linuxcool ~]# hdparm /dev/sda
+/dev/sda:
+IO_support = 0 (default 16-bit)
+readonly = 0 (off)
+readahead = 256 (on)
+geometry = 19929［柱面数］/255［磁头数］/63［扇区数］, sectors = 320173056［总扇区数］, start = 0［起始扇区数］
+
+显示硬盘的柱面、磁头、扇区数：
+[root@linuxcool ~]# hdparm -g /dev/sda
+
+评估硬盘的读取效率：
+[root@linuxcool ~]# hdparm -t /dev/sda
+
+直接读取硬盘所提供的硬件规格信息：
+[root@linuxcool ~]# hdparm -X /dev/sda
+
+使IDE硬盘进入睡眠模式：
+[root@linuxcool ~]# hdparm -Y /dev/sda

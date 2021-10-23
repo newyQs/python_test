@@ -1,0 +1,31 @@
+tail命令 – 查看文件尾部内容
+
+tail用于显示文件尾部的内容，默认在屏幕上显示指定文件的末尾10行。
+如果给定的文件不止一个，则在显示的每个文件前面加一个文件名标题。
+如果没有指定文件或者文件名为“-”，则读取标准输入。
+
+tail [参数]
+
+--retry	即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“——follow=name”连用
+-c<N>或——bytes=<N>	输出文件尾部的N（N为整数）个字节内容
+-f<name/descriptor>	--follow<nameldescript>：显示文件最新追加的内容
+-F	与选项“-follow=name”和“--retry”连用时功能相同
+-n<N>或——line=<N>	输出文件的尾部N（N位数字）行内容
+--pid=<进程号>	与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令
+--help	显示指令的帮助信息
+--version	显示指令的版本信息
+
+显示文件file的最后10行：
+[root@linuxcool ~]# tail file
+
+显示文件file的内容，从第20行至文件末尾：
+[root@linuxcool ~]# tail +20 file
+
+显示文件file的最后10个字符：
+[root@linuxcool ~]# tail -c 10 file
+
+一直变化的文件总是显示后10行：
+[root@linuxcool ~]# tail -f 10 file
+
+显示帮助信息：
+[root@linuxcool ~]# tail --help

@@ -1,0 +1,42 @@
+find命令 – 查找和搜索文件
+
+find命令可以根据给定的路径和表达式查找的文件或目录。find参数选项很多，并且支持正则，功能强大。
+和管道结合使用可以实现复杂的功能，是系统管理者和普通用户必须掌握的命令。
+
+find如不加任何参数，表示查找当前路径下的所有文件和目录，如果服务器负载比较高尽量不要在高峰期使用find命令，
+find命令模糊搜索还是比较消耗系统资源的。
+
+find [参数] [路径] [查找和搜索范围]
+
+-name	按名称查找
+-size	按大小查找
+-user	按属性查找
+-type	按类型查找
+-iname	忽略大小写
+
+使用-name参数查看/etc目录下面所有的.conf结尾的配置文件：
+[root@linuxcool ~]# find /etc -name "*.conf
+
+使用-size参数查看/etc目录下面大于1M的文件：
+[root@linuxcool ~]# find /etc -size +1M
+
+查找当前用户主目录下的所有文件：
+[root@linuxcool ~]# find $HOME -print
+
+列出当前目录及子目录下所有文件和文件夹：
+[root@linuxcool ~]# find .
+
+在/home目录下查找以.txt结尾的文件名：
+[root@linuxcool ~]# find /home -name "*.txt"
+
+在/var/log目录下忽略大小写查找以.log结尾的文件名：
+[root@linuxcool ~]# find /var/log -iname "*.log"
+
+搜索超过七天内被访问过的所有文件：
+[root@linuxcool ~]# find . -type f -atime +7
+
+搜索访问时间超过10分钟的所有文件：
+[root@linuxcool ~]# find . -type f -amin +10
+
+找出/home下不是以.txt结尾的文件：
+[root@linuxcool ~]# find /home ! -name "*.txt"

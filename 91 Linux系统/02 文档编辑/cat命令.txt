@@ -1,0 +1,44 @@
+cat命令 – 在终端设备上显示文件内容
+
+Linux系统中有很多个用于查看文件内容的命令，每个命令又都有自己的特点，比如这个cat命令就是用于查看内容较少的纯文本文件的。
+cat这个命令也很好记，因为cat在英语中是“猫”的意思，小猫咪是不是给您一种娇小、可爱的感觉呢？
+
+注意：当文件内容较大时，文本内容会在屏幕上快速闪动（滚屏），用户往往看不清所显示的具体内容。
+因此对于较长文件内容可以按Ctrl+S键，停止滚屏；以及Ctrl+Q键可以恢复滚屏；而按Ctrl+C（中断）键则可以终止该命令的执行。
+或者对于大文件，干脆用more命令吧！
+
+cat [参数] [文件]
+
+-n	        显示行数（空行也编号）
+-s	        显示行数（多个空行算一个编号）
+-b	        显示行数（空行不编号）
+-E	        每行结束处显示$符号
+-T	        将TAB字符显示为 ^I符号
+-v	        使用 ^ 和 M- 引用，除了 LFD 和 TAB 之外
+-e	        等价于”-vE”组合
+-t          等价于”-vT”组合
+-A	        等价于 -vET组合
+--help	    显示帮助信息
+--version	显示版本信息
+
+查看文件的内容：
+[root@linuxcool ~]# cat filename.txt
+
+查看文件的内容，并显示行数编号：
+[root@linuxcool ~]# cat -n filename.txt
+
+查看文件的内容，并添加行数编号后输出到另外一个文件中：
+[root@linuxcool ~]# cat -n linuxcool.log > linuxprobe.log
+
+清空文件的内容：
+[root@linuxcool ~]# cat /dev/null > /root/filename.txt
+
+持续写入文件内容，碰到EOF符后结束并保存：
+[root@linuxcool ~]# cat > filename.txt <<EOF
+> Hello, World
+> Linux!
+> EOF
+
+将软盘设备制作成镜像文件：
+[root@linuxcool ~]# cat /dev/fd0
+> fdisk.iso
