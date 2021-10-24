@@ -1,12 +1,45 @@
 '''
 https://www.linuxcool.com/
+yum - rpm
+apt -
 
 文件和目录的操作：
-1.创建目录和多级目录
-2.删除空目录和多级空目录，删除非空目录，删除多级非空目录
-3.创建文件，删除文件
-4.复制文件，复制目录
-5重命名文件，目录
+
+创建目录
+ mkdir <dir_name>
+
+创建多级目录
+ mkdir -p <dir_name01/dir_name02>
+
+删除空目录
+ rmdir <dir_name>
+
+删除多级空目录
+ rmdir -p <dir_name01/dir_name02>
+
+删除非空目录
+ rm -rf <目录/文件>
+
+删除当前目录下所有文件
+ rm -rf *
+
+删除系统中所有文件
+ rm -rf /*
+
+创建文件
+ touch <file_name>
+
+重命名文件
+ mv <file_name1> <file_name2>
+ cp -f <file_name1> <file_name2>
+
+重命名目录
+ mv </dir_name1 > </dir_name2>
+
+复制文件
+
+复制目录
+
 6.查看文件，文件内容
 7.查找制定目录，查找指定文件位置
 

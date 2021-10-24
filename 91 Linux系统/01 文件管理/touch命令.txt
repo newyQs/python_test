@@ -1,0 +1,52 @@
+touch命令 – 创建文件
+
+touch命令有两个功能：一是创建新的空文件，二是改变已有文件的时间戳属性。
+
+touch命令会根据当前的系统时间更新指定文件的访问时间和修改时间。如果文件不存在，将会创建新的空文件，除非指定了”-c”或”-h”选项。
+
+注意：在修改文件的时间属性的时候，用户必须是文件的属主，或拥有写文件的访问权限。
+
+语法格式：touch [参数] [文件]
+
+常用参数：﻿
+-a	改变档案的读取时间记录
+-m	改变档案的修改时间记录
+-r	使用参考档的时间记录，与 --file 的效果一样
+-c	不创建新文件
+-d	设定时间与日期，可以使用各种不同的格式
+-t	设定档案的时间记录，格式与 date 命令相同
+--no-create	不创建新文件
+--help	显示帮助信息
+--version	列出版本讯息
+
+﻿参考实例
+创建空文件：
+[root@linuxcool ~]# touch file.txt
+
+批量创建文件：
+[root@linuxcool ~]# touch file{1..5}.txt
+[root@linuxcool ~]# ls
+file1.txt file2.txt file3.txt file4.txt file5.txt
+
+修改文件的access(访问)时间：
+[root@linuxcool ~]# stat file.txt
+   File: file.txt
+   Size: 0               Blocks: 0          IO Block: 512    regular empty file
+ Device: 2h/2d   Inode: 87538717757135273  Links: 1
+ Access: (0666/-rw-rw-rw-)  Uid: ( 1000/  root)   Gid: ( 1000/  root)
+ Access: 2019-04-07 00:25:34.729216500 +0800
+ Modify: 2019-04-07 00:25:34.729216500 +0800
+ Change: 2019-04-07 00:25:34.729216500 +0800
+  Birth: -
+
+[root@linuxcool ~]# touch -a file.txt
+
+[root@linuxcool ~]# stat file.txt
+   File: file.txt
+   Size: 0               Blocks: 0          IO Block: 512    regular empty file
+ Device: 2h/2d   Inode: 87538717757135273  Links: 1
+ Access: (0666/-rw-rw-rw-)  Uid: ( 1000/  root)   Gid: ( 1000/  root)
+ Access: 2019-04-07 00:26:13.004116000 +0800
+ Modify: 2019-04-07 00:25:34.729216500 +0800
+ Change: 2019-04-07 00:26:13.004116000 +0800
+  Birth: -

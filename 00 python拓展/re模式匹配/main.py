@@ -1,13 +1,12 @@
 import re
 
 # match(pattern, string, flags=0): return _compile(pattern, flags).match(string)
-
-ret = re.match('^[0-9]*$', "w14857")
 # returning a Match object, or None if no match was found.
+ret = re.match('^[0-9]*$', "w14857")
 print("match:", ret)  # 输出：<re.Match object; span=(0, 3), match='123'> 或者None
-
 if ret:
     print('从开头匹配到数字')
+
 # fullmatch(pattern, string, flags=0):return _compile(pattern, flags).fullmatch(string)
 ret = re.fullmatch('^[0-9]*$', "w14857")
 print("fullmatch:", ret)
@@ -16,7 +15,6 @@ print("fullmatch:", ret)
 ret = re.search('^[0-9]*$', "w14857")
 # returning a Match object, or None if no match was found.
 print("search:", ret)
-
 if ret:
     print('全局匹配到数字')
 

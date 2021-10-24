@@ -1,0 +1,28 @@
+cd ~
+
+1.创建一个目录，删除一个目录，创建一个多级目录，删除一个的多级目录；
+mkdir test01
+rmdir test01
+
+mkdir test01/test02/...
+rmdir test01/test02/...
+
+2.创建一个文件，删除一个文件，删除一个非空目录；
+touch test01.txt
+rm -f test01.txt
+
+rm -rf test01
+
+3.重命名目录，重命名文件
+mv test01/ test03/
+
+mv test.txt test02.txt
+
+4.复制一个文件，复制一个文件去指定目录下
+cp file.txt ~/target/
+
+5.复制一个目录，复制一个目录去指定目录下
+cp -r tt/ ~/source/
+
+6.移动一个文件/目录去指定目录下
+mv file1.txt ~/target
