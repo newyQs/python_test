@@ -3,6 +3,13 @@ https://www.linuxcool.com/
 yum - rpm
 apt -
 
+输入下面配置：
+sudo service network-manager stop
+sudo rm /var/lib/NetworkManager/NetworkManager.state
+sudo service network-manager start
+sudo gedit /etc/NetworkManager/NetworkManager.conf     —— 打开配置文件后把false改成true
+sudo service network-manager restart
+
 文件和目录的操作：
 
 创建目录
