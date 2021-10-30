@@ -1,0 +1,25 @@
+https://blog.csdn.net/baidu_36124158/article/details/90603496/
+https://www.hackbase.net/portal.php?aid=260128&mod=view
+https://blog.csdn.net/lishuan182/article/details/111581728
+
+1. 防火墙启动和停止
+service  iptables status # 查看防火墙状态
+service  iptables stop # 停止
+service  iptables start # 启动
+service  iptables restart # 重启
+
+vim /etc/sysconfig/iptables
+
+1) 重启后生效
+开启： chkconfig iptables on
+关闭： chkconfig iptables off
+2) 即时生效，重启后失效
+开启： service iptables start
+关闭： service iptables stop
+
+systemctl status firewalld
+systemctl stop firewalld
+systemctl start firewalld
+
+systemctl disable firewalld.service，开机禁止防火墙服务器
+systemctl enable firewalld.service，开机启动防火墙服务器
