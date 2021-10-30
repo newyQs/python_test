@@ -1,0 +1,6 @@
+1. 安装git，配置git
+git config --global user.name "your_name"
+git config --global user.email 123@qq.com
+ssh-keygen -t rsa -C 123@qq.com
+
+2.
