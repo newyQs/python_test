@@ -3,6 +3,7 @@ git config --global user.name "your_name"
 git config --global user.email 123@qq.com
 ssh-keygen -t rsa -C 123@qq.com
 
+<<<<<<< HEAD
 2.docker的正确安装步骤
 https://blog.csdn.net/qq_40104261/article/details/118571516
 https://www.cnblogs.com/a735882640/p/13755428.html
@@ -58,3 +59,48 @@ docker image rm
 
 
 
+=======
+2.samba的安装和配置
+https://blog.csdn.net/lwx356481/article/details/82688607
+https://blog.csdn.net/qq_33789722/article/details/80269529
+https://blog.51cto.com/u_12173069/2068817
+
+yum  -y  install  samba
+
+3.安装docker
+https://www.linuxprobe.com/install-use-docker-in-centos7.html
+https://www.cnblogs.com/wang-yaz/p/10429899.html
+
+4.网络配置：firewalld和iptable
+https://www.cnblogs.com/fps2tao/p/7569211.html
+http://www.luwl.net/?p=1053
+yum -y install net-tools
+
+centos7默认使用的firewall作为防火墙
+1.查看防火墙状态
+firewall-cmd --state
+2.关闭防火墙
+systemctl stop firewalld.service
+3.禁止开机启动防火墙
+systemctl disable firewalld.service
+4.开启防火墙
+systemctl start firewalld.service
+5.开机开启防火墙
+systemctl enable firewalld.service
+6.重启防火墙
+systemctl restart firewalld.service
+
+centOS7以下版本：
+1 关闭防火墙—–
+service iptables stop
+2 启动防火墙—–
+service iptables start
+3 重启防火墙—–
+service iptables restart
+4 查看防火墙状态–
+service iptables status
+5 永久关闭防火墙–
+chkconfig iptables off
+6 永久关闭后启用–
+chkconfig iptables on
+>>>>>>> b534848a48bee04dc2dc799765f8b9a23808b544
