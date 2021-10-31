@@ -3,4 +3,58 @@ git config --global user.name "your_name"
 git config --global user.email 123@qq.com
 ssh-keygen -t rsa -C 123@qq.com
 
-2.
+2.docker的正确安装步骤
+https://blog.csdn.net/qq_40104261/article/details/118571516
+https://www.cnblogs.com/a735882640/p/13755428.html
+一、安装前必读
+    1.查看当前的内核版本
+    uname -r
+
+    2.使用 root 权限更新 yum 包（生产环境中此步操作需慎重，看自己情况，学习的话随便搞）
+    yum -y update
+
+    3.卸载旧版本（如果之前安装过的话）
+    yum remove docker  docker-common docker-selinux docker-engine
+
+二、安装Docker的详细步骤
+    1.安装需要的软件包， yum-util 提供yum-config-manager功能，另两个是devicemapper驱动依赖
+    yum install -y yum-utils device-mapper-persistent-data lvm2
+
+    2.设置 yum 源（下面2选1）
+    # 中央仓库
+    yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo
+    # 阿里仓库
+    yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+    3.选择docker版本并安装
+    1）查看可用版本有哪些
+    yum list docker-ce --showduplicates | sort -r
+    2）选择一个版本并安装：yum install docker-ce-版本号
+    yum -y install docker-ce-18.03.1.ce
+
+    4.启动 Docker 并设置开机自启
+    systemctl start docker
+    systemctl enable docker
+
+三、docker的基本使用
+https://hub.docker.com/
+
+docker images
+
+docker search <image_name>
+
+docker pull <image_name>:<tag>
+
+docker tag <image_name>:<tag> <new_image_name>:<new_tag>
+
+docker inspect <image_name>:<tag>
+
+docker history <image_name>:<tag>
+
+docker rmi IMAGE [IMAGE...]  # IMAGE可以时标签或ID
+docker image rm
+
+
+
+
+
