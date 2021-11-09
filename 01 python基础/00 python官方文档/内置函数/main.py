@@ -6,7 +6,7 @@
 # ========= all ==========
 # print(all([]))  # True
 # all(iterable)。参数是一个可迭代对象，如果iterable中所有元素均为真值（或iterable为空），结果返回True，否则返回False。
-# 相当于:iterable中只要又一个为假，就返回False。
+# 相当于:iterable中只要有一个为假，就返回False。
 def all(iterable):
     for item in iterable:
         if not item:
@@ -17,7 +17,7 @@ def all(iterable):
 # ========= any ==========
 # print(any([]))  # False
 # any(iterable)。参数是一个可迭代对象，如果iterable中只要有一个元素为真值，记过返回True，否则返回False（iterable为空）。
-# 相当于：
+# 相当于：iterable中只要有一个为真，就返回True
 def any(iterable):
     for item in iterable:
         if item:

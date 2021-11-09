@@ -1,23 +1,23 @@
 1.获取版本号
-    conda -V   ************************
-    conda --version  
+    【conda -V】
+    conda --version
 
 2.查看所以虚拟环境
     conda info -e
-    conda env list   ************************
+    【conda env list】
 
 3.进入某个虚拟环境（激活）
-    conda activate env_name（虚拟环境名）  ************************
+    【conda activate env_name（虚拟环境名）】
 
 4.退出当前虚拟环境
    conda deactivate [env_name（虚拟环境名）]  
 
 5.创建新的虚拟环境
-    conda create -n env_name（虚拟环境名）python=3.7.3（python的版本号）[anaconda]   ************************
+    conda create -n env_name（虚拟环境名）python=3.7.3（python的版本号）[anaconda]
     conda create --name env_name（虚拟环境名）python=3.7.3（python的版本号）[anaconda]
 
 6.删除虚拟环境
-    conda remove -n env_name（虚拟环境名）--all  ************************
+    conda remove -n env_name（虚拟环境名）--all
 
 7.复制环境
     conda create -n new_env_name（新的虚拟环境名）--clone env_name（虚拟环境名） 
@@ -26,21 +26,21 @@
     conda list  
 
 9.指定安装包版本
-    conda install package_name=2.1（包名的版本号）  ************************
+    conda install package_name=2.1（包名的版本号）
 
 10.移除环境中的包
-    conda remove -n env_name（虚拟环境名）package_name（包名）  ************************
+    conda remove -n env_name（虚拟环境名）package_name（包名）
     conda remove --name env_name（虚拟环境名）package_name（包名）
 
 10.查看包的依赖
-    conda info pack_name（包名）************************
+    conda info pack_name（包名）
 
 11.更新当前conda版本和anaconda版本
     conda update conda 
     conda update anaconda
 
 12.查看conda的命令使用
-    conda -h  ************************
+    conda -h
     conda --help
 
 13.更新包
