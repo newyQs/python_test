@@ -1,4 +1,6 @@
 '''
+https://blog.csdn.net/qq_40678222/article/details/83065192
+
 集合：无序且元素唯一的容器。类似于字典，但只有键（key），没有值（value）。
 1.集合中每个元素都是无序的，不重复的任意对象；
 2.可以通过集合去判断数据的从属关系，可以做集合运算，可添加，删除元素；
@@ -8,23 +10,27 @@
 
 # set集合常用方法汇总：17个
 '''
-remove(self,element)
-copy(self)
-pop(self)
-add(self,element)
-clear(self)
-difference(self,s)
-difference_update(self,s)
-discard(self,element)
-intersection(self,s)
-intersection_update(self,s)
-isdisjoint(self,s)
-issubset(self,s)
-issuperset(self,s)
-symmetric_difference(self,s)
-symmetric_difference_update(self,s)
-union(self,s)
-update(self,s)
+remove(element)
+copy()
+pop()
+add(element)
+update(s)
+clear(s)
+
+difference(s)
+difference_update(s)
+discard(element)
+
+intersection(s)
+intersection_update(s)
+isdisjoint(s)
+issubset(s)
+issuperset(s)
+
+symmetric_difference(s)
+symmetric_difference_update(s)
+union(s)
+
 '''
 
 # 创建：
