@@ -18,5 +18,5 @@ def any(iterable):
 # all(iterable)  -- > bool
 print(all([1, 2, 4]))
 
-# any(iterable)   --> bool
+# any(iterable)  -- > bool
 print(any([1, 2, 3]))

@@ -3,11 +3,10 @@ git config --global user.name "your_name"
 git config --global user.email 123@qq.com
 ssh-keygen -t rsa -C 123@qq.com
 
-<<<<<<< HEAD
 2.docker的正确安装步骤
 https://blog.csdn.net/qq_40104261/article/details/118571516
 https://www.cnblogs.com/a735882640/p/13755428.html
-一、安装前必读
+安装前必读
     1.查看当前的内核版本
     uname -r
 
@@ -17,7 +16,7 @@ https://www.cnblogs.com/a735882640/p/13755428.html
     3.卸载旧版本（如果之前安装过的话）
     yum remove docker  docker-common docker-selinux docker-engine
 
-二、安装Docker的详细步骤
+安装Docker的详细步骤
     1.安装需要的软件包， yum-util 提供yum-config-manager功能，另两个是devicemapper驱动依赖
     yum install -y yum-utils device-mapper-persistent-data lvm2
 
@@ -37,29 +36,17 @@ https://www.cnblogs.com/a735882640/p/13755428.html
     systemctl start docker
     systemctl enable docker
 
-三、docker的基本使用
-https://hub.docker.com/
+    docker的基本使用
+    https://hub.docker.com/
+    docker images
+    docker search <image_name>
+    docker pull <image_name>:<tag>
+    docker tag <image_name>:<tag> <new_image_name>:<new_tag>
+    docker inspect <image_name>:<tag>
+    docker history <image_name>:<tag>
+    docker rmi IMAGE [IMAGE...]  # IMAGE可以时标签或ID
+    docker image rm
 
-docker images
-
-docker search <image_name>
-
-docker pull <image_name>:<tag>
-
-docker tag <image_name>:<tag> <new_image_name>:<new_tag>
-
-docker inspect <image_name>:<tag>
-
-docker history <image_name>:<tag>
-
-docker rmi IMAGE [IMAGE...]  # IMAGE可以时标签或ID
-docker image rm
-
-
-
-
-
-=======
 2.samba的安装和配置
 https://blog.csdn.net/lwx356481/article/details/82688607
 https://blog.csdn.net/qq_33789722/article/details/80269529
@@ -103,4 +90,4 @@ service iptables status
 chkconfig iptables off
 6 永久关闭后启用–
 chkconfig iptables on
->>>>>>> b534848a48bee04dc2dc799765f8b9a23808b544
+
