@@ -1,0 +1,19 @@
+# rubbish
+*.pyc
+/tmp/*
+/logs/*
+
+# local
+/venv
+/.env
+
+**__pycache__
+# editor
+/.vscode
+/.idea
+
+
+# config
+/.chglog
+local.yml
+config/local.yml
