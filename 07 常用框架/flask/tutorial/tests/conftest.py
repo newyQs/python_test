@@ -7,20 +7,20 @@ from flaskr import create_app
 from flaskr.db import get_db
 from flaskr.db import init_db
 
-# read in SQL for populating test data
+# read in SQL for populating testAPI data
 with open(os.path.join(os.path.dirname(__file__), "data.sql"), "rb") as f:
     _data_sql = f.read().decode("utf8")
 
 
 @pytest.fixture
 def app():
-    """Create and configure a new app instance for each test."""
-    # create a temporary file to isolate the database for each test
+    """Create and configure a new app instance for each testAPI."""
+    # create a temporary file to isolate the database for each testAPI
     db_fd, db_path = tempfile.mkstemp()
-    # create the app with common test config
+    # create the app with common testAPI config
     app = create_app({"TESTING": True, "DATABASE": db_path})
 
-    # create the database and load test data
+    # create the database and load testAPI data
     with app.app_context():
         init_db()
         get_db().executescript(_data_sql)
@@ -34,13 +34,13 @@ def app():
 
 @pytest.fixture
 def client(app):
-    """A test client for the app."""
+    """A testAPI client for the app."""
     return app.test_client()
 
 
 @pytest.fixture
 def runner(app):
-    """A test runner for the app's Click commands."""
+    """A testAPI runner for the app's Click commands."""
     return app.test_cli_runner()
 
 
@@ -48,7 +48,7 @@ class AuthActions:
     def __init__(self, client):
         self._client = client
 
-    def login(self, username="test", password="test"):
+    def login(self, username="testAPI", password="testAPI"):
         return self._client.post(
             "/auth/login", data={"username": username, "password": password}
         )

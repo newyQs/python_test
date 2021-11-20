@@ -3,7 +3,9 @@
 
 mystr = "hello"
 index = mystr.find("nihao")  # 返回 -1
-data = divmod(250, 0)  # 抛出异常
+
+
+# data = divmod(250, 0)  # 抛出异常
 
 
 # 2.try...except...finally
@@ -18,10 +20,14 @@ def division(ldata, rdata):
 
 
 try:
-    data = division("hello", 4)  # 尝试不同测试用例
+    data = division("12", 4)  # 尝试不同测试用例
 except ValueError:
     print("除数不能为 0")
 except TypeError:
     print("请输入数字类型数据")
+else:
+    print("没有发生异常执行这句话")
 finally:
-    print('over')
+    print('无论有没有异常都会执行这句话')
+
+print("流程之后的语句")

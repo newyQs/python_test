@@ -6,14 +6,14 @@ from flaskr.db import get_db
 
 
 def test_register(client, app):
-    # test that viewing the page renders without template errors
+    # testAPI that viewing the page renders without template errors
     assert client.get("/auth/register").status_code == 200
 
-    # test that successful registration redirects to the login page
+    # testAPI that successful registration redirects to the login page
     response = client.post("/auth/register", data={"username": "a", "password": "a"})
     assert "http://localhost/auth/login" == response.headers["Location"]
 
-    # test that the user was inserted into the database
+    # testAPI that the user was inserted into the database
     with app.app_context():
         assert (
             get_db().execute("SELECT * FROM user WHERE username = 'a'").fetchone()
@@ -26,7 +26,7 @@ def test_register(client, app):
     (
         ("", "", b"Username is required."),
         ("a", "", b"Password is required."),
-        ("test", "test", b"already registered"),
+        ("testAPI", "testAPI", b"already registered"),
     ),
 )
 def test_register_validate_input(client, username, password, message):
@@ -37,10 +37,10 @@ def test_register_validate_input(client, username, password, message):
 
 
 def test_login(client, auth):
-    # test that viewing the page renders without template errors
+    # testAPI that viewing the page renders without template errors
     assert client.get("/auth/login").status_code == 200
 
-    # test that successful login redirects to the index page
+    # testAPI that successful login redirects to the index page
     response = auth.login()
     assert response.headers["Location"] == "http://localhost/"
 
@@ -49,12 +49,12 @@ def test_login(client, auth):
     with client:
         client.get("/")
         assert session["user_id"] == 1
-        assert g.user["username"] == "test"
+        assert g.user["username"] == "testAPI"
 
 
 @pytest.mark.parametrize(
     ("username", "password", "message"),
-    (("a", "test", b"Incorrect username."), ("test", "a", b"Incorrect password.")),
+    (("a", "testAPI", b"Incorrect username."), ("testAPI", "a", b"Incorrect password.")),
 )
 def test_login_validate_input(auth, username, password, message):
     response = auth.login(username, password)

@@ -17,7 +17,7 @@ def create_app(test_config=None):
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile("config.py", silent=True)
     else:
-        # load the test config if passed in
+        # load the testAPI config if passed in
         app.config.update(test_config)
 
     # ensure the instance folder exists

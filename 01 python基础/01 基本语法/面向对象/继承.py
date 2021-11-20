@@ -80,4 +80,4 @@ Sample.song()
 Sample.song()
 test.song()
 
-# test.__song() 无法访问私有方法
+# testAPI.__song() 无法访问私有方法

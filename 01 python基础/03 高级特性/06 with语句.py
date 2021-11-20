@@ -7,19 +7,19 @@ with 语句：上下文管理器
 上下文管理器，让我们在需要的时候，可以准确的分配和释放资源
 上下文管理器，用于锁定（locking）,解锁（unlocking）或关闭开启的文件
 
-1. 上下文表达式：with open('test.txt') as f:
-2. 上下文管理器：open('test.txt')
+1. 上下文表达式：with open('testAPI.txt') as f:
+2. 上下文管理器：open('testAPI.txt')
 3. f 不是上下文管理器，应该是资源对象。
 
 是在一个类里，实现了__enter__和__exit__的方法，这个类的实例就是一个上下文管理器
 '''
 # with语句可以确保我们的文件对象最终被关闭掉
-with open('test.txt', 'r') as f:
+with open('testAPI.txt', 'r') as f:
     print(f.read())
 
 # 等价于：
 try:
-    f = open('test.txt', 'r')
+    f = open('testAPI.txt', 'r')
     print(f.read())
 except Exception as e:
     print(e)
@@ -52,7 +52,7 @@ class File:
         return True
 
 
-with File('test.txt') as f:
+with File('testAPI.txt') as f:
     print('hello')
 
 '''
@@ -80,5 +80,5 @@ def file(filename):
         ff.close()
 
 
-with file('test.txt') as ff:
+with file('testAPI.txt') as ff:
     print('hello')

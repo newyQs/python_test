@@ -1,4 +1,5 @@
 sites = ["Baidu", "Google", "Runoob", "Taobao"]
+
 for site in sites:
     if site == "Runoob":
         print("菜鸟教程!")
