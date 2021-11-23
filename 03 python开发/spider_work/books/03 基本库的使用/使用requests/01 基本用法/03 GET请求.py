@@ -10,3 +10,5 @@ print(type(r.text))  # <class 'str'>
 
 print(r.json())
 print(type(r.json()))  # <class 'dict'>
+
+print(r.json)

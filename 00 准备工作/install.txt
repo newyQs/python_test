@@ -48,9 +48,13 @@ https://www.cnblogs.com/a735882640/p/13755428.html
     docker image rm
 
 2.samba的安装和配置
-https://blog.csdn.net/lwx356481/article/details/82688607
-https://blog.csdn.net/qq_33789722/article/details/80269529
-https://blog.51cto.com/u_12173069/2068817
+centos7 配置：
+    https://blog.csdn.net/lwx356481/article/details/82688607
+    https://blog.csdn.net/qq_33789722/article/details/80269529
+    https://blog.51cto.com/u_12173069/2068817
+
+ubuntu 配置：
+https://www.linuxidc.com/Linux/2018-11/155466.htm
 
 yum  -y  install  samba
 
