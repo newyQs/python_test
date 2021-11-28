@@ -5,8 +5,8 @@ docker运行容器前需要本地存在对应的镜像，如果镜像不存在�
 1. 如何使用pull命令从Docker Hub仓库下载镜像至本地；
 2. 如何查看本地已有的镜像信息和管理镜像标签；
 3. 如何在远端仓库用search命令进行搜索和过滤；
-4. 如果删除镜像标签和镜像文件；
-5. 如果创建用户定制的镜像并且保存为外部文件；
+4. 如何删除镜像标签和镜像文件；
+5. 如何创建用户定制的镜像并且保存为外部文件；
 6. 如何往Docker Hub仓库中推送自己的镜像；
 
 ##3.1 获取镜像
@@ -23,7 +23,9 @@ docker pull ubuntu:18.04
 对于Docker镜像来说，如果不显示的指定TAG，则会默认使用latest标签，这会下载仓库中最新版本的镜像。
 ```
 docker pull ubuntu
-相当于
+```
+相当于：
+```
 docker pull ubuntu:latest
 ```
 下载过程中可以看出，镜像文件一般由若干层（layer）组成，6c953ac5d795这样的串是层的唯一id（完整的id包含256比特，64个十六进制字符组成）。
@@ -32,6 +34,9 @@ docker pull ubuntu:latest
 
 ```
 docker pull ubuntu:18.04
+```
+完整的还应该包含仓库地址（即registry，注册服务器），只是使用默认的官方Docker Hub服务，该前缀可以忽略：
+```
 docker pull registry.hub.docker.com/ubuntu:18.04
 ```
 如果要在非官方的仓库下载，则需要在仓库名称前指定完整的仓库地址，如以下：
@@ -39,8 +44,10 @@ docker pull registry.hub.docker.com/ubuntu:18.04
 docker pull pub.c.163.com/public/ubuntu:18.04
 ```
 pull子命令支持的选项主要包括：
-+ -a --all-tags=true|false:是否获取仓库中的所有镜像，默认为否；
-+ --disable-content-trust:取消镜像的内容校检，默认为否；
++ -a --all-tags=true|false：是否获取仓库中的所有镜像，默认为否；
++ --disable-content-trust：取消镜像的内容校检，默认为否；
+
+另外，有时需要使用镜像代理服务来加速docker镜像的获取，可以在docker服务启动配置中增加 --registry-mirror=proxy_URL来指定代理服务地址（如https//registry.docker-cn.com）。
 
 下载镜像到本地后，即可随时随地使用该镜像了，例如利用该镜像创建一个容器，在其中运行bash应用，执行打印“hello world”命令：
 ```
@@ -51,7 +58,9 @@ docker run -it ubuntu:18.04 bash
 ###1. 使用docker images或者docker image ls命令可以列出本地主机上已有的镜像的基础信息
 ```
 docker images
-或
+```
+或者：
+```
 docker image ls
 ```
 在列出的信息中，可以看到这几个字段信息：
@@ -62,12 +71,14 @@ docker image ls
 + 镜像大小
 
 images子命令主要支持以下选项：
-+ -a, --all=true|false
-+ -digests=true|false
-+ -f, --filter=[]
-+ --format="TEMPLATE"
-+ --no-trunc=true|false
-+ -q, --quiet=true|false
++ -a, --all=true|false：列出所有（包括临时文件）镜像文件，默认为否
++ -digests=true|false：列出镜像的数字摘要值，默认为否
++ -f, --filter=[ ]：过滤列出的镜像，如dangling=true只显示没有被使用的镜像；也可以指定带有特定标注的镜像等
++ --format="TEMPLATE"：控制输出格式，如.ID代表ID信息，.Repository代表仓库信息等
++ --no-trunc=true|false：对输出结果中太长的部分是否进行截断，如镜像的ID信息，默认为是
++ -q, --quiet=true|false：仅输出ID信息，默认为否
+
+更多的子命令可以通过man docker-images查看。
 
 ###2. 使用tag命令添加镜像标签
 为了方便在后续工作中使用特定镜像，还可以为本地镜像添加新的标签
@@ -80,12 +91,19 @@ docker tag ubuntu:latest myubuntu:latest
 ```
 docker [image] inspect ubuntu:18.04
 ```
+上面代码返回的是一个JSON格式的消息，如果我们只要其中一项内容时，可以使用-f指定：
+```
+docker [image] inspect -f {{".Architecture}} ubuntu:18.04
+```
 
 ###4. 使用history查看镜像历史
 揖让镜像文件由多个层组成，那么怎么知道各个层的内容具体是什么呢？这时候可以使用history命令，该命令可以列出各层的创建信息。
+
+例如，查看ubuntu:18.04镜像的创建过程，可以使用如下命令：
 ```
 docker histoty ubuntu:18.04
 ```
+注意：过长的命令被自动截断了，可以使用前面的--no-trunc选项输出完整命令。
 
 ##3.3 搜寻镜像
 ```
@@ -99,7 +117,9 @@ docker search [option] keyword
 
 例如，搜索官方提供的带nginx关键字的镜像
 ```
-docker search --filter-offical=true nginx
+docker search --filter=is-official=true nginx
+docker search -f is-official=true nginx
+docker search nginx -f is-office=true
 ```
 例如，搜索所有收藏数超过4的关键字包括tensorflow的镜像：
 ```
@@ -108,6 +128,7 @@ docker search --filter=starts=4 tensorflow
 
 ##3.4 删除镜像
 1. 使用标签删除镜像
+    使用docker rmi 或者docker image rm命令可以删除镜像。
     ```
     docker rmi IMAGE [IMAGE...]
     ```
