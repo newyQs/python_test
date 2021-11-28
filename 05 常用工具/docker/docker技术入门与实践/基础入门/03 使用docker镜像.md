@@ -220,14 +220,16 @@ docker image prune
     ```
     例如，从文件ubuntu_18.04.tar文件导入镜像至本地镜像列表，如下所示：
     ```
-    docker load -i < ubuntu_18.04.tar
+    docker load -i  ubuntu_18.04.tar
+    ```
     或者
+    ```
     docker load < ubuntu_18.04.tar
     ```
     这将导入镜像及其相关的元数据信息（包括标签等）。
 
 ##3.8 上传镜像
-可以使用docker [image] push命令上传镜像到仓库，默认上传到Docker Hub官方仓库（需要登录）
+可以使用docker [image] push命令上传镜像到仓库，默认上传到Docker Hub官方仓库（需要登录）：
 ```
 docker [image] push NAME[:TAG] | [REGISTRY_HOST[:REGISTRY_PROT]/]NAME[:TAG]
 ```
@@ -236,3 +238,4 @@ docker [image] push NAME[:TAG] | [REGISTRY_HOST[:REGISTRY_PROT]/]NAME[:TAG]
 docker tag test:latest user/test:latest
 docker push user/test:latest
 ```
+第一次上传时，会提示输入登录信息或进行注册，之后登录信息会记录到本地~/.docker目录下。

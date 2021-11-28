@@ -7,6 +7,7 @@ ifconfig:
 netstat:
   netstat -tnl
   netstat -unl
+  netstat -apn
   常用
   -tan -uan -tnl -unl -tunlp
 

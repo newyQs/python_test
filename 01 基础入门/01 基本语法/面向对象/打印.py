@@ -1,5 +1,10 @@
+"""
+
+"""
+
+
 class Vector:
-    def __init__(self, a, b): # __init__()要求无返回值
+    def __init__(self, a, b):  # __init__()要求无返回值
         self.a = a
         self.b = b
 

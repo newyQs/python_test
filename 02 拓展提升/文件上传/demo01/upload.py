@@ -4,10 +4,7 @@ import json
 import time
 import math
 import hashlib
-
 import requests
-
-from log import log
 
 host_name = "http://abc.example.com"
 
@@ -40,9 +37,7 @@ class UploadFileSection:
             print('requests begin', url, file_path)
             print(json.dumps(post_data, indent=2))
             response = requests.post(url, data=post_data, files=files)
-
             data = json.loads(response.content)
-
             print(json.dumps(data, ensure_ascii=False, indent=2))
             if data['statusCode'] == 0:
                 print(time.strftime("%Y-%m-%d %H:%M:%S"), sys._getframe().f_code.co_name, " success")
@@ -55,16 +50,6 @@ class UploadFileSection:
             print(response.content)
             exit()
             return False
-
-    @staticmethod
-    def get_file_md5(file_path):
-        if os.path.isfile(file_path):
-            with open(file_path, 'rb') as f:
-                data = f.read()
-                return hashlib.md5(data).hexdigest()
-        else:
-            print(file_path, " doesn't exist, no md5")
-            return ""
 
     def do_upload(self, file_path):
         file_total_size = os.path.getsize(file_path)
@@ -88,18 +73,23 @@ class UploadFileSection:
 
             self.do_upload_slice(file_path, i * chunk_size, current_size, file_name, file_md5, file_total_size, is_end)
 
+    @staticmethod
+    def get_file_md5(file_path):
+        if os.path.isfile(file_path):
+            with open(file_path, 'rb') as f:
+                data = f.read()
+                return hashlib.md5(data).hexdigest()
+        else:
+            print(file_path, " doesn't exist, no md5")
+            return ""
 
-'''
-参数
-'''
+
 if __name__ == "__main__":
     work = UploadFileSection()
-    work.do_upload('d:/222huojian.jpg')
+    work.do_upload('d:/abc.jpg')
 
 """
 原理：
-
 1.request每次读取部分文件内容上传，这样文件的名字，大小就要用另外的参数来表示了
-
 2.后端需要在接收到文件后，根据md5，文件大小，文件名判断该追加写入哪个临时文件，当文件传输完毕后，将临时文件move到指定位置进行处理
 """
