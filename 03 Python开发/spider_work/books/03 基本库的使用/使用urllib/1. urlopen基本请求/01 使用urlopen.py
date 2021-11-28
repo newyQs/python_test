@@ -5,7 +5,7 @@ urlopen(url,data,timeout,cafile,capath,cadefault,context)
 urlopen(url, data=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT,
             *, cafile=None, capath=None, cadefault=False, context=None)
             
-url:
+url:url地址
 data:附加数据
 timeout：超时时间
 cafile和capath分别指定CA证书和它的路径
