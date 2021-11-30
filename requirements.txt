@@ -4,3 +4,5 @@ vine==1.3.0
 requests
 redis
 gevent
+tqdm
+aiohttp
