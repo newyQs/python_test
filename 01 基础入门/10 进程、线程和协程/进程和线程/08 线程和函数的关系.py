@@ -14,9 +14,12 @@ if __name__ == '__main__':
     print('main 函数当前线程 %s' % threading.current_thread().name)
     t1 = threading.Thread(target=func)
     t2 = threading.Thread(target=xx)
+
     t1.start()
     t2.start()
+
     func()
+
     t1.join()
     t2.join()
 

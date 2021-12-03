@@ -8,8 +8,8 @@ def func(args):
 if __name__ == '__main__':
     for i in range(1, 100):
         t = threading.Thread(target=func, args=(i,))
-        t.start()
-        # t.join()
+        t.start()  # 启动
+        # t.join() #阻塞
 '''
 进程是由若干线程组成的，一个进程至少有一个线程；
 线程是操作系统直接执行的基本单元；

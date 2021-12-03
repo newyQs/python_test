@@ -20,11 +20,11 @@ if __name__ == '__main__':
     t1.start()
     t2.start()
 
-    threadingnames = threading.enumerate()  # 枚举出正在活动的线程，返回列表
-    print("目前正在活动的线程:", threadingnames)
+    threading_names = threading.enumerate()  # 枚举出正在活动的线程，返回列表
+    print("目前正在活动的线程:", threading_names)
 
     time.sleep(3)  # 3 秒后 t1 线程关联的函数 func 退出，t1 线程结束。
 
-    threadingnames = threading.enumerate()  # 枚举出正在活动的线程，返回列表
-    print("目前正在活动的线程:", threadingnames)  # 目前只有主线程和 t2 线程存在
+    threading_names = threading.enumerate()  # 枚举出正在活动的线程，返回列表
+    print("目前正在活动的线程:", threading_names)  # 目前只有主线程和 t2 线程存在
 

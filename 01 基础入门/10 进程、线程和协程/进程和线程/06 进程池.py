@@ -10,7 +10,8 @@ def func(args):
 if __name__ == '__main__':
     p = Pool(10)
     for num in range(100):
-        p.apply_async(func=func, args=(num,))
+        # 每次循环会用空闲出来的子进程去调用目标
+        p.apply_async(func=func, args=(num,))  # p.apply_async(调用的目标函数，（传递的参数元组）)
 
     p.close()
     p.join()
@@ -22,9 +23,11 @@ if __name__ == '__main__':
 如果进程池中没有可供使用的进程，那么程序就会等待，直到进程池中有可用进程为止；
 
 进程池中常用的方法：
-apply()         同步执行（串行）
+apply()         同步执行（串行） （不建议使用，并且3.x以后不再出现）
 apply_async()   异步执行（并行）
-terminate()     立刻关闭进程池
-close()         等待所有进程结束，才关闭进程池
-join()           主进程等待所有子进程执行完毕。必须在close()和terminate()之后。
+map()
+map_async()
+terminate()     立刻关闭进程池，不再处理未处理的任务
+close()         关闭进程池（pool），使其不再接受新的任务
+join()          主进程阻塞等待所有子进程执行完毕，必须在close()或terminate()之后使用
 '''
