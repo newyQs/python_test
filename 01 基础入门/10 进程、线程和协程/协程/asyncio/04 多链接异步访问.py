@@ -14,7 +14,7 @@ async def hello(url):
     async with ClientSession() as session:
         async with session.get(url) as response:
             response = await response.read()
-            #  print(response)
+            print(response)
             print('Hello World:%s' % time.time())
 
 

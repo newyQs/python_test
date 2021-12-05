@@ -1,3 +1,6 @@
+"""
+
+"""
 num = int(input("输入一个数字："))
 if num % 2 == 0:
     if num % 3 == 0:

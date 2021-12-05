@@ -1,3 +1,6 @@
+"""
+
+"""
 # while 中使用 break：
 n = 5
 while n > 0:
