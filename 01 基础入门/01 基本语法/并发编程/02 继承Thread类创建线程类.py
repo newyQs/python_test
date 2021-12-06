@@ -20,9 +20,11 @@ class my_Thread(threading.Thread):
 
 
 # 定义为 run() 方法传入的参数
-my_tuple = ("http://c.biancheng.net/python/",
-            "http://c.biancheng.net/shell/",
-            "http://c.biancheng.net/java/")
+my_tuple = (
+    "http://c.biancheng.net/python/",
+    "http://c.biancheng.net/shell/",
+    "http://c.biancheng.net/java/"
+)
 
 if __name__ == '__main__':
     # 创建子线程

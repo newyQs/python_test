@@ -1,4 +1,11 @@
 """
+Python 主要通过两种方式来创建线程：
+1. 使用 threading 模块中 Thread 类的构造器创建线程。
+    即直接对类 threading.Thread 进行实例化创建线程，并调用实例化对象的 start() 方法启动线程。
+
+2. 继承 threading 模块中的 Thread 类创建线程类。
+    即用 threading.Thread 派生出一个新的子类，将新建类实例化创建线程，并调用其 start() 方法启动线程。
+
 __init__(self, group=None, target=None, name=None, args=(), kwargs=None, *, daemon=None)
 
 此构造方法中，以上所有参数都是可选参数，即可以使用，也可以忽略。其中各个参数的含义如下：
@@ -23,9 +30,11 @@ def action(*add):
 
 
 # 定义为线程方法传入的参数
-my_tuple = ("http://c.biancheng.net/python/",
-            "http://c.biancheng.net/shell/",
-            "http://c.biancheng.net/java/")
+my_tuple = (
+    "http://c.biancheng.net/python/",
+    "http://c.biancheng.net/shell/",
+    "http://c.biancheng.net/java/"
+)
 
 if __name__ == '__main__':
     # 创建线程
