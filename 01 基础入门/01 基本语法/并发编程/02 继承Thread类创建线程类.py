@@ -5,7 +5,7 @@ import threading
 
 
 # 创建子线程类，继承自 Thread 类
-class my_Thread(threading.Thread):
+class MyThread(threading.Thread):
     def __init__(self, add):
         # threading.Thread.__init__(self)
         # super(my_Thread, self).__init__()
@@ -28,9 +28,9 @@ my_tuple = (
 
 if __name__ == '__main__':
     # 创建子线程
-    mythread = my_Thread(my_tuple)
+    my_thread = MyThread(my_tuple)
     # 启动子线程
-    mythread.start()
+    my_thread.start()
     # 主线程执行此循环
     for i in range(5):
         print(threading.current_thread().getName())

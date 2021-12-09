@@ -29,17 +29,18 @@ def action(*add):
         print(threading.current_thread().getName() + " " + arc)
 
 
-# 定义为线程方法传入的参数
-my_tuple = (
-    "http://c.biancheng.net/python/",
-    "http://c.biancheng.net/shell/",
-    "http://c.biancheng.net/java/"
-)
-
 if __name__ == '__main__':
+    # 定义为线程方法传入的参数
+    my_tuple = (
+        "http://c.biancheng.net/python/",
+        "http://c.biancheng.net/shell/",
+        "http://c.biancheng.net/java/"
+    )
+
     # 创建线程
     t = threading.Thread(target=action, args=my_tuple)
 
+    # 启动线程
     t.start()
     t.join()
 

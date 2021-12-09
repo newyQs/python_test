@@ -3,6 +3,7 @@
 import asyncio
 import os
 import time
+import math
 from tqdm import tqdm
 from aiohttp import ClientSession
 
@@ -17,7 +18,8 @@ def get_range(content_length):
     :param content_length: 视频长度
     :return: 请求头：Range
     """
-    count = int(content_length) // size  # 分割成几个视频
+    # count = int(content_length) // size  # 分割成几个视频
+    count = math.ceil(int(content_length) / size)
     range_list = []
     for i in range(count):
         start = i * size
@@ -48,7 +50,7 @@ async def async_main(video_url, section_path):
                 os.mkdir(section_path)
 
             # 进度条
-            with tqdm(total=int(content_length), unit='', ascii=True, unit_scale=True) as bar:
+            with tqdm(desc="Process", total=int(content_length), unit='', unit_scale=True, colour="green") as bar:
                 down_list = os.listdir(section_path)
                 tasks = []
                 for i, headers_range in enumerate(range_list):
@@ -65,14 +67,6 @@ async def async_main(video_url, section_path):
 async def down_f(session, video_url, headers_range, i, section_path, sem, bar):
     """
     下载
-    :param session:
-    :param video_url:
-    :param headers_range:
-    :param i:
-    :param section_path:
-    :param sem:
-    :param bar:
-    :return:
     """
     async with sem:  # 限制并发数量
         async with session.get(video_url, headers=headers_range) as resp:

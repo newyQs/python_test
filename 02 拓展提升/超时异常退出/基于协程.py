@@ -5,11 +5,11 @@ def callback_func():
 def time_out(interval, callback=None):
     def decorator(func):
         def wrapper(*args, **kwargs):
-            ########## 该部分必须在requests之前导入
+            # 该部分必须在requests之前导入
             import gevent
             from gevent import monkey
             monkey.patch_all()
-            ##########
+            #
 
             try:
                 gevent.with_timeout(interval, func, *args, **kwargs)

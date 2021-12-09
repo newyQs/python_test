@@ -41,17 +41,17 @@ while True:
     else:
         # 断点续传, （先把已经接收到的文件的大小发送给客户端）
         # 已接收到的大小
-        has_recive_size = os.path.getsize('./upload/' + md5_file_name)
-        conn.sendall(json.dumps({'code': 1002, 'msg': '断点续传', 'has_recive_size': has_recive_size}).encode('utf8'))
+        has_receive_size = os.path.getsize('./upload/' + md5_file_name)
+        conn.sendall(json.dumps({'code': 1002, 'msg': '断点续传', 'has_recive_size': has_receive_size}).encode('utf8'))
 
-        recive_size = has_recive_size
+        receive_size = has_receive_size
         f = open('./upload/' + md5_file_name, 'ab')
-        while recive_size < file_total_size:
+        while receive_size < file_total_size:
             data = conn.recv(1024)
             f.write(data)
             # 主动将内存中的数据刷到到文件中去
             f.flush()
-            recive_size += len(data)
+            receive_size += len(data)
         f.close()
 
         # 上传完毕后,修改文件的文件名为原始文件名
