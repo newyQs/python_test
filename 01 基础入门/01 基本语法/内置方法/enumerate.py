@@ -12,8 +12,7 @@ def enumerate(sequence, start=0):
 """
 
 # start默认是从0开始
-
-for i, v in enumerate("hello"):
+for i, v in enumerate("hello", start=0):
     print(i, v)
 print()
 
