@@ -8,3 +8,4 @@ tqdm
 aiohttp
 aioredis
 fastapi
+httpx
