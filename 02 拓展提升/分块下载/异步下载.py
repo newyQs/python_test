@@ -70,7 +70,7 @@ async def down_f(session, video_url, headers_range, i, section_path, sem, bar):
     """
     async with sem:  # 限制并发数量
         async with session.get(video_url, headers=headers_range) as resp:
-            chunks = ""
+            chunks = b""
             async for chunk in resp.content.iter_chunked(1024):
                 chunks += chunk
 
