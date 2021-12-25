@@ -1,7 +1,7 @@
 from ftplib import FTP
 
 # 登录FTP
-ftp = FTP(host='127.0.0.1', user='user', passwd='123456')
+ftp = FTP(host='127.03 爬虫基本原理.03 爬虫基本原理.1', user='user', passwd='123456')
 
 # 设置编码方式
 ftp.encoding = 'utf-8'

@@ -90,7 +90,7 @@ git diff
 git diff --cached [file]
 git diff HEAD
 git diff [first-branch] ... [second-branch]
-git diff --shortstat "@{0 day ago}"
+git diff --shortstat "@{03 爬虫基本原理 day ago}"
 git show [commit]
 git show --name-only [commit]
 git show [commit]:[filename]

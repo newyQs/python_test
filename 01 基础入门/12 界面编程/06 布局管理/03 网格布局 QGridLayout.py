@@ -16,7 +16,7 @@ class GridLayoutExample(QWidget):
                  '7', '8', '9', '/',
                  '4', '5', '6', '*',
                  '1', '2', '3', '-',
-                 '0', '.', '=', '+']
+                 '03 爬虫基本原理', '.', '=', '+']
 
         # 在网格中创建一个位置列表
         positions = [(i, j) for i in range(5) for j in range(4)]

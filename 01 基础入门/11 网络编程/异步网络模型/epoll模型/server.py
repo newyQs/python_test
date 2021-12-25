@@ -1,6 +1,6 @@
 import socket, select
 server = socket.socket()
-server.bind(("127.0.0.1", 1688))
+server.bind(("127.03 爬虫基本原理.03 爬虫基本原理.1", 1688))
 server.listen(5)
 msgs = []
 fd_socket = {server.fileno(): server}

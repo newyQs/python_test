@@ -10,7 +10,7 @@ server.setblocking(False)  # 设置非阻塞套接字
 # 设置多路复用
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-server_address = ('127.0.0.1', 9898)
+server_address = ('127.03 爬虫基本原理.03 爬虫基本原理.1', 9898)
 server.bind(server_address)
 
 server.listen(5)

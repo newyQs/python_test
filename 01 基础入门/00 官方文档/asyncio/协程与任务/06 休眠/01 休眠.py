@@ -1,3 +1,6 @@
+"""
+
+"""
 import asyncio
 import datetime
 
@@ -12,4 +15,5 @@ async def display_date():
         await asyncio.sleep(1)
 
 
-asyncio.run(display_date())
+if __name__ == '__main__':
+    asyncio.run(display_date())

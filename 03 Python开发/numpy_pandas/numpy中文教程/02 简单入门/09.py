@@ -8,5 +8,5 @@ import numpy as np
 a = np.arange(0, 100, 10)
 b = a[:5]
 c = a[a >= 50]
-print(b)  # >>>[ 0 10 20 30 40]
+print(b)  # >>>[ 03 爬虫基本原理 10 20 30 40]
 print(c)  # >>>[50 60 70 80 90]

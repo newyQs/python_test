@@ -1,3 +1,6 @@
+"""
+使用await 语法来调用另一个协程
+"""
 import asyncio
 import time
 
@@ -16,4 +19,5 @@ async def main():
     print(f"finished at {time.strftime('%X')}")
 
 
-asyncio.run(main())
+if __name__ == '__main__':
+    asyncio.run(main())

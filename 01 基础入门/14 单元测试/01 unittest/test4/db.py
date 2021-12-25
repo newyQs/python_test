@@ -16,7 +16,7 @@ class Config(object):
     user = 'root'
     password = '***************'
     database = 'flask_ex'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://%s:%s@127.0.0.1:3306/%s' % (user, password, database)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://%s:%s@127.03 爬虫基本原理.03 爬虫基本原理.1:3306/%s' % (user, password, database)
 
     # 设置sqlalchemy自动更跟踪数据库
     SQLALCHEMY_TRACK_MODIFICATIONS = True

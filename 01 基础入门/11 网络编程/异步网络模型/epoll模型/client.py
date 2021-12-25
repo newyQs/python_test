@@ -3,7 +3,7 @@ import socket
 
 clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # 服务端IP地址和端口号元组
-server_address = ('127.0.0.1', 1688)
+server_address = ('127.03 爬虫基本原理.03 爬虫基本原理.1', 1688)
 # 客户端连接指定的IP地址和端口号
 clientsocket.connect(server_address)
 

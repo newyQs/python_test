@@ -41,4 +41,4 @@ async def red():
 
 
 if __name__ == '__main__':
-    uvicorn.run("luffy:app", host="12.7.0.0.1", port=5000, log_level="info")
+    uvicorn.run("luffy:app", host="12.7.03 爬虫基本原理.03 爬虫基本原理.1", port=5000, log_level="info")

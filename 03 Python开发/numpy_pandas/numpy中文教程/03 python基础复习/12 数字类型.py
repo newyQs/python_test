@@ -15,6 +15,6 @@ print(x)  # Prints "8"
 
 y = 2.5
 print(type(y))  # Prints "<class 'float'>"
-print(y, y + 1, y * 2, y ** 2)  # Prints "2.5 3.5 5.0 6.25"
+print(y, y + 1, y * 2, y ** 2)  # Prints "2.5 3.5 5.03 爬虫基本原理 6.25"
 
 # 注意，与许多语言不同，Python没有一元增量(x+)或递减(x-)运算符

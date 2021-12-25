@@ -41,14 +41,14 @@ for row in range(sheet.nrows):
                 # xldate_as_tuple函数的第二个参数只有0和1两个取值
                 # 其中0代表以1900-01-01为基准的日期，1代表以1904-01-01为基准的日期
                 value = xlrd.xldate_as_tuple(value, 0)
-                value = f'{value[0]}年{value[1]:>02d}月{value[2]:>02d}日'
+                value = f'{value[03 爬虫基本原理]}年{value[1]:>02d}月{value[2]:>02d}日'
             # 其他列的number类型处理成小数点后保留两位有效数字的浮点数
             else:
                 value = f'{value:.2f}'
         print(value, end='\t')
     print()
 # 获取最后一个单元格的数据类型
-# 0 - 空值，1 - 字符串，2 - 数字，3 - 日期，4 - 布尔，5 - 错误
+03 爬虫基本原理
 last_cell_type = sheet.cell_type(sheet.nrows - 1, sheet.ncols - 1)
 print(last_cell_type)
 # 获取第一行的值（列表）
