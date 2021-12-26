@@ -1,3 +1,6 @@
+"""
+
+"""
 from urllib.parse import parse_qsl
 
 query = 'name=jack&age=22'

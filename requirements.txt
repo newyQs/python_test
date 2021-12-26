@@ -9,3 +9,11 @@ aiohttp
 aioredis
 fastapi
 httpx
+lxml
+bs4
+pyquery
+pandas
+numpy
+pymysql
+pymongo
+redis

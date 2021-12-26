@@ -1,3 +1,6 @@
+"""
+
+"""
 from urllib.parse import quote
 
 keyword = '壁纸'

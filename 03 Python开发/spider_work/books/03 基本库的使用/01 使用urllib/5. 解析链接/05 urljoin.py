@@ -1,3 +1,4 @@
+
 from urllib.parse import urljoin
 
 print(urljoin('http://www.baidu.com', 'FAQ.html'))

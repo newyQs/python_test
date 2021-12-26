@@ -3,6 +3,6 @@ import requests
 files = {
     'file': open('favicon.ico', 'rb')
 }
-r = requests.post('http://httpbin.org/post', files=files)
-
-print(r.text)
+resp = requests.post('http://httpbin.org/post', files=files)
+import pdb
+pdb.set_trace()

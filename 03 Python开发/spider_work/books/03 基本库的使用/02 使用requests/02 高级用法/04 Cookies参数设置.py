@@ -12,5 +12,5 @@ for cookie in cookies.split(';'):
     key, value = cookie.split('=', 1)
     jar.set(key, value)
 
-r = requests.get('https://www.zhihu.com', cookies=jar, headers=headers)
-print(r.text)
+resp = requests.get('https://www.zhihu.com', cookies=jar, headers=headers)
+print(resp.text)
