@@ -17,3 +17,5 @@ numpy
 pymysql
 pymongo
 redis
+selenium
+PIL
