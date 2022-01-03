@@ -1,0 +1,53 @@
+man命令 – 查看命令帮助信息
+
+man命令是Linux下最核心的命令之一。而man命令也并不是英文单词“man”的意思，它是单词manual的缩写，即使用手册的意思。
+
+man命令会列出一份完整的说明。 其内容包括命令语法、各选项的意义及相关命令 。
+更为强大的是，不仅可以查看Linux中命令的使用帮助，还可以查看软件服务配置文件、系统调用、库函数等帮助信息。
+
+man手册页文件存放在/usr/share/man目录下。
+
+语法格式：man [命令]
+
+常用参数：
+-a	在所有的man帮助手册中搜索
+-d	主要用于检查，如果用户加入了一个新的文件，就可以用这个参数检查是否出错
+-f	显示给定关键字的简短描述信息
+-p	指定内容时使用分页程序
+-M	指定man手册搜索的路径
+-w	显示文件所在位置
+
+man命令内容组成的介绍：
+用户命令的使用方法，可以使用的参数等
+系统调用，只有系统才能执行的函数
+库调用，大多是libc函数，如qsort(3)
+设备和特殊文件
+文件格式和约定
+游戏
+宏命令包和约定
+系统管理命令，多数只有root可以执行
+内核程序
+Tcl或Tk指令
+
+快捷键：
+q	退出
+Enter	按行下翻
+Space	按页下翻
+b	上翻一页
+/字符串	在手册页中查找字符串
+
+参考实例
+
+查看cp命令的帮助信息：
+[root@linuxcool ~]# man cp
+
+查看/etc/passwd文件的信息：
+[root@linuxcool ~]# man /etc/passwd
+
+查看passwd命令所在位置：
+[root@linuxcool ~]# man -w passwd
+/usr/share/man/man1/passwd.1.gz
+
+查看/etc/passwd文件手册页所在位置：
+[root@linuxcool ~]# man -w 5 passwd
+/usr/share/man/man5/passwd.5.gz

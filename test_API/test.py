@@ -9,4 +9,3 @@ with open(file_path, "rb") as f:
 
 print(os.path.getsize(file_path))
 
-file_path.multiple_chunks()

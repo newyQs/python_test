@@ -1,4 +1,10 @@
+"""
+
+"""
+
+
 class FizzBuzz:
+    
     @staticmethod
     def of(number):
         result = ''

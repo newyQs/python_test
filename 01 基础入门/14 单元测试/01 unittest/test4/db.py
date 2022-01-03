@@ -58,7 +58,7 @@ class Author(db.Model):
 
 # 定义模型类-书名
 class Book(db.Model):
-    __tablename__ = 'books'
+    __tablename__ = 'spider_books'
     id = db.Column(db.Integer, primary_key=True)
     info = db.Column(db.String(32), unique=True)
     leader = db.Column(db.String(32))

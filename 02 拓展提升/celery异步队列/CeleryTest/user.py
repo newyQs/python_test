@@ -1,3 +1,6 @@
+"""
+
+"""
 from .tasks import send
 import time
 

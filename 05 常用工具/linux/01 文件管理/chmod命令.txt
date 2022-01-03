@@ -1,0 +1,23 @@
+chmod命令 – 改变文件或目录权限
+
+chmod命令的英文原意是“change the permissions mode of a file”，我们简称为“change mode”，
+意为用来改变文件或目录权限的命令，但是只有文件的属主和超级用户root才能执行这个命令。
+有两种模式，一种是采用权限字母和操作符表达式；另一种是采用数字。
+
+语法格式： chmod [参数] [文件]
+
+常用参数：
+-c	若该文件权限确实已经更改，才显示其更改动作
+-f	若该文件权限无法被更改也不显示错误讯息
+-v	显示权限变更的详细资料
+-R	对目前目录下的所有文件与子目录进行相同的权限变更(即以递回的方式逐个变更)
+
+参考实例
+将档案 file1.txt 设为所有人皆可读取：
+[root@linuxcool ~]# chmod a+r file.txt
+
+将目前目录下的所有文件与子目录皆设为任何人可读取 :
+[root@linuxcool ~]# chmod -R a+r *
+
+将 file.txt 设定为只有该文件拥有者可以执行：
+[root@linuxcool ~]# chmod u+x file.txt

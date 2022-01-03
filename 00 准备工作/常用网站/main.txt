@@ -15,3 +15,6 @@ C语言中文网
 
 
 https://www.pythonf.cn/
+
+request官方中文文档
+https://docs.python-requests.org/zh_CN/latest/

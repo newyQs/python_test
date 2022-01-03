@@ -1,0 +1,49 @@
+sed命令 – 处理编辑文本文件
+
+Linux sed 命令是利用脚本来处理文本文件。
+sed 可依照脚本的指令来处理、编辑文本文件。sed 主要用来自动编辑一个或多个文件、简化对文件的反复操作、编写转换程序等。
+
+语法格式：sed [参数]
+
+常用参数：
+-e或--expression=<script>	以选项中指定的script来处理输入的文本文件
+-f<script文件>或--file=<script文件>	以选项中指定的script文件来处理输入的文本文件
+-h或--help	显示帮助
+-n或--quiet或--silent	仅显示script处理后的结果
+-V或--version	显示版本信息
+
+参考实例
+在file文件的第四行后添加一行，并将结果输出到标准输出：
+[root@linuxcool ~]# sed -e 4a\newline file
+HELLO LINUX!
+Linux is a free unix-type opterating system.
+This is a linux testfile!
+Linux test
+newline
+
+将 /dir 的内容列出并且列印行号，同时删除第 2~5 行：
+[root@linuxcool ~]# nl /dir | sed '2,5d'
+1 root:x:0:0:root:/root:/bin/bash
+6 sync:x:5:0:sync:/sbin:/bin/sync
+7 shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+
+在第二行后面加入两行字，例如 Drink tea or ….. 与 drink beer：
+[root@linuxcool ~]# nl /dir | sed '2a Drink tea or ......\
+> drink beer ?'
+1 root:x:0:0:root:/root:/bin/bash
+2 bin:x:1:1:bin:/bin:/sbin/nologin
+Drink tea or ......
+drink beer ?
+3 daemon:x:2:2:daemon:/sbin:/sbin/nologin
+
+将第2-5行的内容取代成为No 2-5 number：
+[root@linuxcool ~]# nl /dir | sed '2,5c No 2-5 number'
+1 root:x:0:0:root:/root:/bin/bash
+No 2-5 number
+6 sync:x:5:0:sync:/sbin:/bin/sync
+
+以行为单位的显示：
+[root@linuxcool ~]# nl /dir | sed -n '5,7p'
+5 lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+6 sync:x:5:0:sync:/sbin:/bin/sync
+7 shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown

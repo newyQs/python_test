@@ -1,0 +1,147 @@
+grep命令 – 强大的文本搜索工具
+
+grep是“global search regular expression and print out the line”的简称，意思是全面搜索正则表达式，并将其打印出来。这个命令可以结合正则表达式使用，它也是linux使用最为广泛的命令。
+
+grep命令的选项用于对搜索过程的补充，而其命令的模式十分灵活，可以是变量、字符串、正则表达式。需要注意的是：一当模式中包含了空格，务必要用双引号将其引起来。
+
+linux系统支持三种形式的grep命令，大儿子就是grep，标准，模仿的代表。二儿子兴趣爱好多-egrep，简称扩展grep命令，其实和grep -E等价，支持基本和扩展的正则表达式。小儿子跑的最快-fgrep，简称快速grep命令，其实和grep -F等价，不支持正则表达式，按照字符串表面意思进行匹配。
+
+语法格式： grep [参数]
+
+常用参数：
+-i	搜索时，忽略大小写
+-c	只输出匹配行的数量
+-l	只列出符合匹配的文件名，不列出具体的匹配行
+-n	列出所有的匹配行，显示行号
+-h	查询多文件时不显示文件名
+-s	不显示不存在、没有匹配文本的错误信息
+-v	显示不包含匹配文本的所有行
+-w	匹配整词
+-x	匹配整行
+-r	递归搜索
+-q	禁止输出任何结果，已退出状态表示搜索是否成功
+-b	打印匹配行距文件头部的偏移量，以字节为单位
+-o	与-b结合使用，打印匹配的词据文件头部的偏移量，以字节为单位
+
+参考实例
+
+支持多文件查询并支持使用通配符：
+[root@linuxcool ~]# grep zwx file_* /etc/hosts
+file_1:zwx
+file_1:zwx
+file_1:zwxddkjflkdjfdlkfjlsdkj
+file_2:zwx
+file_4:dkfjlzwxejfkje
+file_4:zwx djfkdjf
+file_4:zwxedkfgj
+
+输出匹配字符串行的数量：
+[root@linuxcool ~]$ grep -c zwx file_*
+ file_1:2
+ file_2:1
+ file_3:0
+
+列出所有的匹配行，并显示行号：
+[root@linuxcool ~]# grep -n zwx file_*
+ file_1:1:zwx
+ file_1:4:zwx
+ file_1:10:zwxddkjflkdjfdlkfjlsdkj
+ file_2:2:zwx
+ file_4:3:dkfjlzwxejfkje
+ file_4:4:zwx djfkdjf
+ file_4:5:zwxedkfgj
+
+显示不包含模式的所有行：
+[root@linuxcool ~]# grep -vc zwx file_*
+ file_1:7
+ file_2:4
+ file_3:5
+ file_4:2
+
+不再显示文件名：
+[root@linuxcool ~]# grep -h zwx file_*
+ zwx
+ zwx
+ zwxddkjflkdjfdlkfjlsdkj
+ zwx
+ dkfjlzwxejfkje
+ zwx djfkdjf
+ zwxedkfgj
+
+只列出符合匹配的文件名，不列出具体匹配的行：
+[root@linuxcool ~]# grep -l zwx file_*
+ file_1
+ file_2
+ file_4
+
+不显示不存在或无匹配的文本信息：
+[root@linuxcool ~]# grep  -s zwx file1 file_1
+ file_1:zwx
+ file_1:zwx
+ file_1:zwxddkjflkdjfdlkfjlsdkj
+ [root@linuxcool ~]# grep zwx file1 file_1
+ grep: file1: No such file or directory
+ file_1:zwx
+ file_1:zwx
+ file_1:zwxddkjflkdjfdlkfjlsdkj
+
+递归搜索，不仅搜索当前目录，还搜索子目录：
+[root@linuxcool ~]# grep -r zwx file_2 *
+ file_2:zwx
+ anaconda-ks.cfg:user --name=zwx --gecos="zwx"
+ file_1:zwx
+ file_1:zwx
+ file_1:zwxddkjflkdjfdlkfjlsdkj
+ file_2:zwx
+ file_4:dkfjlzwxejfkje
+ file_4:zwx djfkdjf
+ file_4:zwxedkfgj
+ initial-setup-ks.cfg:user --name=zwx --gecos="zwx"
+
+匹配整词，以字面意思去解释他，相当于精确匹配：
+[root@linuxcool ~]# grep zw* file_1
+ zwx
+ zwx
+ zdkfjeld
+ zw
+ ze
+ zwxddkjflkdjfdlkfjlsdkj
+ [root@linuxcool ~]# grep -w zw* file_1
+ zw
+
+匹配整行，文件中的整行与模式匹配时，才打印出来：
+[root@linuxcool ~]# grep -x zwx file_*
+ file_1:zwx
+ file_1:zwx
+ file_2:zwx
+
+不输出任何结果，已退出状态表示结果：
+ [root@linuxcool ~]# grep -q zwx file_1
+ [root@linuxcool ~]# echo $?
+ 0
+ [root@linuxcool ~]# grep -q zwx file_5
+ [root@linuxcool ~]# echo $?
+ 1
+ [root@linuxcool ~]# grep -q zwx file5
+ grep: file5: No such file or directory
+ [root@linuxcool ~]# echo $?
+ 2
+
+查找一个文件中的空行和非空行：
+[root@linuxcool ~]# grep -c ^$ file_1
+ 4
+ [root@linuxcool ~]# grep -c ^[^$] file_1
+ 15
+
+匹配任意或重复字符用“.”或“*”符号来实现：
+[root@linuxcool ~]# grep ^z.x file_1
+ zwx
+ zwx
+ zwxddkjflkdjfdlkfjlsdkj
+[root@linuxcool ~]# grep ^z* file_6
+ zwx
+ dfkjd
+
+ zzdfjkd
+ zz dfdww
+ haha
