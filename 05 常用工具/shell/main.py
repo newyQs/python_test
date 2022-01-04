@@ -1,3 +1,3 @@
 '''
-https://www.runoob.com/linux/linux-tutorial.html
+https://www.runoob.com/Linux/Linux-tutorial.html
 '''

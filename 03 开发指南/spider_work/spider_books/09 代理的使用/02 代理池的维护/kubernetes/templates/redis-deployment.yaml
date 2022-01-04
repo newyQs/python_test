@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: proxypool-Redis
+  name: proxypool-Redis
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: proxypool-Redis
+  template:
+    metadata:
+      labels:
+        app: proxypool-Redis
+    spec:
+      containers:
+        - image: Redis:alpine
+          name: proxypool-Redis
+          ports:
+            - containerPort: 6379
+          resources:
+            limits:
+              memory: "100Mi"
+              cpu: "100m"
+            requests:
+              memory: "100Mi"
+              cpu: "100m"
+      restartPolicy: Always

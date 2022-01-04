@@ -42,7 +42,7 @@ import os
 # 3.系统操作
 # print(os.sep) # 获取系统的分隔符,windows返回\，Linux系统返回/
 
-# print(os.name)  # 获取使用的平台，windows返回nt,linux/Unix返回posix
+# print(os.name)  # 获取使用的平台，windows返回nt,Linux/Unix返回posix
 
 # print(os.getcwd()) # 获取当前的全路径
 
