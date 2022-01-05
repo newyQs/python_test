@@ -20,12 +20,12 @@ with open_func('/Users/MING/mytest.txt') as file_in:
     for line in file_in:
         print(line)
 
-'''
+"""
 在被装饰函数里，必须是一个生成器（带有yield），而yield之前的代码，就相当于__enter__里的内容。
 yield 之后的代码，就相当于__exit__ 里的内容。
 上面这段代码只能实现上下文管理器的第一个目的（管理资源），并不能实现第二个目的（处理异常）。
 如果要处理异常，可以改成下面这个样子。
-'''
+"""
 
 
 @contextlib.contextmanager

@@ -1,24 +1,27 @@
 """
 
 """
+import os
 
 
-def print_directory_contents(sPath):
-    '''
+def target_path(s_path):
+    """
     这个函数接收文件夹的名称作为输入参数
-    返回该文件夹中文件的路径
-    及其包含文件夹中文件的路径
-    :param sPath:
-    :return:
-    '''
-    import os
-    for sChild in os.listdir(sPath):
-        sChildPath = os.path.join(sPath, sChild)
-        if os.path.isdir(sChildPath):
-            print_directory_contents(sChildPath)
+     返回该文件夹中文件的路径
+     及其包含文件夹中文件的路径
+    """
+    # 枚举目录中的子目录
+    for s_child in os.listdir(s_path):
+        # 拼接成新目录名
+        s_child_path = os.path.join(s_path, s_child)
+        # 如果是目录
+        if os.path.isdir(s_child_path):
+            # 递归枚举
+            target_path(s_child_path)
         else:
-            print(sChildPath)
+            # 否则打印文件路径
+            print(s_child_path)
 
 
 if __name__ == '__main__':
-    print_directory_contents('.')
+    target_path('.')

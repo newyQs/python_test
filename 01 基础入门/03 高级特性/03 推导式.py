@@ -1,4 +1,3 @@
-
 # 一般方法
 mylist = []
 for item in range(11):
@@ -22,7 +21,8 @@ for i in range(1, 10):
     print()
 
 print('\n'.join(
-    ['\t'.join([f'{j}*{i}={i * j}' for j in range(1, i + 1)]) for i in range(1, 10)]))
+    ['\t'.join([f'{j}*{i}={i * j}' for j in range(1, i + 1)]) for i in range(1, 10)]
+))
 
 # 转置矩阵
 '''

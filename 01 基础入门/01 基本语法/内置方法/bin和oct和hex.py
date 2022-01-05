@@ -12,4 +12,4 @@ hex(x)
 如果 x 不是 Python int 对象，则必须定义返回整数的 __index__() 方法。
 """
 
-# bin - oct - hex
+# bin(二) - oct(八) - hex(十六)

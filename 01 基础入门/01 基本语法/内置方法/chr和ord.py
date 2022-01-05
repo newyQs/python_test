@@ -8,7 +8,7 @@ ord(c)
 例如 ord('a') 返回整数 97， ord('€') （欧元符号）返回 8364 。这是 chr() 的逆函数。
 """
 
-# chr <==>ord
+# chr <==> ord
 
-print(chr(97))
-print(ord("a"))
+print(chr(97))  # "a"
+print(ord("a"))  # 97

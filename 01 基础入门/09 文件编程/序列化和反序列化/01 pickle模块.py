@@ -9,7 +9,7 @@ open() 只能处理字符（str）或字节（bytes）流类型的数据
 '''
 
 # 1.可序列化的数据
-data = [1, True, "hello"]
+# data = [1, True, "hello"]
 data = {'name': 'jack', 'age': 18}
 
 seqdata = pickle.dumps(data)  # 序列化
