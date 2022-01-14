@@ -40,7 +40,7 @@ if __name__ == '__main__':
 ```
 
 ### 1.3.2 使用Pycharm编写第一个Flask Web程序
-
+···
 
 ## 1.4 分析Flask Web程序的基本结构
 
@@ -582,7 +582,69 @@ if __name__ == '__main__':
 
 
 ### 2.3.2 在Flask Web中使用Flask-Bootstrap扩展
+app.py
+```
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
 
+app = Flask(__name__)
+bootstrap = Bootstrap(app)  # Flask扩展一般都在创建实例时初始化，这行代码是Flask-Bootstrap的初始化方法
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+base.html
+```
+{% extends "bootstrap/base.html" %} <!-- base.html模板继承自bootstrap/base.html -->
+{% block title %}Flask{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+ <div class="container">
+ <div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-taget=".navbar-collapse">
+ <span class="sr-only">Toggle navigation</span>
+ <sapn class="icon-bar"></sapn>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/">Flasky</a>
+ </div>
+ <div class="navbar=collapse collapse">
+ <ul class="nav navbar-nav">
+ <li>
+ <a href="/">Home</a>
+ </li>
+ </ul>
+ </div>
+ </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+ {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+<!--title、navbar、content都是bootstrap/base.html中定义的块。navbar是显示导航栏，其中的代码比较多，作用是添加Flasky和Home两个链接-->
+<!--以后的html页面直接继承base.html就可以了-->
+```
+index.html
+```
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+{% block page_content %}
+<h2>这里是首页，welcome</h2>
+Technorati Tags: flask
+{% endblock %}
+```
 
 ### 2.3.3 自定义错误页面
 
@@ -594,22 +656,428 @@ if __name__ == '__main__':
 
 
 ### 2.4.2 使用Flask-Moment显示时间
+app.py
+```
+from datetime import datetime
+from flask import Flask, render_template
+from flask_script import Manager
+from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+
+app = Flask(__name__)
+
+manager = Manager(app)
+bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
+
+
+@app.route('/')
+def index():
+    return render_template('index.html',
+                           current_time=datetime.utcnow())
+
+
+@app.route('/user/<name>')
+def user(name):
+    return render_template('user.html', name=name)
+
+
+if __name__ == '__main__':
+    manager.run()
+```
+404.html
+```
+{% extends "base.html" %}
+
+{% block title %}Flasky - Page Not Found{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Not Found</h1>
+</div>
+{% endblock %}
+```
+500.html
+```
+{% extends "base.html" %}
+
+{% block title %}Flasky - Internal Server Error{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Internal Server Error</h1>
+</div>
+{% endblock %}
+```
+base.html
+```
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Flasky</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
+```
+index.html
+```
+{% extends "base.html" %}
+
+{% block title %}Flask教程{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello World!</h1>
+</div>
+<p>当前时间是：{{ moment(current_time).format('LLL') }}.</p>
+<p>这是{{ moment(current_time).fromNow(refresh=True) }}.</p>
+{% endblock %}
+```
+user.html
+```
+{% extends "base.html" %}
+
+{% block title %}Flask教程{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello World!</h1>
+</div>
+<p>当前时间是：{{ moment(current_time).format('LLL') }}.</p>
+<p>这是{{ moment(current_time).fromNow(refresh=True) }}.</p>
+{% endblock %}
+```
 ## 2.5 静态文件
 
 ### 2.5.1 静态文件介绍
 
 
 ### 2.5.2 使用静态文件
+app.py
+```
+from flask import Flask, render_template
 
+app = Flask(__name__)
 
+@app.route("/")
+def index():
+   return render_template("index.html")
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+index.html
+```
+<html>
+   <head>
+      <script type = "text/javascript"
+         src = "{{ url_for('static', filename = 'hello.js') }}" ></script>
+   </head>
+   <body>
+      <input type = "button" onclick = "sayHello()" value = "点击我啊" />
+   </body>
+</html>
+```
 ## 2.6 可插拔视图
 
 ### 2.6.1 使用可插拔视图
 
 
 ### 2.6.2 可插拔视图实战演练
+error_handlers.py
+```
+from flask import render_template, jsonify
+from routing import app
+from myexceptions import *
+
+#错误处理程序
+@app.errorhandler(404)
+def unexpected_error(error):
+    """ 未知错误的错误处理程序 """
+    return render_template('error.html'), 404
+
+@app.errorhandler(AuthenticationException)
+def auth_error(error):
+    """ 用户输入数据发生异常时的错误处理程序用 """
+    return jsonify({'error': error.get_message()})
+```
+myexceptions.py
+```
+class AuthenticationException(Exception):
+    """
+        与身份验证相关的异常
+    """
+    def __init__(self, message_text):
+        self.message_text = message_text
+
+    def get_message(self):
+        return self.message_text
+
+```
+routing.py
+```
+from flask import Flask
+from views import UserView
+
+#App配置
+app= Flask(__name__)
+
+#URLs
+app.add_url_rule('/users', view_func=UserView.as_view('user_view'), methods=['GET'])
+
+from error_handlers import *
+
+if __name__ == '__main__':
+    app.run()
+```
+views.py
+```
+from flask.views import View
+from flask import render_template
+
+from myexceptions import AuthenticationException
+
+class ParentView(View):
+    def get_template_name(self):
+        raise NotImplementedError()
+
+    def render_template(self, context):
+        return render_template(self.get_template_name(), **context)
+
+    def dispatch_request(self):
+        context = self.get_objects()
+        return self.render_template(context)
+
+class UserView(ParentView):
+    def get_template_name(self):
+        raise AuthenticationException('test')
+        return 'users.html'
+
+    def get_objects(self):
+        return {}
+```
+error.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h7>这是模板文件Error.html</h7>
+</body>
+</html>
+```
+user.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h7>这是模板文件User.html</h7>
+</body>
+</html>
+```
+
+# 第3章 实现表单操作
 
 
+## 3.1 使用Flask-WTF扩展
 
+### 3.1.1 Flask-WTF基础
+
+### 3.1.2 使用Flask-WTF处理表单
+
+
+## 3.2 重定向和会话处理
+
+### 3.2.1 Flask中的重定向和会话处理
+
+### 3.2.2 实现重定向和会话处理
+
+
+## 3.3 Flash闪现提示
+
+### 3.3.1 Flash基础
+
+###  3.3.2 使用模板渲染flash()函数的闪现提示信息
+
+
+## 3.4 文件上传
+
+### 3.4.1 简易文件上传程序
+
+### 3.4.2 查看上传的图片
+
+### 3.4.3 使用Flask-WTF实现文件上传
+
+### 3.4.4 使用Flask-Uploads扩展上传文件
+
+
+## 3.5 登录验证
+
+0### 3.5.1 验证两次密码是否相同
+
+### 3.5.2 注册验证和登录验证
+form.html
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post">
+        <lable>用户名：</lable><input type="text" name="username"><br>
+        <lable>输入密码：</lable><input type="password" name="password"><br>
+        <label>确认密码：</label><input type="password" name="password2"><br>
+        <input type="submit" value="提交"><br>
+    </form>
+    {# 使用遍历获取闪现的消息 #}
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+
+</body>
+</html>
+```
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+
+# 第4章 Flask数据库操作
+
+## 4.1 关系型数据库和非关系型数据库
+
+### 4.1.1 关系型数据库
+
+### 4.1.2 非关系型数据库
+
+## 4.2 Python语言的数据库框架
+
+### 4.2.1 程序文件
+
+### 4.2.2 模板文件
+
+## 4.3 使用Flask-SQLAlchemy管理数据库
+
+### 4.3.1 Flask-SQLAlchemy基础
+
+### 4.3.2定义模型
+
+### 4.3.3 关系
+
+## 4.4 使用Flask-SQLAlchemy操作数据库
+
+### 4.4.1 新建表
+
+### 4.4.2 添加行
+
+### 4.4.3 修改行
+
+### 4.4.4 删除行
+
+### 4.4.5 查询行
+
+### 4.4.6 在视图函数中操作数据库
+
+### 4.4.7 使用Flask-SQLAlchemy实现一个简易的登录系统
+
+### 4.4.8 使用Flask-SQLAlchemy实现小型BBS系统
+
+## 4.5 将数据库操作集成到Python shell
+
+## 4.6 使用Flask-Migrate实现数据库迁移
+
+### 4.6.1 创建Virtualenv虚拟环境
+
+### 4.6.2 创建迁移仓库
+
+### 4.6.3 创建迁移脚本
+
+### 4.6.4 更新数据库
+
+## 4.7 使用CouchDB数据库
+
+### 4.7.1 搭建开发环境
+
+### 4.7.2 图书发布系统
+
+### 4.7.3 文件上传系统
+
+## 4.8 Virtualenv+Flask+MySQL+SQLAlchemy信息发布系统
+
+### 4.8.1 创建Virtualenv虚拟环境
+
+### 4.8.2 使用Flask实现数据库迁移
+
+### 4.8.3 具体实现
+
+
+## 4.9 流行电影展示系统
+
+### 4.9.1 TheMovieDB简介
+
+### 4.9.2 开发流程介绍
+
+### 4.9.3 具体实现

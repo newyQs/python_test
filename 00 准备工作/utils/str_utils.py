@@ -48,6 +48,6 @@ class StrUtils:
 su = StrUtils()
 
 if __name__ == '__main__':
-    print(su.verification_code1())
+    # print(su.verification_code1())
     print(su.verification_code2())
     # su.verification_code3()
