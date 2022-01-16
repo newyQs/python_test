@@ -91,9 +91,6 @@ class uploadFileSection:
             self.do_upload_slice(file_path, i * chunk_size, current_size, file_name, file_md5, file_total_size, is_end)
 
 
-'''
-参数
-'''
 if __name__ == "__main__":
     work = uploadFileSection()
     work.do_upload('d:/222huojian.jpg')

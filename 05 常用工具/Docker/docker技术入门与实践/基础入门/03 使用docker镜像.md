@@ -1,7 +1,8 @@
-#第3章 使用docker镜像
-docker运行容器前需要本地存在对应的镜像，如果镜像不存在，docker会尝试先从默认镜像仓库下载（默认使用Docker Hub公共注册服务器中的仓库），用户也可以配置使用自定义的镜像仓库。
+# 第3章 使用docker镜像
+docker运行容器前需要本地存在对应的镜像，如果镜像不存在，docker会尝试先从默认镜像仓库下载
+（默认使用Docker Hub公共注册服务器中的仓库），用户也可以配置使用自定义的镜像仓库。
 
-##问题？
+### 问题？
 1. 如何使用pull命令从Docker Hub仓库下载镜像至本地；
 2. 如何查看本地已有的镜像信息和管理镜像标签；
 3. 如何在远端仓库用search命令进行搜索和过滤；
@@ -9,12 +10,13 @@ docker运行容器前需要本地存在对应的镜像，如果镜像不存在�
 5. 如何创建用户定制的镜像并且保存为外部文件；
 6. 如何往Docker Hub仓库中推送自己的镜像；
 
-##3.1 获取镜像
-镜像是运行容器的前提。可以使用docker [image] pull 命令直接从Docker Hub仓库下载镜像：
+## 3.1 获取镜像
+镜像是运行容器的前提，可以使用docker [image] pull 命令直接从Docker Hub仓库下载镜像：
 ```
 docker [image] pull NAME[:TAG]
 ```
-其中，NAME是镜像仓库名称（用来区分镜像），TAG是镜像的标签（往往用来表示版本信息）。通常情况下，描述一个镜像需要包括“名称+标签”信息。
+其中，NAME是镜像仓库名称（用来区分镜像），TAG是镜像的标签（往往用来表示版本信息）。
+通常情况下，描述一个镜像需要包括“名称+标签”信息。
 
 例如，获取ubuntu18.04系统的基础镜像可以使用如下的命令：
 ```
@@ -54,58 +56,58 @@ pull子命令支持的选项主要包括：
 docker run -it ubuntu:18.04 bash
 ```
 
-##3.2 查看镜像信息
-###1. 使用docker images或者docker image ls命令可以列出本地主机上已有的镜像的基础信息
-```
-docker images
-```
-或者：
-```
-docker image ls
-```
-在列出的信息中，可以看到这几个字段信息：
-+ 来自那个仓库
-+ 镜像的标签信息
-+ 镜像的ID（唯一标识镜像）
-+ 创建时间
-+ 镜像大小
+## 3.2 查看镜像信息
+1. 使用docker images或者docker image ls命令可以列出本地主机上已有的镜像的基础信息
+    ```
+    docker images
+    ```
+    或者：
+    ```
+    docker image ls
+    ```
+    在列出的信息中，可以看到这几个字段信息：
+    + 来自那个仓库
+    + 镜像的标签信息
+    + 镜像的ID（唯一标识镜像）
+    + 创建时间
+    + 镜像大小
+    
+    images子命令主要支持以下选项：
+    + -a, --all=true|false：列出所有（包括临时文件）镜像文件，默认为否
+    + -digests=true|false：列出镜像的数字摘要值，默认为否
+    + -f, --filter=[ ]：过滤列出的镜像，如dangling=true只显示没有被使用的镜像；也可以指定带有特定标注的镜像等
+    + --format="TEMPLATE"：控制输出格式，如.ID代表ID信息，.Repository代表仓库信息等
+    + --no-trunc=true|false：对输出结果中太长的部分是否进行截断，如镜像的ID信息，默认为是
+    + -q, --quiet=true|false：仅输出ID信息，默认为否
+    
+    更多的子命令可以通过man docker-images查看。
 
-images子命令主要支持以下选项：
-+ -a, --all=true|false：列出所有（包括临时文件）镜像文件，默认为否
-+ -digests=true|false：列出镜像的数字摘要值，默认为否
-+ -f, --filter=[ ]：过滤列出的镜像，如dangling=true只显示没有被使用的镜像；也可以指定带有特定标注的镜像等
-+ --format="TEMPLATE"：控制输出格式，如.ID代表ID信息，.Repository代表仓库信息等
-+ --no-trunc=true|false：对输出结果中太长的部分是否进行截断，如镜像的ID信息，默认为是
-+ -q, --quiet=true|false：仅输出ID信息，默认为否
+2. 使用tag命令添加镜像标签
+    为了方便在后续工作中使用特定镜像，还可以为本地镜像添加新的标签
+    ```
+    docker tag ubuntu:latest myubuntu:latest
+    ```
 
-更多的子命令可以通过man docker-images查看。
+3. 使用inspect命令查看详细信息
+    获取镜像的详细信息，包括制作者，适应架构，各层的数字摘要等；
+    ```
+    docker [image] inspect ubuntu:18.04
+    ```
+    上面代码返回的是一个JSON格式的消息，如果我们只要其中一项内容时，可以使用-f指定：
+    ```
+    docker [image] inspect -f {{".Architecture}} ubuntu:18.04
+    ```
 
-###2. 使用tag命令添加镜像标签
-为了方便在后续工作中使用特定镜像，还可以为本地镜像添加新的标签
-```
-docker tag ubuntu:latest myubuntu:latest
-```
+4. 使用history查看镜像历史
+    既然镜像文件由多个层组成，那么怎么知道各个层的内容具体是什么呢？这时候可以使用history命令，该命令可以列出各层的创建信息。
+    
+    例如，查看ubuntu:18.04镜像的创建过程，可以使用如下命令：
+    ```
+    docker histoty ubuntu:18.04
+    ```
+    注意：过长的命令被自动截断了，可以使用前面的--no-trunc选项输出完整命令。
 
-###3. 使用inspect命令查看详细信息
-获取镜像的详细信息，包括制作者，适应架构，各层的数字摘要等；
-```
-docker [image] inspect ubuntu:18.04
-```
-上面代码返回的是一个JSON格式的消息，如果我们只要其中一项内容时，可以使用-f指定：
-```
-docker [image] inspect -f {{".Architecture}} ubuntu:18.04
-```
-
-###4. 使用history查看镜像历史
-揖让镜像文件由多个层组成，那么怎么知道各个层的内容具体是什么呢？这时候可以使用history命令，该命令可以列出各层的创建信息。
-
-例如，查看ubuntu:18.04镜像的创建过程，可以使用如下命令：
-```
-docker histoty ubuntu:18.04
-```
-注意：过长的命令被自动截断了，可以使用前面的--no-trunc选项输出完整命令。
-
-##3.3 搜寻镜像
+## 3.3 搜寻镜像
 ```
 docker search [option] keyword
 ```
@@ -126,7 +128,7 @@ docker search nginx -f is-office=true
 docker search --filter=starts=4 tensorflow
 ```
 
-##3.4 删除镜像
+## 3.4 删除镜像
 1. 使用标签删除镜像
     使用docker rmi 或者docker image rm命令可以删除镜像。
     ```
@@ -165,7 +167,7 @@ docker search --filter=starts=4 tensorflow
    ```
    注意，通常不推荐直接使用 -f 参数删除一个存在容器依赖的镜像，正确的步骤是先删除依赖该镜像的所有容器，再来删除镜像。
    
-##3.5 清理镜像
+## 3.5 清理镜像
 ```
 docker image prune 
 ```
@@ -174,7 +176,7 @@ docker image prune
 + -filter filter：只清理符合给定过滤器的镜像；
 + -f, -force：强制删除镜像，而不进行提示确认；
 
-##3.6 创建镜像
+## 3.6 创建镜像
 1. 基于已有容器创建
     ```
     docker [container] commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
@@ -202,7 +204,7 @@ docker image prune
     ```
     docker [image] build -t python3
     ```
-##3.7 存出和载入镜像
+## 3.7 存出和载入镜像
 1. 存出镜像
     如果要导出镜像到本地文件，可以使用docker [image] save命令。该命令支持-o 、-output string参数，导出镜像到指定的文件中。
     ```
@@ -228,7 +230,7 @@ docker image prune
     ```
     这将导入镜像及其相关的元数据信息（包括标签等）。
 
-##3.8 上传镜像
+## 3.8 上传镜像
 可以使用docker [image] push命令上传镜像到仓库，默认上传到Docker Hub官方仓库（需要登录）：
 ```
 docker [image] push NAME[:TAG] | [REGISTRY_HOST[:REGISTRY_PROT]/]NAME[:TAG]
