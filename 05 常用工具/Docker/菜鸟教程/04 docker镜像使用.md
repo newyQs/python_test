@@ -1,27 +1,50 @@
 1. 列出本地主机上所有镜像
+    ```
     docker images
+    ```
+    或者
+    ```
+    docker image ls
+    ```
+    注：基本上使用docker images就可以了
 
 2. 查找镜像
+    ```
     docker search ubuntu:18.04
+    ```
 
 3. 拉取镜像
+    ```
     docker pull ubuntu:18.04
+    ```
 
 4. 删除镜像
+    ```
     docker rmi <image_id>
+    ```
 
 5. 创建镜像
-    1、从已经创建的容器中更新镜像，并且提交这个镜像
-    先创建一个容器：
-        docker run -t -i ubuntu:15.10 /bin/bash
-    再作修改：
-        apt-get update
-    提交成新的镜像：
-        docker commit -m="message" -a "author" <container_id> IMAGE:TAG
-    查看镜像：
-        docker images
+    + 从已经创建的容器中更新镜像，并且提交这个镜像
     
-    2、使用 Dockerfile 指令来创建一个新的镜像
+    先创建一个容器：
+    ```
+    docker run -t -i ubuntu:15.10 /bin/bash
+    ```
+        
+    再作修改：
+    ```
+    apt-get update
+    ```
+    提交成新的镜像：
+    ```
+    docker commit -m="message" -a "author" <container_id> IMAGE:TAG
+    ```
+    查看镜像：
+        ```
+        docker images
+        ```
+    
+    + 使用 Dockerfile 指令来创建一个新的镜像
     新建一个Dockerfile文件
         Dockerfile
         ```
