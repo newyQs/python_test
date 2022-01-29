@@ -19,11 +19,11 @@ echo ${arr2[0]}
 echo ${arr3[3]}
 
 # 读取数组全部元素
-echo ${arr1[*]}
-echo ${arr2[@]}
+echo "数组arr1：${arr1[*]}"
+echo "数组arr2：${arr2[@]}"
 
 # 获取数组长度
-echo "数组长度:${#arr3[*]}"
+echo "数组长度：${#arr3[*]}"
 
 # 删除数组元素
 echo "元素删除前：${arr1[0]}"
@@ -32,7 +32,7 @@ echo "元素删除后：${arr1[0]}"
 
 # 删除数组
 unset arr3
-echo "删除数组后：${arr3[*]} 长度${#arr3[*]}"
+echo "删除数组后：${arr3[*]}，长度：${#arr3[*]}"
 
 # 遍历数组元素
 for item in ${arr1[*]}; do

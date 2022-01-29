@@ -269,7 +269,7 @@ if __name__ == '__main__':
 ## 2.3 使用Flask-Bootstrap扩展
 
 ### 2.3.1 Flask-Bootstrap扩展基础
-使用pip install flask-bootstrap安装
+使用`pip install flask-bootstrap`安装
 
 ### 2.3.2 在Flask Web中使用Flask-Bootstrap扩展
 app.py
@@ -529,7 +529,7 @@ error_handlers.py
 ```
 from flask import render_template, jsonify
 from routing import app
-from myexceptions import *
+from my_exceptions import *
 
 #错误处理程序
 @app.errorhandler(404)
@@ -542,7 +542,7 @@ def auth_error(error):
     """ 用户输入数据发生异常时的错误处理程序用 """
     return jsonify({'error': error.get_message()})
 ```
-myexceptions.py
+my_exceptions.py
 ```
 class AuthenticationException(Exception):
     """
@@ -575,8 +575,7 @@ views.py
 ```
 from flask.views import View
 from flask import render_template
-
-from myexceptions import AuthenticationException
+from my_exceptions import AuthenticationException
 
 class ParentView(View):
     def get_template_name(self):
