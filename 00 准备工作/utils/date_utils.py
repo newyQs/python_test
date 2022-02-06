@@ -31,13 +31,11 @@ class DateUtils:
     def de_date_time(cls):
         # t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) # -> 2022-01-02 19:13:55
         t = time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())  # -> Sun Jan 02 19:22:22 2022
-
         return t
 
     @classmethod
     def en_date_time(cls, a):
         t = time.mktime(time.strptime(a, "%Y-%m-%d %H:%M:%S"))
-
         return t
 
 

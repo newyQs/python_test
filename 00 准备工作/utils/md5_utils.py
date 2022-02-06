@@ -27,7 +27,6 @@ class Md5Utils:
                     if not data:
                         break
                     hash_md5.update(data)
-
             return hash_md5.hexdigest()
 
         else:

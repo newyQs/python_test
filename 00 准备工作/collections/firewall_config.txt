@@ -22,5 +22,5 @@ systemctl status firewalld
 systemctl stop firewalld
 systemctl start firewalld
 
-systemctl disable firewalld.service，开机禁止防火墙服务器
-systemctl enable firewalld.service，开机启动防火墙服务器
+systemctl disable firewalld.service 开机禁止防火墙服务器
+systemctl enable firewalld.service 开机启动防火墙服务器
