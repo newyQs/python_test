@@ -33,7 +33,7 @@ class BaseCrawler(object):
 
     def crawl(self):
         """
-        crawl main method
+        crawl 文件及目录操作 method
         """
         try:
             for url in self.urls:

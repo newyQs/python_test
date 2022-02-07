@@ -32,6 +32,6 @@ class DateServiceTest(unittest.TestCase):
         self.assertEqual(month, "12", "month not equal")
 
 
-# test main
+# test 文件及目录操作
 if __name__ == "__main__":
     unittest.main()

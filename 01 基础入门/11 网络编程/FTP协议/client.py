@@ -7,7 +7,7 @@ ftp = FTP(host='127.03 爬虫基本原理.03 爬虫基本原理.1', user='user',
 ftp.encoding = 'utf-8'
 
 # 切换目录
-ftp.cwd('04 collections')
+ftp.cwd('04 first')
 
 # 列出文件夹的内容
 ftp.retrlines('LIST')  # ftp.dir()
@@ -19,5 +19,5 @@ ftp.retrbinary('RETR node.txt', open('node.txt', 'wb').write)
 ftp.storbinary('STOR bird.png', open('bird.png', 'rb'))
 
 # 查看目录下的文件详情
-for f in ftp.mlsd(path='/04 collections'):
+for f in ftp.mlsd(path='/04 first'):
     print(f)

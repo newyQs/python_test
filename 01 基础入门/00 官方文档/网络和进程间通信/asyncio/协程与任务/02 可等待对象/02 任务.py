@@ -10,7 +10,7 @@ async def nested():
 
 async def main():
     # Schedule nested() to run soon concurrently
-    # with "main()".
+    # with "文件及目录操作()".
     task = asyncio.create_task(nested())
 
     # "task" can now be used to cancel "nested()", or

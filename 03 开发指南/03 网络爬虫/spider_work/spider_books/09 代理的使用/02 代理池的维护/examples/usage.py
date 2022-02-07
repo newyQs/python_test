@@ -26,7 +26,7 @@ def crawl(url, proxy):
 
 def main():
     """
-    main method, entry point
+    文件及目录操作 method, entry point
     :return: none
     """
     proxy = get_random_proxy()

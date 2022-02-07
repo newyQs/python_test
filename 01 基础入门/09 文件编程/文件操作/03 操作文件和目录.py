@@ -2,7 +2,7 @@ import os
 import shutil
 
 # 1.检查文件是否存在
-# flag = os.path.exists('./io/04 collections.txt')  # 返回True或者False
+# flag = os.path.exists('./io/04 first.txt')  # 返回True或者False
 # print(flag)
 
 # 1.1 通常在写文件时，我们有必要检查文件是否存在
@@ -48,7 +48,7 @@ allfilepath = "d:/img/head/ruhua.png"  # 不要求系统中存在该路径，拆
 print(os.path.splitext(allfilepath))  # 返回值为 ('d:/img/head/ruhua', '.png')
 
 # 4.使用shutil操作文件和路径
-# shutil.copy("d:/04 collections.txt", "d:/testcp.txt")  # 拷贝文件
+# shutil.copy("d:/04 first.txt", "d:/testcp.txt")  # 拷贝文件
 # shutil.rmtree("d:/testdir")  # testdir 是非空文件夹
 
 # 当然即使我们不使用 shutil 模块，使用 Python 提供的 os 模块也可以实现拷贝文件，删除非空文件夹等等所有的对文件的操作，其实 shutil 模块里面也是调用 os 模块来完成这些复杂的文件操作

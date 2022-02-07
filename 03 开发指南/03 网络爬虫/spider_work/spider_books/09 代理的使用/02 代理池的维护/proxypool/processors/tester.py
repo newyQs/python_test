@@ -67,7 +67,7 @@ class Tester(object):
     @logger.catch
     def run(self):
         """
-        test main method
+        test 文件及目录操作 method
         :return:
         """
         # event loop of aiohttp

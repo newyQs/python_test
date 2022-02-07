@@ -10,10 +10,10 @@ async def main():
     print("world")
 
 
-# main() # 简单的调用不会起作用
+# 文件及目录操作() # 简单的调用不会起作用
 
 # 要真正运行一个协程，asyncio 提供了三种主要机制:
-# 1.asyncio.run() 函数用来运行最高层级的入口点 "main()" 函数
+# 1.asyncio.run() 函数用来运行最高层级的入口点 "文件及目录操作()" 函数
 asyncio.run(main())
 
 # 2.等待一个协程

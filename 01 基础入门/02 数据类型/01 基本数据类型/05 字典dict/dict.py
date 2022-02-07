@@ -76,7 +76,7 @@ d_co = dd.copy()
 dd.clear()
 
 # setdefault()
-dd.setdefault('ss', 'this is a 04 collections')
+dd.setdefault('ss', 'this is a 04 first')
 print(dd['ss'])
 print(dd.get('ss'))
 

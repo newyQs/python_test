@@ -186,10 +186,7 @@ def crawl(url, proxy):
 
 
 def main():
-    """
-    main method, entry point
-    :return: none
-    """
+    文件及目录操作
     proxy = get_random_proxy()
     print('get random proxy', proxy)
     html = crawl(target_url, proxy)

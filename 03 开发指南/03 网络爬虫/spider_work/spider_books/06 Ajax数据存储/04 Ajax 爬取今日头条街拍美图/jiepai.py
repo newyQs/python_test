@@ -118,7 +118,7 @@ headers = {
 }
 
 if __name__ == '__main__':
-    # p.map(main,[0]) # 之所以不用Pool多进程是因为目前还没有办法实现跨进程共享Cookies
-    # map(main,[x*20 for x in range(3)]) map没有输出，不知道为什么
+    # p.map(文件及目录操作,[0]) # 之所以不用Pool多进程是因为目前还没有办法实现跨进程共享Cookies
+    # map(文件及目录操作,[x*20 for x in range(3)]) map没有输出，不知道为什么
     for i in [x * 20 for x in range(3)]:
         main(i)

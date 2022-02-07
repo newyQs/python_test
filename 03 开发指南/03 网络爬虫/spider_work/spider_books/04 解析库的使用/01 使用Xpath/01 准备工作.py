@@ -21,6 +21,6 @@ text = '''
      </ul>
 </div>
 '''
-html = etree.HTML(text)
-result = etree.tostring(html)
-print(result.decode('utf-8'))
+html = etree.HTML(text)  # <class 'lxml.etree._Element'>
+result = etree.tostring(html)  # <class 'bytes'>
+print(result.decode('utf-8'))  # <class 'str'>
