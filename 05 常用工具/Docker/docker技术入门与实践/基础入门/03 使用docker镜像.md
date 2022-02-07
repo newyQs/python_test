@@ -30,7 +30,7 @@ docker pull ubuntu
 ```
 docker pull ubuntu:latest
 ```
-下载过程中可以看出，镜像文件一般由若干层（layer）组成，6c953ac5d795这样的串是层的唯一id（完整的id包含256比特，64个十六进制字符组成）。
+下载过程中可以看出，镜像文件一般由**若干层**（layer）组成，6c953ac5d795这样的串是层的唯一id（完整的id包含256比特，64个十六进制字符组成）。
 
 使用docker pull命令下载中会获取并输出镜像的各层信息。当不同的镜像包括相同的层时，本地仅存储了层的一份内容，减小了存储空间。
 ```
@@ -141,7 +141,9 @@ docker search --filter=starts=4 tensorflow
     
     ```
     docker rmi ubuntu:18.04
-    或
+    ```
+    或者
+    ```
     docker image rm ubuntu:18.04
     ```
     当镜像只剩下一个标签时，此时使用docker rmi命令会彻底删除这个镜像；

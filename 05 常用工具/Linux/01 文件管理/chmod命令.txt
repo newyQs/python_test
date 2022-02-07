@@ -21,3 +21,12 @@ chmod命令的英文原意是“change the permissions mode of a file”，我�
 
 将 file.txt 设定为只有该文件拥有者可以执行：
 [root@linuxcool ~]# chmod u+x file.txt
+
+数字模式：
+chmod 777
+其中：
+4 可读
+2 可写
+1 可执行
+
+777代表三个用户组权限都是7

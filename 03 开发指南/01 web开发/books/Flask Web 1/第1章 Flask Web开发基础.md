@@ -24,7 +24,6 @@ Flask的设计目标是实现一个**WSGI**的微框架，其核心代码十分�
 ## 1.3 初步认识Flask Web程序
 
 ### 1.3.1 编写第一个Flask Web程序
-flask.py
 ```
 import flask  # 导入flask模块
 
@@ -39,7 +38,7 @@ def hello():  # 定义业务处理函数helo()
 if __name__ == '__main__':
     app.run()  # 运行程序
 ```
-使用python flask.py启动该程序
+使用命令：`python flask.py` 启动该程序
 
 ### 1.3.2 使用Pycharm编写第一个Flask Web程序
 ···
@@ -57,8 +56,8 @@ app.run(host=None, port=None, debug=None)
 ### 1.4.2 路由处理
 在当前Web开发领域，主流的第三方框架使用路由技术来实现URL访问导航的功能。
 
-在Flask框架中，在浏览器端的客户把访问请求发送给Web服务器，Web服务器再把请求发送给Flask Web程序。
-1. 使用路由方法route(rule, endpoint, **options)
+在Flask框架中，在客户端浏览器把访问请求发送给Web服务器，Web服务器再把请求发送给Flask Web程序。
+1. 使用路由方法：route(rule, endpoint, **options)
     ```
     import flask  
                       		
@@ -68,9 +67,9 @@ app.run(host=None, port=None, debug=None)
     def hello_world():  
         return "hello world"
     ```
-    浏览器输入：http://127.0.0.1:5000/hello 即可显示返回结果
+    浏览器输入：`http://127.0.0.1:5000/hello` 即可显示返回结果
     
-2. 使用路由方法add_url_rule(rule, endpoint=None, view_func=None, provide_automatic_options=None, **options)
+2. 使用路由方法：add_url_rule(rule, endpoint=None, view_func=None, provide_automatic_options=None, **options)
 
     ```
     import flask  
@@ -82,7 +81,7 @@ app.run(host=None, port=None, debug=None)
         
     app.add_url_rule('/','hello',hello_world)
     ```
-    浏览器输入：http://127.0.0.1:5000/hello 即可显示返回结果
+    浏览器输入：`http://127.0.0.1:5000/hello` 即可显示返回结果
     
 3. 将不同的URL映射到同一个函数
     在访问多个不同URL请求时，都会返回由同一个函数产生的响应内容
@@ -99,7 +98,7 @@ app.run(host=None, port=None, debug=None)
     if __name__ == '__main__':
         app.run() 
     ```
-    浏览器输入：http://127.0.0.1:5000/或http://127.0.0.1:5000/aaa 即可显示返回结果
+    浏览器输入：`http://127.0.0.1:5000/` 或 `http://127.0.0.1:5000/aaa` 即可显示返回结果
 
 注：通常开发中基本都是**方法1**中的形式
     
@@ -133,12 +132,14 @@ if __name__ == '__main__':
 ```
 
 ### 1.4.4 传递HTTP请求
-在计算机应用中，HTTP协议是互联网中数据通信的基础，有如下5种HTTP请求方法：
+在计算机应用中，HTTP协议是互联网中数据通信的基础，主要有如下5种HTTP请求方法：
 + GET       使用未加密的形式向服务器发送数据
 + POST      向服务器发送HTML表单中的数据，服务器不会缓存POST接受的数据
 + PUT       使用上传的内容替换指定的目标资源
 + HEAD      和GET方法相同，但是没有响应体
 + DELETE    删除由URL指定的目标资源
+
+其他的方法呢？
 
 在Flask框架中，默认使用GET方法。
 通过URL装饰器的参数“methods”，可以让同一个URL的多种请求方法都映射到同一个函数上。
@@ -171,7 +172,7 @@ def helo():  # 定义业务处理函数helo()
 if __name__ == '__main__':
     app.run()  # 运行程序
 ```
-另外，在Flask Web程序中处理URL请求时，可以使用网页重定向方法url_for()方法来到指定的URL：
+另外，在Flask Web程序中处理URL请求时，可以使用网页重定向方法url_for()跳转到指定的URL：
 ```
 from flask import Flask, redirect, url_for
 

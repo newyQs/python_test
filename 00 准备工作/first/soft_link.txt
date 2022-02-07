@@ -1,4 +1,4 @@
 
 示例：
-ln -s /usr/software/nodejs/bin/npm   /usr/local/bin/
-ln -s /usr/software/nodejs/bin/node   /usr/local/bin/
+ln -s /usr/software/nodejs/bin/npm  /usr/local/bin/
+ln -s /usr/software/nodejs/bin/node  /usr/local/bin/
