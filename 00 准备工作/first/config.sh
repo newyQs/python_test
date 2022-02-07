@@ -9,7 +9,7 @@ yum -y install net-tools
 # 安装git
 yum -y install git
 
-# 安装python3
+# 安装python3并更新pip版本
 yum -y install python
 pip3 install --upgrade pip
 

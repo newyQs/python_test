@@ -7,7 +7,7 @@
 
 class Student:
     school = "清华大学"
-    postalcode = "100091"
+    postal_code = "100091"
 
     def __init__(self, name, age, address):
         self.name = name
@@ -19,10 +19,10 @@ if __name__ == '__main__':
     stu1 = Student("张三", 18, "北京市海淀区")
     stu2 = Student("李四", 2, "上海市浦东新区")
 
-    print(id(stu1), stu1.name, stu1.school, stu1.postalcode)
+    print(id(stu1), stu1.name, stu1.school, stu1.postal_code)
 
     Student.school = "清华大学"
-    stu1.postalcode = "100084"
+    stu1.postal_code = "100084"
 
-    print(id(stu1), stu1.name, stu1.school, stu1.postalcode)
-    print(id(stu2), stu2.name, stu2.school, stu2.postalcode)
+    print(id(stu1), stu1.name, stu1.school, stu1.postal_code)
+    print(id(stu2), stu2.name, stu2.school, stu2.postal_code)

@@ -1,6 +1,6 @@
 import re
 
-# compile(pattern, flags=03 爬虫基本原理)
+# compile(pattern, flags=0)
 # Compile a regular expression pattern, returning a Pattern object."
 # re.compile()
 
@@ -8,5 +8,5 @@ pattern = "[\w]+"
 
 obj = re.compile(pattern)
 
-print(obj)
-
+print(obj)  # re.compile('[\\w]+')
+print(type(obj))  # <class 're.Pattern'>

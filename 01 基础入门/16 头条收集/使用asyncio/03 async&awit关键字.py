@@ -15,7 +15,7 @@ async def func2():
     print(33)
     # 网络IO请求 下载一张图片
     await asyncio.sleep(2)  # 遇到IO耗时操作,自动化切换到task中的其他操作
-    print(444)
+    print(44)
 
 
 if __name__ == '__main__':

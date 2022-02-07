@@ -8,8 +8,6 @@ from alive_progress import alive_bar
 with alive_bar(len(range(100))) as bar:
     for item in range(100):  # 遍历任务
         bar()  # 显示进度
-        """
-        代码
-        """
+        """代码"""
         # 假设这代码部分需要0.05s
         time.sleep(0.05)

@@ -11,7 +11,7 @@ import re
 # 用法
 pattern = "[\w]+"
 
-print(re.findall(pattern, "dj%l~12"))
+print(re.findall(pattern, "dj%l~12"))  # ['dj', 'l', '12']
 if re.findall(pattern, "djll12"):  # --> List
     print("findall：测试通过")
 

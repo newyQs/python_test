@@ -7,14 +7,17 @@ linux cool:
 docker hub：
  https://registry.hub.docker.com/
 
-程序员盒子
+程序员盒子：
  https://www.coderutil.com/
 
-C语言中文网
+C语言中文网：
  http://c.biancheng.net/
 
+python教程：
+ https://www.pythonf.cn/
+ https://www.birdpython.com/
+ https://www.liaoxuefeng.com/
 
-https://www.pythonf.cn/
+requests官方中文文档：
+ https://docs.python-requests.org/zh_CN/latest/
 
-request官方中文文档
-https://docs.python-requests.org/zh_CN/latest/
