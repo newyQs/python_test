@@ -52,7 +52,7 @@ print(two_sum2([2, 5, 5, 11], 10))
 
 
 # 返回的是两个数的index
-def _test(nums: List[int], target: int) -> List[int]:
+def _test1(nums: List[int], target: int) -> List[int]:
     hash_table = {}  # 用字典代替创建一个hash表，key不重复，value保存的是index
     for index, value in enumerate(nums):  # 轮询列表nums
         if target - value in hash_table:  # 寻找另外一个数，如果找到这个数
@@ -63,7 +63,7 @@ def _test(nums: List[int], target: int) -> List[int]:
     return []
 
 
-print(_test([2, 5, 5, 5, 11], 10))
+print(_test1([2, 5, 5, 5, 11], 10))
 
 
 # 返回这两个数value

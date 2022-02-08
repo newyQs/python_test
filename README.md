@@ -1,2 +1,2 @@
 # python_test
-this is a python_code 
+这是lqs日常的python学习代码集合

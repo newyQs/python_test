@@ -216,6 +216,7 @@ docker image prune
     docker save -o ubuntu_18.04.tar ubuntu:18.04
     ```
     之后，用户就可以通过复制ubuntu_18.04.tar文件将该镜像分享给他人。
+    
 2. 载入镜像 
     可以使用docker [image] load 将导出的tar文件再导入到本地镜像库，支持-i、-input string选项，从指定文件中读取镜像内容。
     ```
@@ -242,3 +243,20 @@ docker tag test:latest user/test:latest
 docker push user/test:latest
 ```
 第一次上传时，会提示输入登录信息或进行注册，之后登录信息会记录到本地~/.docker目录下。
+
+## 本章小结
+
+```
+docker pull
+docker search
+docker images
+docker tag
+docker run
+docker inspect
+docker history
+docker rmi
+docker push
+docker save
+docker load
+docker build
+```

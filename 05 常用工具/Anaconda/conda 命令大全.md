@@ -1,13 +1,67 @@
+## 查看conda版本
+conda -version
+conda -V
+
+## 查看包含版本更多信息
+conda info
+
+## 更新conda
+conda update conda
+
+## 查看conda环境管理命令帮助信息
+conda create -help
+
+## 新建虚拟环境
+conda create -name <env_name>
+
+## 删除虚拟环境
+conda remove -name <env_name> --all
+
+## 创建指定Python版本，指定包
+conda create -n <env_name> python=3.7
+conda create -n <env_name> scipy
+conda create -n <env_name> scipy=0.15.0
+conda create -n <env_name> python=3.7 scipy=0.15.0 numpy request
+
+## 给虚拟环境安装包
+conda install scipy
+conda install scipy=0.15.0
+conda install scipy curl
+conda install scipy=0.15.0 curl=7.26.0
+
+conda install -n <env_name> scipy
+conda install -n <env_name> scipy=0.15.0
+
+## 查看当前环境的包
+conda list
+
+## 更新包
+conda update
+conda update numpy
+conda update conda
+conda update anaconda
+
+## 删除包
+conda remove numpy
+conda remove numpy pandas
+conda remove -n <env_name> numpy pandas
+
+## 搜索包
+conda search numpy
+
+## 克隆一个环境
+conda create --name <clone_name> --clone <env_name>
+
 1.获取版本号
-    【conda -V】
+    conda -V
     conda --version
 
 2.查看所以虚拟环境
+    conda env list
     conda info -e
-    【conda env list】
 
 3.进入某个虚拟环境（激活）
-    【conda activate env_name（虚拟环境名）】
+    conda activate env_name（虚拟环境名）
 
 4.退出当前虚拟环境
    conda deactivate [env_name（虚拟环境名）]  
@@ -73,59 +127,4 @@ conda install -n test beautiful-soup 安装包，并指定安装环境，如果�
 conda update beautiful-soup 升级包
 conda remove -n test beautiful-soup 移除包
 
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
-
-
-## 查看conda版本
-conda -version
-conda -V
-
-## 查看包含版本更多信息
-conda info
-
-## 更新conda
-conda update conda
-
-## 查看conda环境管理命令帮助信息
-conda create -help
-
-## 新建虚拟环境
-conda create -name <env_name>
-
-## 删除虚拟环境
-conda remove -name <env_name> --all
-
-## 创建指定Python版本，指定包
-conda create -n <env_name> python=3.7
-conda create -n <env_name> scipy
-conda create -n <env_name> scipy=0.15.0
-conda create -n <env_name> python=3.7 scipy=0.15.0 numpy request
-
-## 给虚拟环境安装包
-conda install scipy
-conda install scipy=0.15.0
-conda install scipy curl
-conda install scipy=0.15.0 curl=7.26.0
-
-conda install -n <env_name> scipy
-conda install -n <env_name> scipy=0.15.0
-
-## 查看当前环境的包
-conda list
-
-## 更新包
-conda update
-conda update numpy
-conda update conda
-conda update anaconda
-
-## 删除包
-conda remove numpy
-conda remove numpy pandas
-conda remove -n <env_name> numpy pandas
-
-## 搜索包
-conda search numpy
-
-## 克隆一个环境
-conda create --name <clone_name> --clone <env_name>
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple <package_name>
