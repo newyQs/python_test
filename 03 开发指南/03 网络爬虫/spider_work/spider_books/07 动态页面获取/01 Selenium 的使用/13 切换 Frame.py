@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
 browser = webdriver.Chrome()
-url = 'http://www.runoob.com/try/try.php?filename=jqueryui-api-droppable'
+url = 'http://www.redis菜鸟教程.com/try/try.php?filename=jqueryui-api-droppable'
 browser.get(url)
 browser.switch_to.frame('iframeResult')
 try:

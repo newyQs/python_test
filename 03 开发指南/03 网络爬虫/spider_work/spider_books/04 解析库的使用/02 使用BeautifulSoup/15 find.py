@@ -27,6 +27,7 @@ html = '''
 '''
 
 soup = BeautifulSoup(html, 'lxml')
+
 print(soup.find(name='ul'))
 print(type(soup.find(name='ul')))
 print(soup.find(class_='list'))

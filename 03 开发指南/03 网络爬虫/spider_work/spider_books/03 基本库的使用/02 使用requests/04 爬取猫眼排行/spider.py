@@ -7,10 +7,14 @@ from requests.exceptions import RequestException
 
 def main(offset):
     """程序主入口"""
+    # 请求地址，offset这里表示的是分页
     url = 'http://maoyan.com/board/4?offset=' + str(offset)
+    # 请求页面，返回响应体response
     html = get_one_page(url)
+    # 解析页面，按照一定的正则匹配规则，返回一个迭代器函数
     for item in parse_one_page(html):
         print(item)
+        # 将解析结果保存至文件中
         write_to_file(item)
 
 
@@ -34,7 +38,8 @@ def parse_one_page(html):
     pattern = re.compile('<dd>.*?board-index.*?>(\d+)</i>.*?data-src="(.*?)".*?name"><a'
                          + '.*?>(.*?)</a>.*?star">(.*?)</p>.*?releasetime">(.*?)</p>'
                          + '.*?integer">(.*?)</i>.*?fraction">(.*?)</i>.*?</dd>', re.S)
-    items = re.findall(pattern, html)
+    items = re.findall(pattern, html)  # --> list
+    print(items)
     for item in items:
         yield {
             'index': item[0],

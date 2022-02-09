@@ -60,19 +60,22 @@ print(dd)
 for i in dd:
     print(i)
 
+print(dd.keys())  # dict_keys(['name', 'age', 'city'])
 for i in dd.keys():
     print(i)
 
+print(dd.values())  # dict_values(['lee', 18, 'chaohu'])
 for i in dd.values():
     print(i)
 
+print(dd.items())  # dict_items([('name', 'lee'), ('age', 18), ('city', 'chaohu')])
 for i in dd.items():
     print(i)
 
-# 复制
+# 复制:copy
 d_co = dd.copy()
 
-# 清空
+# 清空:clear
 dd.clear()
 
 # setdefault()

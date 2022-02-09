@@ -16,5 +16,6 @@ and they lived at the bottom of a well.</p>
 """
 
 soup = BeautifulSoup(html, 'lxml')
-print(soup.prettify())
+
+# print(soup.prettify())
 print(soup.title.string)

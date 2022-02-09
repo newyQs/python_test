@@ -23,6 +23,7 @@ html = '''
 '''
 
 soup = BeautifulSoup(html, 'lxml')
+
 print(soup.select('.panel .panel-heading'))
 print('-----------------------')
 print(soup.select('ul li'))

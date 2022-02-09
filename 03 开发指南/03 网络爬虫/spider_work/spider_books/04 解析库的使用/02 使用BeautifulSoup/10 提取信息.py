@@ -13,10 +13,12 @@ html = """
 """
 
 soup = BeautifulSoup(html, 'lxml')
+
 print('Next Sibling:')
 print(type(soup.a.next_sibling))
 print(soup.a.next_sibling)
 print(soup.a.next_sibling.string)
+
 print('Parent:')
 print(type(soup.a.parents))
 print(list(soup.a.parents)[0])

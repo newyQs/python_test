@@ -23,6 +23,7 @@ html = '''
 '''
 
 soup = BeautifulSoup(html, 'lxml')
+
 for ul in soup.select('ul'):
     print(ul)
     print(ul.select('li'))

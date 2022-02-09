@@ -22,6 +22,7 @@ html = '''
 </div>
 '''
 soup = BeautifulSoup(html, 'lxml')
+
 for li in soup.select('li'):
     print('Get Text:', li.get_text())
     print('String:', li.string)

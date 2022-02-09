@@ -2,7 +2,7 @@
 字符串：不可变的数据类型。
 有序集合，可以使用切片，可以被遍历
 '''
-# 字符串常见方法汇总：
+# 字符串常见方法汇总：45个
 '''
 index(sub,__start,__end)
 count(x,__start,__end)
@@ -72,4 +72,12 @@ encode(encoding,errors)
     def upper(self) -> str: ...
     def zfill(self, width: int) -> str: ...
 """
+str_list = [
+    'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format',
+    'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower',
+    'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip',
+    'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split',
+    'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill'
+]
 
+print(len(str_list))  # 45

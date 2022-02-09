@@ -14,4 +14,5 @@ html = '''
 '''
 
 soup = BeautifulSoup(html, 'lxml')
+
 print(soup.find_all(text=re.compile('link')))

@@ -22,6 +22,7 @@ html = '''
 </div>
 '''
 soup = BeautifulSoup(html, 'lxml')
+
 for ul in soup.select('ul'):
     print(ul['id'])
     print(ul.attrs['id'])

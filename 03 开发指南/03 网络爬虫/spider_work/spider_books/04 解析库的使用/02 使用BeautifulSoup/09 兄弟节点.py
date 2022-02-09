@@ -20,6 +20,7 @@ html = """
 """
 
 soup = BeautifulSoup(html, 'lxml')
+
 print('Next Sibling', soup.a.next_sibling)
 print('Prev Sibling', soup.a.previous_sibling)
 print('Next Siblings', list(enumerate(soup.a.next_siblings)))

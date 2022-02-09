@@ -14,5 +14,6 @@ html = """
 """
 
 soup = BeautifulSoup(html, 'lxml')
+
 print(type(soup.a.parents))
 print(list(enumerate(soup.a.parents)))
