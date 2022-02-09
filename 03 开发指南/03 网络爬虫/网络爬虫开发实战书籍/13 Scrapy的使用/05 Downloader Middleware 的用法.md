@@ -1,0 +1,2 @@
+# Downloader Middleware 的用法
+Downloader Middleware即下载中间件，它是处于Scrapy的Request和Response之间的处理模块。
