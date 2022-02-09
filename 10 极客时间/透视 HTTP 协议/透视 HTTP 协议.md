@@ -1,0 +1,1 @@
+https://time.geekbang.org/column/intro/100029001?tab=catalog
