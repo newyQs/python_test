@@ -22,7 +22,7 @@ class MyThread(threading.Thread):
 # 定义为 run() 方法传入的参数
 my_tuple = (
     "http://c.biancheng.net/python/",
-    "http://c.biancheng.net/shell/",
+    "http://c.biancheng.net/Shell/",
     "http://c.biancheng.net/java/"
 )
 

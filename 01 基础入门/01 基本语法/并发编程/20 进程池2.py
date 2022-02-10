@@ -17,7 +17,7 @@ if __name__ == '__main__':
         adds = pool.map(action, (
             'http://c.biancheng.net/python/',
             'http://c.biancheng.net/java/',
-            'http://c.biancheng.net/shell/'
+            'http://c.biancheng.net/Shell/'
         ))
     for arc in adds:
         print(arc)

@@ -18,6 +18,6 @@ if __name__ == '__main__':
     pool.apply_async(action)
     pool.apply_async(action, args=('http://c.biancheng.net/python/',))
     pool.apply_async(action, args=('http://c.biancheng.net/java/',))
-    pool.apply_async(action, kwds={'name': 'http://c.biancheng.net/shell/'})
+    pool.apply_async(action, kwds={'name': 'http://c.biancheng.net/Shell/'})
     pool.close()
     pool.join()

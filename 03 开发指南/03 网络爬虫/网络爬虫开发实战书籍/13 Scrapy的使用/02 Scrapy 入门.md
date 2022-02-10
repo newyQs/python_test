@@ -7,7 +7,7 @@
 4. 将抓取的内容保存到MongoDB数据库
 
 ## 2. 准备工作
-最好创建一个单独的虚拟环境，安装好Scrapy库、MongoDB、PyMongo库。
+创建一个单独的虚拟环境，安装好Scrapy库、MongoDB、PyMongo库。
 
 ## 3. 创建项目
 使用如下命令在任意目录下创建一个Scrapy项目:tutorial

@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # 定义为进程方法传入的参数
     my_tuple = (
         "http://c.biancheng.net/python/",
-        "http://c.biancheng.net/shell/",
+        "http://c.biancheng.net/Shell/",
         "http://c.biancheng.net/java/"
     )
     # 设置进程启动方式
