@@ -1,4 +1,4 @@
-#第4章 使用docker容器
+# 第4章 使用docker容器
 简单来说，容器就是一个镜像运行的实例。所不同的是，镜像是静态的只读文件，而容器带有运行时需要的可写文件层，
 同时，容器中的应用进程处于运行状态。
 
@@ -11,7 +11,7 @@
 3. 如何终止一个容器；
 4. 如何进入到容器内执行操作，删除容器和通过导入导出容器来实现容器迁移等。
 
-##4.1 创建容器
+## 4.1 创建容器
 1. 新建容器
     ```
     docker [container] create 
@@ -73,7 +73,7 @@
     ```
     docker logs ce5457846d
     ```
-##4.2 停止容器
+## 4.2 停止容器
 1. 暂停容器
     ```
     docker [container] pause CONTAINER [CONTAINER...]
@@ -109,7 +109,7 @@
     
     docker [container] restart命令则是让一个运行态的容器先终止，然后再重新启动。
     
-##4.3 进入容器
+## 4.3 进入容器
 在使用-d参数时，容器启动后会进入后台，用户无法看到容器中的信息，也无法进行操作。
 
 这个时候如果需要进入容器进行操作，就需要使用官方的attach或exec命令。
@@ -135,7 +135,7 @@
     + -t, --tty=true|false
     + -u, --user=" "
 
-##4.4 删除容器
+## 4.4 删除容器
 可以使用docker [container] rm 命令来删除处于终止或退出状态的容器，命令格式为：
 ```
 docker [container] rm [-f|force] [-l|--link] [-v|--volumns] CONTANIER [CONTAINER...]
@@ -145,7 +145,7 @@ docker [container] rm [-f|force] [-l|--link] [-v|--volumns] CONTANIER [CONTAINER
 + -l, --link=false：删除容器的连接，但保留容器；
 + -v, --volumes=false：删除容器挂载的数据卷； 
 
-##4.5 导入和导出容器
+## 4.5 导入和导出容器
 有时候，需要将容器从一个系统迁移到另一个系统，此时可以使用docker的导入和导出功能。
 1. 导出容器
     ```
@@ -157,7 +157,7 @@ docker [container] rm [-f|force] [-l|--link] [-v|--volumns] CONTANIER [CONTAINER
     docker import [-c|--change[=[]]] [-m|--message[=MESSAGE]] file|URL|-[REPOSITORY[:TAG]]
     ```
 
-##4.6 查看容器
+## 4.6 查看容器
 1. 查看容器详情
 ```
 docker [container] inspect [OPTIONS] CONTAINER [CONTAINER...]
@@ -177,7 +177,7 @@ docker [container] top [OPTIONS] CONTAINER [CONTAINER...]
 docker [container] stats [OPTIONS] CONTAINER [CONTAINER...]
 ```
 
-##4.7 其他容器命令
+## 4.7 其他容器命令
 1. 复制文件
 container cp命令支持在容器和主机之间复制文件。
 ```
