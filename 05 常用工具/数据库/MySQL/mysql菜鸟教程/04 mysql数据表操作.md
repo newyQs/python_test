@@ -1,14 +1,14 @@
 # 创建数据表
-使用 CREATE 关键字，通用用法，如下：
-```
+使用 CREATE 关键字，通用用法如下：
+```sql
 CREATE TABLE 数据表名(
     列名1 列类型1,
     列名2 列类型2,
     ...
 )
 ```
-示例如下：
-```
+例如创建数据表runoob_tb1：
+```sql
 CREATE TABLE IF NOT EXISTS `runoob_tbl`(
    `runoob_id` INT UNSIGNED AUTO_INCREMENT,
    `runoob_title` VARCHAR(100) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 + ENGINE 设置存储引擎，CHARSET 设置编码。
 
 在命令行中创建：
-```
+```sql
 root@host# mysql -u root -p
 Enter password:*******
 mysql> use RUNOOB;
@@ -42,11 +42,11 @@ mysql>
 
 # 删除数据表
 使用 DROP 关键字，通用语法如下：
-```
+```sql
 DROP TABLE 数据表名;
 ```
-示例如下：
-```
+删除数据表runoob_tbl：
+```sql
 root@host# mysql -u root -p
 Enter password:*******
 mysql> use RUNOOB;

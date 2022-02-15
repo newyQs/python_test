@@ -1,7 +1,7 @@
 
 ## WHERE 子句
 WHERE子句起到筛选作用，通用语法如下：
-```
+```sql
 SELECT field1, 
        field2, 
        ...
@@ -32,7 +32,7 @@ WHERE 筛选条件1 ADN | OR
 MySQL 的 WHERE 子句的字符串比较是不区分大小写的。 你可以使用 BINARY 关键字来设定 WHERE 子句的字符串比较是区分大小写的。
 
 示例如下：
-```
+```sql
 mysql> SELECT * from runoob_tbl WHERE BINARY runoob_author='runoob.com';
 Empty set (0.01 sec)
  
@@ -53,7 +53,7 @@ mysql> SELECT * from runoob_tbl WHERE BINARY runoob_author='RUNOOB.COM';
 执行顺序:select –>where –> group by–> having–>order by
 
 https://blog.csdn.net/alwayssmile21/article/details/52277854
-```
+```sql
 (7)  SELECT 
 (8)  DISTINCT <select_list>
 (1)  FROM <left_table>
@@ -65,25 +65,25 @@ https://blog.csdn.net/alwayssmile21/article/details/52277854
 (9)  ORDER BY <order_by_condition>
 (10) LIMIT <limit_number>
 
-1、FROM  table1 left join table2 on 将table1和table2中的数据产生笛卡尔积，生成Temp1
+1. FROM  table1 left join table2 on 将table1和table2中的数据产生笛卡尔积，生成Temp1
 
-2、JOIN table2  所以先是确定表，再确定关联条件
+2. JOIN table2  所以先是确定表，再确定关联条件
 
-3、ON table1.column = table2.columu 确定表的绑定条件 由Temp1产生中间表Temp2
+3. ON table1.column = table2.columu 确定表的绑定条件 由Temp1产生中间表Temp2
 
-4、WHERE  对中间表Temp2产生的结果进行过滤  产生中间表Temp3
+4. WHERE  对中间表Temp2产生的结果进行过滤  产生中间表Temp3
 
-5、GROUP BY 对中间表Temp3进行分组，产生中间表Temp4
+5. GROUP BY 对中间表Temp3进行分组，产生中间表Temp4
 
-6、HAVING  对分组后的记录进行聚合 产生中间表Temp5
+6. HAVING  对分组后的记录进行聚合 产生中间表Temp5
 
-7、SELECT  对中间表Temp5进行列筛选，产生中间表 Temp6
+7. SELECT  对中间表Temp5进行列筛选，产生中间表 Temp6
 
-8、DISTINCT 对中间表 Temp6进行去重，产生中间表 Temp7
+8. DISTINCT 对中间表 Temp6进行去重，产生中间表 Temp7
 
-9、ORDER BY 对Temp7中的数据进行排序，产生中间表Temp8
+9. ORDER BY 对Temp7中的数据进行排序，产生中间表Temp8
 
-10、LIMIT 对中间表Temp8进行分页，产生中间表Temp9
+10. LIMIT 对中间表Temp8进行分页，产生中间表Temp9
 
 ```
 
@@ -95,7 +95,7 @@ WHERE 子句中可以使用等号 = 来设定获取数据的条件，如 "runoob
 SQL LIKE 子句中使用百分号 %字符来表示任意字符，类似于UNIX或正则表达式中的星号 *。
 
 如果没有使用百分号 %, LIKE 子句与等号 = 的效果是一样的。
-```
+```sql
 SELECT field1, 
        field2,
        ...
@@ -110,7 +110,7 @@ WHERE field1 LIKE condition1 [AND [OR]] filed2 = 'somevalue'
 + 你可以在 DELETE 或 UPDATE 命令中使用 WHERE...LIKE 子句来指定条件。
 
 示例如下：
-```
+```sql
 mysql> use RUNOOB;
 Database changed
 mysql> SELECT * from runoob_tbl  WHERE runoob_author LIKE '%COM';
@@ -124,7 +124,7 @@ mysql> SELECT * from runoob_tbl  WHERE runoob_author LIKE '%COM';
 ```
 
 like 匹配/模糊匹配，会与 % 和 _ 结合使用。
-```
+```sql
 '%a'     //以a结尾的数据
 'a%'     //以a开头的数据
 '%a%'    //含有a的数据
@@ -133,15 +133,15 @@ like 匹配/模糊匹配，会与 % 和 _ 结合使用。
 'a_'     //两位且开头字母是a的
 ```
 查询以 java 字段开头的信息。
-```
+```sql
 SELECT * FROM position WHERE name LIKE 'java%';
 ```
 查询包含 java 字段的信息。
-```
+```sql
 SELECT * FROM position WHERE name LIKE '%java%';
 ```
 查询以 java 字段结尾的信息。
-```
+```sql
 SELECT * FROM position WHERE name LIKE '%java';
 ```
 
@@ -154,7 +154,7 @@ SELECT * FROM position WHERE name LIKE '%java';
 
 ## ORDER BY 子句
 使用 ORDER BY 子句可以让我们按照哪个字段哪种方式来进行排序，再返回排序后的结果。通用语法如下：
-```
+```sql
 SELECT field1, 
        field2, 
        ...
@@ -171,17 +171,17 @@ ORDER BY field1 [ASC [DESC],
 + 你可以添加 WHERE...LIKE 子句来设置条件。
 
 示例如下：
-```
+```sql
 mysql> use RUNOOB;
 Database changed
 mysql> SELECT * from runoob_tbl ORDER BY submission_date ASC;
 +-----------+---------------+---------------+-----------------+
 | runoob_id | runoob_title  | runoob_author | submission_date |
 +-----------+---------------+---------------+-----------------+
-| 3         | 学习 Java   | RUNOOB.COM      | 2015-05-01      |
-| 4         | 学习 Python | RUNOOB.COM      | 2016-03-06      |
-| 1         | 学习 PHP    | 菜鸟教程        | 2017-04-12      |
-| 2         | 学习 MySQL  | 菜鸟教程        | 2017-04-12      |
+| 3         | 学习 Java     | RUNOOB.COM      | 2015-05-01    |
+| 4         | 学习 Python   | RUNOOB.COM      | 2016-03-06    |
+| 1         | 学习 PHP      | 菜鸟教程        | 2017-04-12    |
+| 2         | 学习 MySQL    | 菜鸟教程        | 2017-04-12    |
 +-----------+---------------+---------------+-----------------+
 4 rows in set (0.01 sec)
  
@@ -199,7 +199,7 @@ mysql> SELECT * from runoob_tbl ORDER BY submission_date DESC;
 
 ## GROUP BY 子句
 GROUP BY 语句根据一个或多个列对结果集进行分组。在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。通用语法如下：
-```
+```sql
 SELECT column_name, function(column_name)
 FROM table_name
 WHERE column_name operator value
@@ -208,7 +208,7 @@ GROUP BY column_name;
 示例如下：
 
 先将以下数据导入数据库中:
-```
+```sql
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -239,7 +239,7 @@ COMMIT;
 SET FOREIGN_KEY_CHECKS = 1;
 ```
 导入成功后，执行以下 SQL 语句：
-```
+```sql
 mysql> set names utf8;
 mysql> SELECT * FROM employee_tbl;
 +----+--------+---------------------+--------+
@@ -255,7 +255,7 @@ mysql> SELECT * FROM employee_tbl;
 6 rows in set (0.00 sec)
 ```
 接下来我们使用 GROUP BY 语句 将数据表按名字进行分组，并统计每个人有多少条记录：
-```
+```sql
 mysql> SELECT name, COUNT(*) FROM employee_tbl GROUP BY name;
 +--------+----------+
 | name   | COUNT(*) |
@@ -269,7 +269,7 @@ mysql> SELECT name, COUNT(*) FROM employee_tbl GROUP BY name;
 
 ## UNION 操作符
 UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。语法如下：
-```
+```sql
 SELECT expression1, expression2, ... expression_n
 FROM tables
 [WHERE conditions]
@@ -288,7 +288,7 @@ FROM tables
 示例：
 
 下面是选自 "Websites" 表的数据：
-```
+```sql
 mysql> SELECT * FROM Websites;
 +----+--------------+---------------------------+-------+---------+
 | id | name         | url                       | alexa | country |
@@ -302,7 +302,7 @@ mysql> SELECT * FROM Websites;
 +----+--------------+---------------------------+-------+---------+
 ```
 下面是 "apps" APP 的数据：
-```
+```sql
 mysql> SELECT * FROM apps;
 +----+------------+-------------------------+---------+
 | id | app_name   | url                     | country |
@@ -315,7 +315,7 @@ mysql> SELECT * FROM apps;
 ```
 
 UNION 实例
-```
+```sql
 SELECT country FROM Websites
 UNION
 SELECT country FROM apps
@@ -324,7 +324,7 @@ ORDER BY country;
 注释：UNION 不能用于列出两个表中所有的country。如果一些网站和APP来自同一个国家，每个国家只会列出一次。UNION 只会选取不同的值。请使用 UNION ALL 来选取重复的值！
 
 UNION ALL 实例
-```
+```sql
 SELECT country FROM Websites
 UNION ALL
 SELECT country FROM apps
@@ -332,7 +332,7 @@ ORDER BY country;
 ```
 
 带有 WHERE 的 SQL UNION ALL
-```
+```sql
 SELECT country, name FROM Websites
 WHERE country='CN'
 UNION ALL
@@ -355,7 +355,7 @@ JOIN 按照功能大致分为如下三类：
 + RIGHT JOIN（右连接）： 与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。
 
 两张数据表数据如下：
-```
+```sql
 mysql> use RUNOOB;
 Database changed
 mysql> SELECT * FROM tcount_tbl;
@@ -382,7 +382,7 @@ mysql> SELECT * from runoob_tbl;
 ```
 接下来我们就使用MySQL的INNER JOIN(也可以省略 INNER 使用 JOIN，效果一样)来连接以上两张表来读取runoob_tbl表中
 所有runoob_author字段在tcount_tbl表对应的runoob_count字段值：
-```
+```sql
 mysql> SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a INNER JOIN tcount_tbl b ON a.runoob_author = b.runoob_author;
 +-------------+-----------------+----------------+
 | a.runoob_id | a.runoob_author | b.runoob_count |
@@ -395,7 +395,7 @@ mysql> SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a INN
 4 rows in set (0.00 sec)
 ```
 以上 SQL 语句等价于：
-```
+```sql
 mysql> SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a, tcount_tbl b WHERE a.runoob_author = b.runoob_author;
 +-------------+-----------------+----------------+
 | a.runoob_id | a.runoob_author | b.runoob_count |
@@ -410,7 +410,7 @@ mysql> SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a, tc
 ![](img/inner%20join.gif)
 
 LEFT JOIN 与 JOIN 有所不同。 MySQL LEFT JOIN 会读取左边数据表的全部数据，即便右边表无对应数据。
-```
+```sql
 mysql> SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a LEFT JOIN tcount_tbl b ON a.runoob_author = b.runoob_author;
 +-------------+-----------------+----------------+
 | a.runoob_id | a.runoob_author | b.runoob_count |
@@ -427,7 +427,7 @@ mysql> SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a LEF
 ![](img/left%20join.gif)
 
 RIGHT JOIN 会读取右边数据表的全部数据，即便左边边表无对应数据。
-```
+```sql
 mysql> SELECT a.runoob_id, a.runoob_author, b.runoob_count FROM runoob_tbl a RIGHT JOIN tcount_tbl b ON a.runoob_author = b.runoob_author;
 +-------------+-----------------+----------------+
 | a.runoob_id | a.runoob_author | b.runoob_count |

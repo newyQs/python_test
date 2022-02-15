@@ -2,28 +2,28 @@
 
 ## 插入数据
 插入数据，使用 INSERT INTO 语法，通用语法如下：
-```
-插入单条数据：
+```sql
+-- 插入单条数据：
 INSERT INTO 数据表名(field1, field2, field3, ...) VALUES (value1, value2, value3, ...);
 
-插入多条数据：
+-- 插入多条数据：
 INSERT INTO 数据表名(field1, field2, field3, ...) VALUES (value1, value2, value3, ...), 
                     (field1, field2, field3, ...) VALUES (value1, value2, value3, ...), 
                     ...;   
 
-插入完整数据：
+-- 插入完整数据：
 INSERT INTO 数据表名 VALUES (value1, value2, value3, ...);
 
-其他方法：
+-- 其他方法：
 INSERT INTO 数据表名 SET field1=value1,
                          field2=value2,
                          field3=value3,
                          ...;          
 ```
-如果数据是字符型，必须使用单引号或者双引号，如："value"。
+注意：如果数据是字符型，必须使用单引号或者双引号，如："value"。
 
-示例如下：向 runoob_tbl 表插入三条数据
-```
+例如：向 runoob_tbl 表插入三条数据
+```sql
 root@host# mysql -u root -p password;
 Enter password:*******
 mysql> use RUNOOB;
@@ -48,7 +48,7 @@ mysql>
 
 ## 删除数据
 删除数据使用 DELETE FROM 语法，通用语法如下：
-```
+```sql
 DELETE FROM 数据表名 WHERE 筛选条件;
 ```
 + 如果没有指定 WHERE 子句，MySQL 表中的所有记录将被删除。
@@ -58,7 +58,7 @@ DELETE FROM 数据表名 WHERE 筛选条件;
 当你想删除数据表中指定的记录时 WHERE 子句是非常有用的。
 
 示例如下：
-```
+```sql
 mysql> use RUNOOB;
 Database changed
 mysql> DELETE FROM runoob_tbl WHERE runoob_id=3;
@@ -72,7 +72,7 @@ delete，drop，truncate 都有删除表的作用，区别在于：
 
 ## 更新数据
 更新数据使用 UPDATE SET 语法，通用语法如下：
-```
+```sql
 UPDATE 数据表名 SET field1=new_value1,
                     field2=new_value2,
                     field3=new_value3,
@@ -86,7 +86,7 @@ WHERE 筛选条件;
 当你需要更新数据表中指定行的数据时 WHERE 子句是非常有用的。
 
 示例如下：
-```
+```sql
 mysql> UPDATE runoob_tbl SET runoob_title='学习 C++' WHERE runoob_id=3;
 Query OK, 1 rows affected (0.01 sec)
  
@@ -101,7 +101,7 @@ mysql> SELECT * from runoob_tbl WHERE runoob_id=3;
 
 ## 查询数据
 查询数据使用 SELECT FROM 语法，通用语法如下：
-```
+```sql
 SELECT field1, field2, ... FROM 数据表名
 WHERE 筛选条件
 LIMIT N
