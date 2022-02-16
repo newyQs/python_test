@@ -1,11 +1,5 @@
-"""
-
-"""
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Date    : 2019-10-23 13:40:11
-# @Author  : yizhilaolihua
-
 import requests
 import json
 from requests.exceptions import ConnectTimeout, ConnectionError

@@ -5,7 +5,7 @@ sites = ["Baidu", "Google", "Runoob", "Taobao"]
 
 for site in sites:
     if site == "Runoob":
-        print("菜鸟教程!")
+        print("docker菜鸟教程!")
         break
     print("循环数据 " + site)
 else:  # 如果循环没有被break终止，就执行else后面的语句

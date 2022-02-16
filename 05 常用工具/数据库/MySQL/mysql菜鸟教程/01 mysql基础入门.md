@@ -15,7 +15,7 @@
 
 ## 安装
 https://dev.mysql.com/downloads/mysql/
-```
+```bash
 # 检测系统是否自带安装 MySQL:
 rpm -qa | grep mysql
 
@@ -43,7 +43,7 @@ systemctl status mysqld
 ```
 
 ## 登录
-```
+```sql
 mysql -h 主机名 -u 用户名 -p
 ```
 参数说明：

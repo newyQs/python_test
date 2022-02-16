@@ -12,7 +12,7 @@ from typing import List
 '''
 
 
-def two_sum(nums: List[int], target: int) -> List[int]:
+def two_sum1(nums: List[int], target: int) -> List[int]:
     for i in range(len(nums) - 1):
         for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == target:
@@ -21,7 +21,7 @@ def two_sum(nums: List[int], target: int) -> List[int]:
     return []
 
 
-print(two_sum([2, 5, 5, 11], 10))
+print("two_sum1：", two_sum1([2, 5, 5, 11], 10))
 
 # 方法2：哈希表
 '''
@@ -48,10 +48,10 @@ def two_sum2(nums: List[int], target: int) -> List[int]:
     return []
 
 
-print(two_sum2([2, 5, 5, 11], 10))
+print("two_sum2：", two_sum2([2, 5, 5, 11], 10))
 
 
-# 返回的是两个数的index
+# 返回这两个数的index
 def _test1(nums: List[int], target: int) -> List[int]:
     hash_table = {}  # 用字典代替创建一个hash表，key不重复，value保存的是index
     for index, value in enumerate(nums):  # 轮询列表nums
@@ -63,10 +63,10 @@ def _test1(nums: List[int], target: int) -> List[int]:
     return []
 
 
-print(_test1([2, 5, 5, 5, 11], 10))
+print("_test1：", _test1([2, 5, 5, 5, 11], 10))
 
 
-# 返回这两个数value
+# 返回这两个数的value
 def _test2(nums: List[int], target: int) -> List[int]:
     hash_table = {}
     for index, value in enumerate(nums):
@@ -77,5 +77,5 @@ def _test2(nums: List[int], target: int) -> List[int]:
     return []
 
 
-print(_test2([2, 5, 6, 5, 11], 10))
-print(_test2([3, 2, 5, 2, 11], 5))
+print("_test2：", _test2([2, 5, 6, 5, 11], 10))
+print("_test2：", _test2([3, 2, 5, 2, 11], 5))

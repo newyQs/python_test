@@ -3,4 +3,4 @@
 """
 import aiohttp
 
-r = await session.get('https://example.com', ssl=False)
+resp = await session.get('https://example.com', ssl=False)
