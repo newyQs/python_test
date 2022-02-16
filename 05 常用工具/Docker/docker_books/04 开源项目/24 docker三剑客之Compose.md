@@ -1,6 +1,6 @@
-# 第24章 docker 三剑客之 compose
+# 第24章 docker 三剑客之 Compose
 
-## 24.1 compose简介
+## 24.1 Compose简介
 compose负责实现对基于docker容器的多应用服务的快速编排。
 
 前面已经介绍使用一个Dockerfile模板文件，可以让用户很方便的定义一个单独的应用容器。
@@ -9,27 +9,27 @@ compose负责实现对基于docker容器的多应用服务的快速编排。
 compose恰恰满足这样的需求，它允许用户通过一个单独的docker-compose.yml模板文件来定义一组相关联的应用容器为一个服务栈。
 
 compose中的几个重要的概念：
-+ 任务：
-+ 服务：
-+ 服务栈：
+- 任务：
+- 服务：
+- 服务栈：
 
 
 ## 24.2 安装与卸载
 
 
-## 24.3 compose模板文件
+## 24.3 Compose模板文件
 
 
-## 24.4 compose命令说明
+## 24.4 Compose命令说明
 
 
-## 24.5 compose环境变量
+## 24.5 Compose环境变量
 
 
-## 24.6 compose应用案例一：Web负载均衡
+## 24.6 Compose应用案例一：Web负载均衡
 
 
-## 24.7 compose应用案例二：大数据的Spark集群
+## 24.7 Compose应用案例二：大数据的Spark集群
 
 
 ## 24.8 本章小结
