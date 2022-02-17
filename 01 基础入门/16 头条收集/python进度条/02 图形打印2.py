@@ -1,6 +1,3 @@
-"""
-
-"""
 import time
 
 t = 60
