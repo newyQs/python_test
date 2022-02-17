@@ -1,6 +1,6 @@
 # 数据表数据的增删改查操作
 
-## 插入数据
+## 1. 插入数据
 插入数据，使用 INSERT INTO 语法，通用语法如下：
 ```sql
 -- 插入单条数据：
@@ -46,7 +46,7 @@ Query OK, 1 rows affected (0.00 sec)
 mysql>
 ```
 
-## 删除数据
+## 2. 删除数据
 删除数据使用 DELETE FROM 语法，通用语法如下：
 ```sql
 DELETE FROM 数据表名 WHERE 筛选条件;
@@ -70,7 +70,7 @@ delete，drop，truncate 都有删除表的作用，区别在于：
 2. delete 是 DML 语句，操作完以后如果没有不想提交事务还可以回滚，truncate 和 drop 是 DDL 语句，操作完马上生效，不能回滚，打个比方，delete 是发微信说分手，后悔还可以撤回，truncate 和 drop 是直接扇耳光说滚，不能反悔。
 3. 执行的速度上，drop>truncate>delete，打个比方，drop 是神舟火箭，truncate 是和谐号动车，delete 是自行车。
 
-## 更新数据
+## 3. 更新数据
 更新数据使用 UPDATE SET 语法，通用语法如下：
 ```sql
 UPDATE 数据表名 SET field1=new_value1,
@@ -99,7 +99,7 @@ mysql> SELECT * from runoob_tbl WHERE runoob_id=3;
 1 rows in set (0.01 sec)
 ```
 
-## 查询数据
+## 4. 查询数据
 查询数据使用 SELECT FROM 语法，通用语法如下：
 ```sql
 SELECT field1, field2, ... FROM 数据表名
@@ -114,7 +114,7 @@ OFFSET M;
 + 你可以使用 LIMIT 属性来设定返回的记录数。
 + 你可以通过OFFSET指定SELECT语句开始查询的数据偏移量。默认情况下偏移量为0。
 
-## NULL值的处理
+## 5. NULL值的处理
 ```sql
 root@host# mysql -u root -p password;
 Enter password:*******
@@ -170,158 +170,3 @@ mysql> SELECT * from runoob_test_tbl WHERE runoob_count IS NOT NULL;
 2 rows in set (0.01 sec)
 ```
 
-## ALTER命令
-当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。
-
-先创建一张表，表名为：testalter_tbl。
-```sql
-root@host# mysql -u root -p password;
-Enter password:*******
-mysql> use RUNOOB;
-Database changed
-mysql> create table testalter_tbl
-    -> (
-    -> i INT,
-    -> c CHAR(1)
-    -> );
-Query OK, 0 rows affected (0.05 sec)
-mysql> SHOW COLUMNS FROM testalter_tbl;
-+-------+---------+------+-----+---------+-------+
-| Field | Type    | Null | Key | Default | Extra |
-+-------+---------+------+-----+---------+-------+
-| i     | int(11) | YES  |     | NULL    |       |
-| c     | char(1) | YES  |     | NULL    |       |
-+-------+---------+------+-----+---------+-------+
-2 rows in set (0.00 sec)
-```
-### 删除，添加或修改表字段
-如下命令使用了 ALTER 命令及 DROP 子句来删除以上创建表的 i 字段：
-```sql
-ALTER TABLE testalter_tbl  DROP i;
-```
-如果数据表中只剩余一个字段则无法使用DROP来删除字段。
-
-MySQL 中使用 ADD 子句来向数据表中添加列，如下实例在表 testalter_tbl 中添加 i 字段，并定义数据类型:
-```sql
-ALTER TABLE testalter_tbl ADD i INT;
-```
-执行以上命令后，i 字段会自动添加到数据表字段的末尾。
-```sql
-mysql> SHOW COLUMNS FROM testalter_tbl;
-+-------+---------+------+-----+---------+-------+
-| Field | Type    | Null | Key | Default | Extra |
-+-------+---------+------+-----+---------+-------+
-| c     | char(1) | YES  |     | NULL    |       |
-| i     | int(11) | YES  |     | NULL    |       |
-+-------+---------+------+-----+---------+-------+
-2 rows in set (0.00 sec)
-```
-如果你需要指定新增字段的位置，可以使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。
-
-尝试以下 ALTER TABLE 语句, 在执行成功后，使用 SHOW COLUMNS 查看表结构的变化：
-```sql
-ALTER TABLE testalter_tbl DROP i;
-ALTER TABLE testalter_tbl ADD i INT FIRST;
-ALTER TABLE testalter_tbl DROP i;
-ALTER TABLE testalter_tbl ADD i INT AFTER c;
-```
-FIRST 和 AFTER 关键字可用于 ADD 与 MODIFY 子句，所以如果你想重置数据表字段的位置就需要先使用 DROP 删除字段然后使用 ADD 来添加字段并设置位置。
-
-### 修改字段类型及名称
-如果需要修改字段类型及名称, 你可以在ALTER命令中使用 MODIFY 或 CHANGE 子句 。
-
-例如，把字段 c 的类型从 CHAR(1) 改为 CHAR(10)，可以执行以下命令:
-```sql
-ALTER TABLE testalter_tbl MODIFY c CHAR(10);
-```
-使用 CHANGE 子句, 语法有很大的不同。 在 CHANGE 关键字之后，紧跟着的是你要修改的字段名，然后指定新字段名及类型。尝试如下实例：
-```sql
-ALTER TABLE testalter_tbl CHANGE i j BIGINT;
-
-ALTER TABLE testalter_tbl CHANGE j j INT;
-```
-
-### ALTER TABLE 对 Null 值和默认值的影响
-当你修改字段时，你可以指定是否包含值或者是否设置默认值。
-
-以下实例，指定字段 j 为 NOT NULL 且默认值为100 。
-```sql
-mysql> ALTER TABLE testalter_tbl 
-    -> MODIFY j BIGINT NOT NULL DEFAULT 100;
-```
-如果你不设置默认值，MySQL会自动设置该字段默认为 NULL。
-
-### 修改字段默认值
-你可以使用 ALTER 来修改字段的默认值，尝试以下实例：
-```sql
-mysql> ALTER TABLE testalter_tbl ALTER i SET DEFAULT 1000;
-mysql> SHOW COLUMNS FROM testalter_tbl;
-+-------+---------+------+-----+---------+-------+
-| Field | Type    | Null | Key | Default | Extra |
-+-------+---------+------+-----+---------+-------+
-| c     | char(1) | YES  |     | NULL    |       |
-| i     | int(11) | YES  |     | 1000    |       |
-+-------+---------+------+-----+---------+-------+
-2 rows in set (0.00 sec)
-```
-你也可以使用 ALTER 命令及 DROP子句来删除字段的默认值，如下实例：
-```sql
-mysql> ALTER TABLE testalter_tbl ALTER i DROP DEFAULT;
-mysql> SHOW COLUMNS FROM testalter_tbl;
-+-------+---------+------+-----+---------+-------+
-| Field | Type    | Null | Key | Default | Extra |
-+-------+---------+------+-----+---------+-------+
-| c     | char(1) | YES  |     | NULL    |       |
-| i     | int(11) | YES  |     | NULL    |       |
-+-------+---------+------+-----+---------+-------+
-2 rows in set (0.00 sec)
-Changing a Table Type:
-```
-修改数据表类型，可以使用 ALTER 命令及 TYPE 子句来完成。尝试以下实例，我们将表 testalter_tbl 的类型修改为 MYISAM ：
-
-注意：查看数据表类型可以使用 SHOW TABLE STATUS 语句。
-```sql
-mysql> ALTER TABLE testalter_tbl ENGINE = MYISAM;
-mysql>  SHOW TABLE STATUS LIKE 'testalter_tbl'\G
-*************************** 1. row ****************
-           Name: testalter_tbl
-           Type: MyISAM
-     Row_format: Fixed
-           Rows: 0
- Avg_row_length: 0
-    Data_length: 0
-Max_data_length: 25769803775
-   Index_length: 1024
-      Data_free: 0
- Auto_increment: NULL
-    Create_time: 2007-06-03 08:04:36
-    Update_time: 2007-06-03 08:04:36
-     Check_time: NULL
- Create_options:
-        Comment:
-1 row in set (0.00 sec)
-```
-
-### 修改表名
-如果需要修改数据表的名称，可以在 ALTER TABLE 语句中使用 RENAME 子句来实现。
-
-尝试以下实例将数据表 testalter_tbl 重命名为 alter_tbl：
-```sql
-ALTER TABLE testalter_tbl RENAME TO alter_tbl;
-```
-ALTER 命令还可以用来创建及删除MySQL数据表的索引
-
-alter其他用途：
-1. 修改存储引擎：修改为myisam
-```sql
-alter table tableName engine=myisam;
-```
-2. 删除外键约束：keyName是外键别名
-```sql
-alter table tableName drop foreign key keyName;
-```
-3. 修改字段的相对位置：这里name1为想要修改的字段，type1为该字段原来类型，
-   first和after二选一，这应该显而易见，first放在第一位，after放在name2字段后面
-```sql
-alter table tableName modify name1 type1 first|after name2;
-```

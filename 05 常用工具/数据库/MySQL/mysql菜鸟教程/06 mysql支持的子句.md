@@ -1,5 +1,5 @@
 
-## WHERE 子句
+## 1. WHERE 子句
 WHERE子句起到筛选作用，通用语法如下：
 ```sql
 SELECT field1, 
@@ -18,7 +18,7 @@ WHERE 筛选条件1 ADN | OR
 + WHERE 子句也可以运用于 SQL 的 DELETE 或者 UPDATE 命令。
 + WHERE 子句类似于程序语言中的 if 条件，根据 MySQL 表中的字段值来读取指定的数据。
 
-## 操作符
+## 2. 操作符
 以下为操作符列表，可用于 WHERE 子句中。下表中实例假定 A 为 10, B 为 20
 
 ![](img/操作符.png)
@@ -87,7 +87,7 @@ https://blog.csdn.net/alwayssmile21/article/details/52277854
 
 ```
 
-## LIKE 子句
+## 3. LIKE 子句
 WHERE 子句中可以使用等号 = 来设定获取数据的条件，如 "runoob_author = 'RUNOOB.COM'"。
 
 但是有时候我们需要获取 runoob_author 字段含有 "COM" 字符的所有记录，这时我们就需要在 WHERE 子句中使用 SQL LIKE 子句。
@@ -152,7 +152,7 @@ SELECT * FROM position WHERE name LIKE '%java';
 + [^] ：表示不在括号所列之内的单个字符。其取值和 [] 相同，但它要求所匹配对象为指定字符以外的任一个字符。
 + 查询内容包含通配符时,由于通配符的缘故，导致我们查询特殊字符 “%”、“_”、“[” 的语句无法正常实现，而把特殊字符用 “[ ]” 括起便可正常查询。
 
-## ORDER BY 子句
+## 4. ORDER BY 子句
 使用 ORDER BY 子句可以让我们按照哪个字段哪种方式来进行排序，再返回排序后的结果。通用语法如下：
 ```sql
 SELECT field1, 
@@ -197,7 +197,7 @@ mysql> SELECT * from runoob_tbl ORDER BY submission_date DESC;
 4 rows in set (0.01 sec)
 ```
 
-## GROUP BY 子句
+## 5. GROUP BY 子句
 GROUP BY 语句根据一个或多个列对结果集进行分组。在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。通用语法如下：
 ```sql
 SELECT column_name, function(column_name)
@@ -267,7 +267,7 @@ mysql> SELECT name, COUNT(*) FROM employee_tbl GROUP BY name;
 3 rows in set (0.01 sec)
 ```
 
-## UNION 操作符
+## 6. UNION 操作符
 UNION 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。多个 SELECT 语句会删除重复的数据。语法如下：
 ```sql
 SELECT expression1, expression2, ... expression_n
@@ -348,7 +348,7 @@ ORDER BY country;
 + SELECT 列名称 FROM 表名称 UNION SELECT 列名称 FROM 表名称 ORDER BY 列名称；
 + SELECT 列名称 FROM 表名称 UNION ALL SELECT 列名称 FROM 表名称 ORDER BY 列名称；
 
-## JOIN连接子句
+## 7. JOIN连接子句
 JOIN 按照功能大致分为如下三类：
 + INNER JOIN（内连接,或等值连接）：获取两个表中字段匹配关系的记录。
 + LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录。
