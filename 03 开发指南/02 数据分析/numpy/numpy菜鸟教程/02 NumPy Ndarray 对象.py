@@ -1,16 +1,11 @@
 """
-
-"""
-import numpy as np
-
-"""
 array(
-    object: object, 
-    dtype: DTypeLike, 
-    copy: bool, 
-    order: _OrderKACF, 
-    subok: bool, 
-    ndmin: int, 
+    object: object,
+    dtype: DTypeLike,
+    copy: bool,
+    order: _OrderKACF,
+    subok: bool,
+    ndmin: int,
     like: ArrayLike
 )-> ndarray
 
@@ -24,6 +19,8 @@ numpy.array(object, dtype = None, copy = True, order = None, subok = False, ndmi
     subok	默认返回一个与基类类型一致的数组
     ndmin	指定生成数组的最小维度
 """
+import numpy as np
+
 a = np.array([1, 2, 3])
 # print(a, type(a))
 

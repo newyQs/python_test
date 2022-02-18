@@ -1,6 +1,11 @@
+"""
+https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan-by-leetc-2/
+
+"""
+
+
 # 滑动窗口1
 def length_of_longest_substring(s: str) -> int:
-    '''字符串中最长且连续的子字符串'''
     occ = set()  # 哈希集合，记录每个字符是否出现过
     n = len(s)
     rk, ans = -1, 0  # 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动
