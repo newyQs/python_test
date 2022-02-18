@@ -17,24 +17,33 @@ DataFrame 构造方法如下：
 """
 import pandas as pd
 
-data = [['Google', 10], ['Runoob', 12], ['Wiki', 13]]
+data = [
+    ['Google', 10],
+    ['Runoob', 12],
+    ['Wiki', 13]
+]
 
 df = pd.DataFrame(data, columns=['Site', 'Age'], dtype=float)
 print(df)
 
 print("========== 分隔符1 ==========")
 
-data = {'Site': ['Google', 'Runoob', 'Wiki'], 'Age': [10, 12, 13]}
+data = {
+    'Site': ['Google', 'Runoob', 'Wiki'],
+    'Age': [10, 12, 13]
+}
 
 df = pd.DataFrame(data)
 print(df)
 
 print("========== 分隔符2 ==========")
 
-data = [{'a': 1, 'b': 2}, {'a': 5, 'b': 10, 'c': 20}]
+data = [
+    {'a': 1, 'b': 2},
+    {'a': 5, 'b': 10, 'c': 20}
+]
 
 df = pd.DataFrame(data)
-
 print(df)
 
 print("========== 分隔符3 ==========")
@@ -73,7 +82,6 @@ data = {
 }
 
 df = pd.DataFrame(data, index=["day1", "day2", "day3"])
-
 print(df)
 
 print("========== 分隔符6 ==========")
@@ -84,6 +92,28 @@ data = {
 }
 
 df = pd.DataFrame(data, index=["day1", "day2", "day3"])
-
 # 指定索引
 print(df.loc["day2"])
+
+print("========== 分隔符7 ==========")
+
+data = {
+    "mango": [420, 380, 390],
+    "apple": [50, 40, 45],
+    "pear": [1, 2, 3],
+    "banana": [23, 45, 56]
+}
+df = pd.DataFrame(data)
+print(df[["apple", "banana"]])
+
+print("========== 分隔符8 ==========")
+
+# numpy
+data1 = {'C': ['Google', 'Runoob'], 'A': [10, 12], 'B': [93.5, 89]}
+df1 = pd.DataFrame(data1)
+print(df1)
+
+# dict
+data2 = [{'C': 'Google', 'A': 10, 'B': 93.5}, {'C': 'Runoob', 'A': 12, 'B': 89}]
+df2 = pd.DataFrame(data2)
+print(df2)
