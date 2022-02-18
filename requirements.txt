@@ -14,6 +14,7 @@ bs4
 pyquery
 pandas
 numpy
+SciPy
 pymysql
 pymongo
 redis
