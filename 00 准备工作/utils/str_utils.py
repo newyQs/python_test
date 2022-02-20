@@ -27,7 +27,7 @@ class StrUtils:
         for i in range(12):
             vc += str(random.choice([
                 random.randrange(10),  # 数字
-                chr(random.randrange(65, 91)),  # 大写字母
+                # chr(random.randrange(65, 91)),  # 大写字母
                 chr(random.randrange(97, 123))  # 小写字母
             ]))
 

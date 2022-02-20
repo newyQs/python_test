@@ -14,7 +14,7 @@
 
 ### 4.2.1 程序文件
 app.py
-```
+```python
 # -*- encoding:utf-8 -*-
 import os
 import flask
@@ -106,7 +106,7 @@ if __name__ == '__main__':
 ```
 
 login.html
-```
+```html
 <!DOCTYPE html>
 <html>
     <body>
@@ -120,7 +120,7 @@ login.html
 ```
 
 signup.html
-```
+```html
 <!DOCTYPE html>
 <html>
     <body>
@@ -185,7 +185,7 @@ db_create_all()和db_drop_all()
 
 ### 4.4.7 使用Flask-SQLAlchemy实现一个简易的登录系统
 app.py
-```
+```python
 import os
 from flask import Flask, render_template, session, redirect, url_for, flash
 from flask_script import Manager
@@ -266,7 +266,7 @@ if __name__ == '__main__':
 
 ### 4.4.8 使用Flask-SQLAlchemy实现小型BBS系统
 app.py
-```
+```python
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
