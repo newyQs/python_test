@@ -12,12 +12,12 @@ NumPy 定义了一个 **n 维数组对象**，简称 **ndarray 对象**，该对
 ```
 numpy.array(object, dtype=None, copy=True, order=None, ndmin=0)
 ```
-参数说明：
-+ object	表示一个数组序列。
-+ dtype	    可选参数，通过它可以更改数组的数据类型。
-+ copy	    可选参数，表示数组能否被复制，默认是 True。
-+ order	    以哪种内存布局创建数组，有 3 个可选值，分别是 C(行序列)/F(列序列)/A(默认)。
-+ ndmin	    用于指定数组的维度。
+参数说明如下：
++ object：表示一个数组序列。
++ dtype：可选参数，通过它可以更改数组的数据类型。
++ copy：可选参数，表示数组能否被复制，默认是 True。
++ order：以哪种内存布局创建数组，有 3 个可选值，分别是 C(行序列)/F(列序列)/A(默认)。
++ ndmin：用于指定数组的维度。
 
 1. 创建一维数组
 ```python
@@ -30,6 +30,7 @@ print(a) # [1 2 3]
 # ndarray数组类型
 print(type(a)) # <class 'numpy.ndarray'>
 ```
+
 2. 创建多维数组
 ```python
 import numpy
@@ -37,6 +38,7 @@ import numpy
 b=numpy.array([[1,2,3],[4,5,6]])
 print(b)
 ```
+
 3. 改变数组数据类型
 ```python
 import numpy
@@ -63,9 +65,9 @@ print(a)
 ```
 
 ## reshape数组变维
-数组的形状指的是多维数组的行数和列数.
+数组的形状指的是多维数组的行数和列数。
 
-reshape() 函数接受一个元组作为参数，用于指定了新数组的行数和列数
+reshape() 函数接受一个元组作为参数，用于指定了新数组的行数和列数。
 ```python
 import numpy as np 
 
