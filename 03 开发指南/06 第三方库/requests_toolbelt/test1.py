@@ -8,7 +8,7 @@ m = MultipartEncoder(
     fields={
         'field0': 'value',
         'field1': 'value',
-        'field2': ('filename', open('file.py', 'rb'), 'text/plain')
+        'field2': ('filename', open('file.txt', 'rb'), 'text/plain')
     }
 )
 

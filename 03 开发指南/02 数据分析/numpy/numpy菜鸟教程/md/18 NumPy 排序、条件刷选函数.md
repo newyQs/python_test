@@ -91,30 +91,32 @@ print(np.sort_complex([1 + 2j, 2 - 1j, 3 - 2j, 3 - 3j, 3 + 5j]))
 
 partition() 分区排序：
 ```python
->>> import numpy as np
->>> a = np.array([3, 4, 2, 1])
->>> np.partition(a, 3)  # 将数组 a 中所有元素（包括重复元素）从小到大排列，3 表示的是排序数组索引为 3 的数字，比该数字小的排在该数字前面，比该数字大的排在该数字的后面
+import numpy as np
+a = np.array([3, 4, 2, 1])
+np.partition(a, 3)  # 将数组 a 中所有元素（包括重复元素）从小到大排列，3 表示的是排序数组索引为 3 的数字，比该数字小的排在该数字前面，比该数字大的排在该数字的后面
 array([2, 1, 3, 4])
->>>
->>> np.partition(a, (1, 3)) # 小于 1 的在前面，大于 3 的在后面，1和3之间的在中间
+
+np.partition(a, (1, 3)) # 小于 1 的在前面，大于 3 的在后面，1和3之间的在中间
 array([1, 2, 3, 4])
 ```
 
 找到数组的第 3 小（index=2）的值和第 2 大（index=-2）的值:
 ```python
->>> arr = np.array([46, 57, 23, 39, 1, 10, 0, 120])
->>> arr[np.argpartition(arr, 2)[2]]
-10
->>> arr[np.argpartition(arr, -2)[-2]]
-57
+import numpy as np
+
+arr = np.array([46, 57, 23, 39, 1, 10, 0, 120])
+print(arr[np.argpartition(arr, 2)[2]])
+print(arr[np.argpartition(arr, -2)[-2]])
 ```
 
 同时找到第 3 和第 4 小的值。注意这里，用 [2,3] 同时将第 3 和第 4 小的排序好，然后可以分别通过下标 [2] 和 [3] 取得:
 ```python
->>> arr[np.argpartition(arr, [2,3])[2]]
-10
->>> arr[np.argpartition(arr, [2,3])[3]]
-23
+import numpy as np
+
+arr[np.argpartition(arr, [2,3])[2]]
+
+arr[np.argpartition(arr, [2,3])[3]]
+
 ```
 
 ## numpy.argmax() 和 numpy.argmin()

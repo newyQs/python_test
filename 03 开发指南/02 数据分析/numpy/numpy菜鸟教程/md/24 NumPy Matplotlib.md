@@ -122,4 +122,3 @@ plt.hist(a, bins =  [0,20,40,60,80,100])
 plt.title("histogram") 
 plt.show()
 ```
-
