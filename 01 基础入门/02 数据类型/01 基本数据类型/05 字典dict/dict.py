@@ -12,12 +12,12 @@ clear()
 
 fromkeys(seq)
 
-get(key) 
+get(key, default=None) 
 
 pop(key)
 popitem()
 
-update(__m,kwargs)
+update(obj, kwargs)
 
 keys()          迭代的是key
 values()        迭代的是value
