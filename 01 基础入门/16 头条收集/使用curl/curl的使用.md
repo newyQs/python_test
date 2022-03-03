@@ -1,6 +1,6 @@
 参考：
 
-https://www.toutiao.com/i7054875398861144614/?tt_from=weixin&utm_campaign=client_share&wxshare_count=1&timestamp=1642946448&app=news_article&utm_source=weixin&utm_medium=toutiao_android&use_new_style=1&req_id=202201232200470101510922080FFDDCFE&share_token=01606de8-9fab-4f40-bfcc-58fc3f9dbf8b&group_id=7054875398861144614&wid=1642946512093
+https://www.toutiao.com/a7054875398861144614/?channel=&source=search_tab
 
 ## curl介绍
 curl 是 Linux 系统上一款网络工具，它的首字母 c 代表的是 client，表示它是客户端程序。通过 URL 方式，可以实现客户端与服务器之间传递数据。
