@@ -17,7 +17,7 @@ deployment:
       cpu: "80m"
   env:
     - name: REDIS_HOST
-      value: "proxypool-Redis"
+      value: "proxypool-redis"
 
 service:
   type: ClusterIP

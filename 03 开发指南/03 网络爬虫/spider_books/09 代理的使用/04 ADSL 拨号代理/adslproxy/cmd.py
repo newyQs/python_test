@@ -105,10 +105,10 @@ def cmd():
     # run server
     if command == 'serve':
         serve()
-    # dial and send proxy to Redis
+    # dial and send proxy to redis
     elif command == 'send':
         send(args.loop)
-    # check proxies in Redis
+    # check proxies in redis
     elif command == 'check':
         check(args.loop)
 

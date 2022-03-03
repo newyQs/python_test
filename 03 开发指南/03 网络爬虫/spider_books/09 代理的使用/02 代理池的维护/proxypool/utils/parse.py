@@ -2,8 +2,8 @@ import re
 
 def parse_redis_connection_string(connection_string):
     """
-    parse a Redis connection string, for example:
-    Redis://[password]@host:port
+    parse a redis connection string, for example:
+    redis://[password]@host:port
     rediss://[password]@host:port
     :param connection_string:
     :return:

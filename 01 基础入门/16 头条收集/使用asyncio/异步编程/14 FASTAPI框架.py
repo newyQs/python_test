@@ -9,7 +9,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-REDIS_POOL = aioredis.ConnectionsPool("Redis://10.61.67.8:6379", password="root", minsize=1, maxsize=10)
+REDIS_POOL = aioredis.ConnectionsPool("redis://10.61.67.8:6379", password="root", minsize=1, maxsize=10)
 
 
 @app.get("/")

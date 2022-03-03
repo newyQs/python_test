@@ -1,4 +1,4 @@
--- Initialize the database.
+-- Initialize the Database.
 -- Drop any existing data and create empty tables.
 
 DROP TABLE IF EXISTS user;

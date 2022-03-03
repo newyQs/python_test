@@ -20,7 +20,7 @@ else:
 
 class Sender(object):
     """
-    拨号并发送到 Redis
+    拨号并发送到 redis
     """
     
     def extract_ip(self):
@@ -62,7 +62,7 @@ class Sender(object):
         logger.info(f'Removing {CLIENT_NAME}...')
         try:
             # 由于拨号就会中断连接，所以每次都要重新建立连接
-            if hasattr(self, 'Redis') and self.redis:
+            if hasattr(self, 'redis') and self.redis:
                 self.redis.close()
             self.redis = RedisClient()
             self.redis.remove(CLIENT_NAME)

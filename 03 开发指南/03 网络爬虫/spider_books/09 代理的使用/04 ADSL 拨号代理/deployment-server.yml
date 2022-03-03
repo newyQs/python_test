@@ -61,12 +61,12 @@ items:
                 - name: REDIS_HOST
                   valueFrom:
                     secretKeyRef:
-                      name: Redis
+                      name: redis
                       key: host
                 - name: REDIS_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: Redis
+                      name: redis
                       key: password
               image: germey/adslproxy
               name: adslproxy-server

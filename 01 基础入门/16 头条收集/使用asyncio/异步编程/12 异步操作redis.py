@@ -23,7 +23,7 @@ async def execute(address, password):
 
 if __name__ == '__main__':
     tasks = [
-        execute("Redis://10.61.67.6", "root"),
-        execute("Redis://10.61.67.8", "root")
+        execute("redis://10.61.67.6", "root"),
+        execute("redis://10.61.67.8", "root")
     ]
     asyncio.run(asyncio.wait(tasks))

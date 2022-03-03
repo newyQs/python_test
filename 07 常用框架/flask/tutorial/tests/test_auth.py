@@ -13,7 +13,7 @@ def test_register(client, app):
     response = client.post("/auth/register", data={"username": "a", "password": "a"})
     assert "http://localhost/auth/login" == response.headers["Location"]
 
-    # testAPI that the user was inserted into the database
+    # testAPI that the user was inserted into the Database
     with app.app_context():
         assert (
             get_db().execute("SELECT * FROM user WHERE username = 'a'").fetchone()

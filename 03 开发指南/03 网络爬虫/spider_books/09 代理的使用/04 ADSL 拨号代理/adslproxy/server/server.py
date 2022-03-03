@@ -10,7 +10,7 @@ from loguru import logger
 
 class Server(RequestHandler):
     """
-    服务器，对接 Redis 并提供 API
+    服务器，对接 redis 并提供 API
     """
     
     def initialize(self, redis):

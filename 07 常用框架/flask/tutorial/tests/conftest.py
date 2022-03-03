@@ -7,7 +7,7 @@ from flaskr import create_app
 from flaskr.db import get_db
 from flaskr.db import init_db
 
-# read in SQL for populating testAPI data
+# read in sql for populating testAPI data
 with open(os.path.join(os.path.dirname(__file__), "data.sql"), "rb") as f:
     _data_sql = f.read().decode("utf8")
 
@@ -15,19 +15,19 @@ with open(os.path.join(os.path.dirname(__file__), "data.sql"), "rb") as f:
 @pytest.fixture
 def app():
     """Create and configure a new app instance for each testAPI."""
-    # create a temporary file to isolate the database for each testAPI
+    # create a temporary file to isolate the Database for each testAPI
     db_fd, db_path = tempfile.mkstemp()
     # create the app with common testAPI config
     app = create_app({"TESTING": True, "DATABASE": db_path})
 
-    # create the database and load testAPI data
+    # create the Database and load testAPI data
     with app.app_context():
         init_db()
         get_db().executescript(_data_sql)
 
     yield app
 
-    # close and remove the temporary database
+    # close and remove the temporary Database
     os.close(db_fd)
     os.unlink(db_path)
 

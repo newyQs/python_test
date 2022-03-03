@@ -23,21 +23,21 @@ APP_DEV = IS_DEV = APP_ENV == DEV_MODE
 APP_PROD = IS_PROD = APP_ENV == PROD_MODE
 APP_TEST = IS_TEST = APP_ENV == TEST_MODE
 
-# Redis host
+# redis host
 REDIS_HOST = env.str('REDIS_HOST', '127.0.0.1')
-# Redis port
+# redis port
 REDIS_PORT = env.int('REDIS_PORT', 6379)
-# Redis password, if no password, set it to None
+# redis password, if no password, set it to None
 REDIS_PASSWORD = env.str('REDIS_PASSWORD', None)
-# Redis db, if no choice, set it to 0
+# redis db, if no choice, set it to 0
 REDIS_DB = env.int('REDIS_DB', 0)
-# Redis connection string, like Redis://[password]@host:port or rediss://[password]@host:port/0
+# redis connection string, like redis://[password]@host:port or rediss://[password]@host:port/0
 REDIS_CONNECTION_STRING = env.str('REDIS_CONNECTION_STRING', None)
 
 if REDIS_CONNECTION_STRING:
     REDIS_HOST, REDIS_PORT, REDIS_PASSWORD, REDIS_DB = parse_redis_connection_string(REDIS_CONNECTION_STRING)
 
-# Redis hash table key name
+# redis hash table key name
 REDIS_KEY = env.str('REDIS_KEY', 'proxies:universal')
 
 # definition of proxy scores

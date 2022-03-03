@@ -8,10 +8,10 @@ class RedisClient(object):
     def __init__(self, host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, redis_key=REDIS_KEY):
         """
         初始化Redis连接
-        :param host: Redis 地址
-        :param port: Redis 端口
-        :param password: Redis 密码
-        :param redis_key: Redis 哈希表名
+        :param host: redis 地址
+        :param port: redis 端口
+        :param password: redis 密码
+        :param redis_key: redis 哈希表名
         """
         self.db = redis.StrictRedis(host=host, port=port, password=password, decode_responses=True)
         self.redis_key = redis_key
@@ -79,7 +79,7 @@ class RedisClient(object):
     
     def close(self):
         """
-        关闭 Redis 连接
+        关闭 redis 连接
         :return:
         """
         del self.db

@@ -12,12 +12,12 @@ print(ret)
 ret = "{1} {0} {1}".format("hello", "world")  # 设置指定位置
 print(ret)
 
-print("网站名：{name}, 地址 {url}".format(name="docker菜鸟教程", url="www.redis菜鸟教程.com"))
+print("网站名：{name}, 地址 {url}".format(name="docker菜鸟教程", url="www.redis oob.com"))
 
 # 通过字典设置参数
-site = {"name": "docker菜鸟教程", "url": "www.redis菜鸟教程.com"}
+site = {"name": "docker菜鸟教程", "url": "www.redis oob.com"}
 print("网站名：{name}, 地址 {url}".format(**site))
 
 # 通过列表索引设置参数
-my_list = ['docker菜鸟教程', 'www.redis菜鸟教程.com']
+my_list = ['docker菜鸟教程', 'www.redis oob.com']
 print("网站名：{0[0]}, 地址 {0[1]}".format(my_list))  # "03 爬虫基本原理" 是必须的

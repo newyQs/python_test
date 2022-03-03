@@ -1,10 +1,18 @@
 """
+ndarray对象的方法：
 
+['all', 'any', 'argmax', 'argmin', 'argpartition', 'argsort', 'astype', 'base', 'byteswap', 'choose', 'clip',
+'compress', 'conj', 'conjugate', 'copy', 'ctypes', 'cumprod', 'cumsum', 'data', 'diagonal', 'dot', 'dtype', 'dump', '
+dumps', 'fill', 'flags', 'flat', 'flatten', 'getfield', 'imag', 'item', 'itemset', 'itemsize', 'max', 'mean', 'min',
+'nbytes', 'ndim', 'newbyteorder', 'nonzero', 'partition', 'prod', 'ptp', 'put', 'ravel', 'real', 'repeat', 'reshape',
+'resize', 'round', 'searchsorted', 'setfield', 'setflags', 'shape', 'size', 'sort', 'squeeze', 'std', 'strides', 'sum',
+'swapaxes', 'take', 'tobytes', 'tofile', 'tolist', 'tostring', 'trace', 'transpose', 'var', 'view']
 """
 import numpy as np
 
-# 1. shape 属性的返回值一个由数组维度构成的元组
+# 1. shape 属性的返回值是一个由数组维度构成的元组
 a = np.array([[2, 4, 6], [3, 5, 7]])
+print(dir(a))
 print(a.shape)
 
 # 2. 通过 shape 属性修改数组的形状大小
@@ -19,7 +27,7 @@ print(a)
 print(b)
 
 # 4. 返回数组维度
-# 随机生成一个一维数组
+# 生成一个一维数组
 c = np.arange(24)
 print(c)
 print(c.ndim)

@@ -15,7 +15,7 @@ class TestLogin(unittest.TestCase):
         # 设置用来测试的数据库，避免使用正式数据库实例[覆盖原来项目中的数据库配置]
         user = 'root'
         password = '***********'
-        # 设置数据库，测试之前需要创建好 create database testdb charset=utf8;
+        # 设置数据库，测试之前需要创建好 create Database testdb charset=utf8;
         database = 'testdb'
         app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://%s:%s@127.0.0.1:3306/%s' % (user, password, database)
 

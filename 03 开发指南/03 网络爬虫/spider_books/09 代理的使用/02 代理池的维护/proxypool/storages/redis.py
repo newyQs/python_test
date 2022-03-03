@@ -15,15 +15,15 @@ IS_REDIS_VERSION_2 = REDIS_CLIENT_VERSION.startswith('2.')
 
 class RedisClient(object):
     """
-    Redis connection client of proxypool
+    redis connection client of proxypool
     """
 
     def __init__(self, host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, db=REDIS_DB, **kwargs):
         """
-        init Redis client
-        :param host: Redis host
-        :param port: Redis port
-        :param password: Redis password
+        init redis client
+        :param host: redis host
+        :param port: redis port
+        :param password: redis password
         """
         self.db = redis.StrictRedis(host=host, port=port, password=password, db=db, decode_responses=True, **kwargs)
 

@@ -273,9 +273,9 @@ export REDIS_KEY=proxies:weibo
 version: "3"
 services:
   redis:
-    image: Redis
-    container_name: Redis
-    command: Redis
+    image: redis
+    container_name: redis
+    command: redis
     ports:
       - "6379:6379"
     restart: always
@@ -287,7 +287,7 @@ services:
       - "5555:5555"
     restart: always
     environment:
-      REDIS_HOST: Redis
+      REDIS_HOST: redis
       TEST_URL: http://weibo.cn
       REDIS_KEY: proxies:weibo
 ```

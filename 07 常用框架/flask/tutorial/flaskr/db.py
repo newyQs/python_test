@@ -7,7 +7,7 @@ from flask.cli import with_appcontext
 
 
 def get_db():
-    """Connect to the application's configured database. The connection
+    """Connect to the application's configured Database. The connection
     is unique for each request and will be reused if this is called
     again.
     """
@@ -21,7 +21,7 @@ def get_db():
 
 
 def close_db(e=None):
-    """If this request connected to the database, close the
+    """If this request connected to the Database, close the
     connection.
     """
     db = g.pop("db", None)
@@ -43,11 +43,11 @@ def init_db():
 def init_db_command():
     """Clear existing data and create new tables."""
     init_db()
-    click.echo("Initialized the database.")
+    click.echo("Initialized the Database.")
 
 
 def init_app(app):
-    """Register database functions with the Flask app. This is called by
+    """Register Database functions with the Flask app. This is called by
     the application factory.
     """
     app.teardown_appcontext(close_db)

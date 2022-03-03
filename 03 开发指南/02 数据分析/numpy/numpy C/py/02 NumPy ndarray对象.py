@@ -1,4 +1,15 @@
 """
+def array(
+    object: object,
+    dtype: DTypeLike = ...,
+    *,
+    copy: bool = ...,
+    order: _OrderKACF = ...,
+    subok: bool = ...,
+    ndmin: int = ...,
+    like: ArrayLike = ...,
+) -> ndarray: ...
+
 array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0,like=None)
 """
 import numpy as np
@@ -26,8 +37,10 @@ print(a)
 
 # 6. reshape函数接受一个元组作为参数，用于指定了新数组的行数和列数：
 e = np.array([[1, 2], [3, 4], [5, 6]])
-print("原数组", e)
+print("原数组:")
+print(e)
 print(e.ndim)
 e = e.reshape(2, 3)
-print("新数组", e)
+print("新数组:")
+print(e)
 print(e.ndim)

@@ -26,7 +26,7 @@ class Tester(object):
     
     def __init__(self):
         """
-        init Redis
+        init redis
         """
         self.redis = RedisClient()
         self.loop = asyncio.get_event_loop()

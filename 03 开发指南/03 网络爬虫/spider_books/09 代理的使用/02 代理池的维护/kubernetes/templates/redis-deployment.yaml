@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: proxypool-Redis
-  name: proxypool-Redis
+    app: proxypool-redis
+  name: proxypool-redis
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: proxypool-Redis
+      app: proxypool-redis
   template:
     metadata:
       labels:
-        app: proxypool-Redis
+        app: proxypool-redis
     spec:
       containers:
-        - image: Redis:alpine
-          name: proxypool-Redis
+        - image: redis:alpine
+          name: proxypool-redis
           ports:
             - containerPort: 6379
           resources:

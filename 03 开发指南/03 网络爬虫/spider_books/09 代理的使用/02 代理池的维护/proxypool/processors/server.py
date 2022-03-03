@@ -10,10 +10,10 @@ app = Flask(__name__)
 
 def get_conn():
     """
-    get Redis client object
+    get redis client object
     :return:
     """
-    if not hasattr(g, 'Redis'):
+    if not hasattr(g, 'redis'):
         g.redis = RedisClient()
     return g.redis
 
