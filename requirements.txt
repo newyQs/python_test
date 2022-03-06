@@ -26,7 +26,7 @@ numpy==1.19.5
 
 pip==21.0.1
 pyquery==1.4.3
-pandas==1.2.4
+pandas==1.1.5
 pydantic==1.9.0
 peewee==3.14.8
 pymysql==1.0.2
