@@ -6,7 +6,7 @@ bs4==0.0.1
 
 celery==4.3.0
 
-flask=1.1.2
+flask==1.1.2
 flake8==3.9.0
 fastapi==0.73.0
 

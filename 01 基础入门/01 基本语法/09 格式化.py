@@ -11,14 +11,14 @@
 "{0} {1}".format("hello", "world")  # 设置指定位置
 "{1} {0} {1}".format("hello", "world")  # 设置指定位置
 
-print("网站名：{name}, 地址 {url}".format(name="docker菜鸟教程", url="www.redis oob.com"))
+print("网站名：{name}, 地址 {url}".format(name="docker oob", url="www.redis oob.com"))
 
 # 通过字典设置参数
-site = {"name": "docker菜鸟教程", "url": "www.redis oob.com"}
+site = {"name": "docker oob", "url": "www.redis oob.com"}
 print("网站名：{name}, 地址 {url}".format(**site))
 
 # 通过列表索引设置参数
-my_list = ['docker菜鸟教程', 'www.redis oob.com']
+my_list = ['docker oob', 'www.redis oob.com']
 print("网站名：{0[0]}, 地址 {0[1]}".format(my_list))  # "0" 是必须的
 
 
