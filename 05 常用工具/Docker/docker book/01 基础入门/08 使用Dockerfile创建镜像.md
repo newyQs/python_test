@@ -13,7 +13,7 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 ```
 
 ## 8.2 指令说明
-配置指令：13
+配置指令：13个
 + ARG
 + FROM
 + LABEL
@@ -28,14 +28,14 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 + HEALTHCHECK
 + SHELL
  
-操作指定：4
+操作指定：4个
 + RUN
 + CMD
 + ADD
 + COPY
 
 ## 8.3 创建镜像
-编写玩Dockerfile之后，可以通过docker [image] build 命令来创建镜像。
+编写好Dockerfile之后，可以通过docker [image] build 命令来创建镜像。
 
 基本格式为：docker build [OPTIONS] PATH | URL | -
 

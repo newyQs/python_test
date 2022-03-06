@@ -40,7 +40,7 @@ docker pull ubuntu:18.04
 ```
 docker pull registry.hub.docker.com/ubuntu:18.04
 ```
-如果要在非官方的仓库下载，则需要在仓库名称前指定完整的仓库地址，如以下：
+如果要在非官方的仓库下载，则需要在仓库名称前指定完整的仓库地址，如下所示：
 ```
 docker pull pub.c.163.com/public/ubuntu:18.04
 ```
@@ -59,9 +59,6 @@ docker run -it ubuntu:18.04 bash
 1. 使用docker images或者docker image ls命令可以列出本地主机上已有的镜像的基础信息
     ```
     docker images
-    ```
-    或者：
-    ```
     docker image ls
     ```
     在列出的信息中，可以看到这几个字段信息：
@@ -82,7 +79,6 @@ docker run -it ubuntu:18.04 bash
     更多的子命令可以通过man docker-images查看。
 
 2. 使用tag命令添加镜像标签
-    为了方便在后续工作中使用特定镜像，还可以为本地镜像添加新的标签
     ```
     docker tag ubuntu:latest myubuntu:latest
     ```
@@ -128,7 +124,7 @@ docker search --filter=starts=4 tensorflow
 ```
 
 ## 3.4 删除镜像
-1. 使用标签删除镜像
+1. 使用**镜像TAG**删除镜像
     使用docker rmi 或者docker image rm命令可以删除镜像。
     ```
     docker rmi IMAGE [IMAGE...]
@@ -141,14 +137,11 @@ docker search --filter=starts=4 tensorflow
     
     ```
     docker rmi ubuntu:18.04
-    ```
-    或者
-    ```
     docker image rm ubuntu:18.04
     ```
     当镜像只剩下一个标签时，此时使用docker rmi命令会彻底删除这个镜像；
 
-2. 使用镜像ID来删除镜像
+2. 使用**镜像ID**来删除镜像
 
    当使用docker rmi 命令，并且后面跟上镜像的ID（也可以是能区分的部分ID串前缀）时，会先尝试删除所有指向所有该镜像的标签，然后删除这个镜像文件本身；
    
@@ -192,6 +185,7 @@ docker image prune
     ```
     docker [image] import [OPTIONS] file|URL -[REPOSITORY] [:TAG]
     ```
+    
 3. 基于Dockerfile创建
     ```
     FROM debian:stretch-slim
@@ -205,6 +199,7 @@ docker image prune
     ```
     docker [image] build -t python3
     ```
+    
 ## 3.7 存出和载入镜像
 1. 存出镜像
     如果要导出镜像到本地文件，可以使用docker [image] save命令。该命令支持-o 、-output string参数，导出镜像到指定的文件中。
@@ -245,7 +240,6 @@ docker push user/test:latest
 第一次上传时，会提示输入登录信息或进行注册，之后登录信息会记录到本地~/.docker目录下。
 
 ## 本章小结
-
 ```
 docker pull
 docker search

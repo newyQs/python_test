@@ -171,13 +171,15 @@ LAMP(Linux-Apache-MySQL-PHP)是目前流行的Web工具栈。
 
 
 ## 11.6 持续开发与管理
-CI
+1. CI
+
     集成通过自动化的构建来完成，包括自动编译，发布和测试，从而尽快的发现错误。
 
-CD
+2. CD
+    
     
 
-1. Jenkins及官方镜像
+3. Jenkins及官方镜像
     https://www.jenkins.io/zh/doc/
     
     Jenkins能实时监控集成中存在的错误，提供详细的日志文件和提醒功能，并用图表的形式形象的展示项目构建的趋势和稳定性。
@@ -187,7 +189,7 @@ CD
     ```
     
     
-2. Gitlab及其官方镜像
+4. Gitlab及其官方镜像
     Gitlab是一款强大的开源源码管理系统。
     ```
     
