@@ -1,3 +1,4 @@
+https://www.runoob.com/mysql/mysql-tutorial.html
 # mysql 介绍，原理，安装，管理，连接
 
 ## 术语
