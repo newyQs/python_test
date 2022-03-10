@@ -1,4 +1,7 @@
 http://c.biancheng.net/redis/
+
+http://c.biancheng.net/redis_command/
+
 # 1 Redis是什么
 Redis 全称 Remote Dictionary Server（即远程字典服务），它是一个基于内存实现的键值型非关系（NoSQL）数据库，由意大利人 Salvatore Sanfilippo 使用 C 语言编写。
 
