@@ -1,0 +1,17 @@
+关系型数据库：
+1.Oracle数据库默认端口号为，1521；
+2.MySQL数据库默认端口号为，3306；
+3.SQLServer数据库默认端口号为，1433;
+
+NOSQL数据库：
+1.MongoDB默认端口号为：27017；
+2.Redis默认端口号为：6379；
+3.memcached默认端口号为：11211；
+
+
+HTTP服务器，默认端口号为80/tcp
+HTTPS（securely transferring web pages）服务器，默认端口号为443/tcp  443/udp
+FTP（文件传输）协议代理服务器常用端口号：21
+Telnet（远程登录）协议代理服务器常用端口号：23
+SSH（安全登录）、SCP（文件传输）、端口号重定向，默认的端口号为22/tcp
+nginx默认端口号是80
