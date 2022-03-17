@@ -44,10 +44,18 @@ class StrUtils:
         with open('code.png', 'wb') as f:
             img.save(f, format='png')
 
+    @classmethod
+    def format_dict_to_str(cls, dic: dict) -> str:
+        format_str = str()
+        for key, value in dic.items():
+            format_str += f"{key}:{value}\n"
 
-su = StrUtils()
+        return format_str
+
 
 if __name__ == '__main__':
+    su = StrUtils()
     # print(su.verification_code1())
     print(su.verification_code2())
     # su.verification_code3()
+    print(su.format_dict_to_str({"a": 1, "b": 2}))

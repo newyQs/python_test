@@ -32,7 +32,7 @@ peewee==3.14.8
 pymysql==1.0.2
 pymongo==4.0.1
 pillow==8.2.0
-pycrypto
+#pycrypto
 
 requests==2.25.1
 redis==4.1.2
