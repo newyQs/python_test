@@ -24,7 +24,7 @@ matplotlib
 
 numpy==1.19.5
 
-pip==21.3.1
+#pip==22.0.4
 pyquery==1.4.3
 pandas==1.1.5
 pydantic==1.9.0
@@ -32,7 +32,7 @@ peewee==3.14.8
 pymysql==1.0.2
 pymongo==4.0.1
 pillow==8.2.0
-pycrypto
+#pycrypto
 
 requests==2.25.1
 redis==4.1.2

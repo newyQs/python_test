@@ -1,12 +1,35 @@
+"""
+
+"""
 dic = {"name": "lee", "age": 18, "city": "sz"}
 
-print(dic.keys())  # dict_keys(['name', 'age', 'city'])
-print(dic.values())  # dict_values(['lee', 18, 'sz'])
-print(dic.items())  # dict_items([('name', 'lee'), ('age', 18), ('city', 'sz')])
+d = dic.copy()  # D.copy() -> a shallow copy of D "
+print(d)
 
-print(type(dic.keys()))  # <class 'dict_keys'>
-print(type(dic.values()))  # <class 'dict_values'>
-print(type(dic.items()))  # <class 'dict_items'>
+d["name"] = "jack"
+print(d)
+print(dic)
 
-for item in dic:
-    print(item)
+###############################################
+dic = {"data": [1, 2, 3]}
+
+d = dic.copy()
+print(d)
+
+d["data"] = [1, 2]
+print(d)
+print(dic)
+
+###############################################
+dic = {"name": "lee", "age": 18, "city": "sz"}
+
+print(dic.get("name"))
+print(dic.get("job"))
+print(dic.get("job", {}))
+
+###############################################
+dic = {"a": 1, "b": 2}
+dc = d.clear()  # D.clear() -> None
+
+print(d)
+print(dc)

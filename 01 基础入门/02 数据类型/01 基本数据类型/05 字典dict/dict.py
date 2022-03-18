@@ -14,10 +14,10 @@ fromkeys(seq)
 
 get(key) 
 
-pop(key)
-popitem()
+pop(key) # 删除指定的键值对
+popitem() # 删除最后一个键值对
 
-update(__m,kwargs)
+update(__m,kwargs) # 更新或创建
 
 keys()          迭代的是key
 values()        迭代的是value
