@@ -4,7 +4,12 @@ git config --global user.email 123@qq.com
 git config --global core.quotepath false
 ssh-keygen -t rsa -C 123@qq.com
 
-2.docker的正确安装步骤
+2. git push 解决方法
+git remote -v
+git remote rm origin
+git remote add origin git@github.com:newyQs/python_test.git
+
+3.docker的正确安装步骤
 https://blog.csdn.net/qq_40104261/article/details/118571516
 https://www.cnblogs.com/a735882640/p/13755428.html
 
