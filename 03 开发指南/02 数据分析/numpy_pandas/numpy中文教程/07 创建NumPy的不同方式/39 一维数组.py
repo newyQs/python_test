@@ -15,7 +15,7 @@ array[3] = 100
 print(array)
 
 # array[3] = 'Numpy'
-# print(array)  # ValueError: invalid literal for int() with base 10: 'Numpy'
+# print(array)  # ValueError: invalid literal for int() with BASE 10: 'Numpy'
 
 array[3] = '12'
 print(array)

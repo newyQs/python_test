@@ -15,11 +15,11 @@ import re
 # 用法：
 pattern = "[\w]+"
 
-if re.match(pattern, "~123"):  # 字符串开头匹配 -->obj or None
+if re.match(pattern, "~123"):  # 字符串开头匹配 --> obj or None
     print("match：测试通过")
 
-if re.search(pattern, "wjj123"):  # 字符串只要匹配 -->obj or None
+if re.search(pattern, "wjj123"):  # 字符串只要匹配 --> obj or None
     print("search：测试通过")
 
-if re.fullmatch(pattern, "wdss"):  # 字符串完整匹配 -->obj or None
+if re.fullmatch(pattern, "wdss"):  # 字符串完整匹配 --> obj or None
     print("fullmatch：测试通过")

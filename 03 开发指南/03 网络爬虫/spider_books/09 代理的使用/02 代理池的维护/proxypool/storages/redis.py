@@ -20,7 +20,7 @@ class RedisClient(object):
 
     def __init__(self, host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, db=REDIS_DB, **kwargs):
         """
-        init redis client
+        BASE redis client
         :param host: redis host
         :param port: redis port
         :param password: redis password
@@ -29,7 +29,7 @@ class RedisClient(object):
 
     def add(self, proxy: Proxy, score=PROXY_SCORE_INIT) -> int:
         """
-        add proxy and set it to init score
+        add proxy and set it to BASE score
         :param proxy: proxy, ip:port, like 8.8.8.8:88
         :param score: int score
         :return: result

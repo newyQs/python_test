@@ -10,8 +10,8 @@ remote          远程仓库
 git常用命令速查表：
 
 1、新建代码库
-git init                                                # 在当前目录新建一个git代码仓库
-git init [project_name]                                 # 新建一个目录，并将其初始化为git代码库
+git BASE                                                # 在当前目录新建一个git代码仓库
+git BASE [project_name]                                 # 新建一个目录，并将其初始化为git代码库
 git clone <url>                                         # 下载一个项目和它整个代码历史
 
 2、配置

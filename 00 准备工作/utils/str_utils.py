@@ -1,6 +1,3 @@
-"""
-
-"""
 import random
 from PIL import Image
 
@@ -46,6 +43,9 @@ class StrUtils:
 
     @classmethod
     def format_dict_to_str(cls, dic: dict) -> str:
+        """
+        字典格式化字符串
+        """
         format_str = str()
         for key, value in dic.items():
             format_str += f"{key}:{value}\n"

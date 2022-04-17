@@ -24,19 +24,19 @@ Flask的设计目标是实现一个**WSGI**的微框架，其核心代码十分�
 ## 1.3 初步认识Flask Web程序
 
 ### 1.3.1 编写第一个Flask Web程序
-```
-import flask  # 导入flask模块
+```python
+import flask 
 
 app = flask.Flask(__name__)  # 实例化类Flask，后面的构造方法Flask使用当前模块的名称（__name__）作为参数
 
 
-@app.route('/')  # 该装饰器将URL和函数hell()联系起来，是的服务器收到对应的请求时，调用该函数，返回这个函数产生的数据
-def hello():  # 定义业务处理函数helo()
+@app.route('/')  # 该装饰器将URL和函数hello()联系起来，使得服务器收到对应的请求时，调用该函数，返回这个函数产生的数据
+def hello():  # 定义业务处理函数hello()
     return '你好，这是第一个Flask程序!'
 
 
 if __name__ == '__main__':
-    app.run()  # 运行程序
+    app.run()  
 ```
 使用命令：`python flask.py` 启动该程序
 
@@ -58,59 +58,59 @@ app.run(host=None, port=None, debug=None)
 
 在Flask框架中，在客户端浏览器把访问请求发送给Web服务器，Web服务器再把请求发送给Flask Web程序。
 1. 使用路由方法：route(rule, endpoint, **options)
-    ```
-    import flask  
-                      		
-    app = flask.Flask(__name__) 
-    
-    @app.route('/hello')  
-    def hello_world():  
-        return "hello world"
-    ```
-    浏览器输入：`http://127.0.0.1:5000/hello` 即可显示返回结果
+```python
+import flask  
+                        
+app = flask.Flask(__name__) 
+
+@app.route('/hello')  
+def hello_world():  
+    return "hello world"
+```
+浏览器输入：`http://127.0.0.1:5000/hello` 即可显示返回结果
     
 2. 使用路由方法：add_url_rule(rule, endpoint=None, view_func=None, provide_automatic_options=None, **options)
 
-    ```
-    import flask  
-                      		
-    app = flask.Flask(__name__) 
+```python
+import flask  
+                        
+app = flask.Flask(__name__) 
+
+def hello_world():  
+    return "hello world"
     
-    def hello_world():  
-        return "hello world"
-        
-    app.add_url_rule('/','hello',hello_world)
-    ```
-    浏览器输入：`http://127.0.0.1:5000/hello` 即可显示返回结果
+app.add_url_rule('/','hello',hello_world)
+```
+浏览器输入：`http://127.0.0.1:5000/hello` 即可显示返回结果
     
 3. 将不同的URL映射到同一个函数
-    在访问多个不同URL请求时，都会返回由同一个函数产生的响应内容
-    ```
-    import flask  
-                      		
-    app = flask.Flask(__name__) 
-         	
-    @app.route('/')           			
-    @app.route('/aaa')        			
-    def hello():
-        return '你好，这是一个Flask程序！'
-        
-    if __name__ == '__main__':
-        app.run() 
-    ```
-    浏览器输入：`http://127.0.0.1:5000/` 或 `http://127.0.0.1:5000/aaa` 即可显示返回结果
 
-注：通常开发中基本都是**方法1**中的形式
+目的是在访问多个不同URL请求时，都会返回由同一个函数产生的响应内容
+```python
+import flask  
+                        
+app = flask.Flask(__name__) 
+        
+@app.route('/')           			
+@app.route('/aaa')        			
+def hello():
+    return '你好，这是一个Flask程序！'
+    
+if __name__ == '__main__':
+    app.run() 
+```
+浏览器输入：`http://127.0.0.1:5000/` 或 `http://127.0.0.1:5000/aaa` 即可显示返回结果
     
 ### 1.4.3 处理URL参数
 在Flask Web程序中，有时候URL地址中的参数是动态的，例如下面3种格式：
-```
+```python
 /hello/<name>    # 获取URL "/hello/wang"中的参数"wang"给变量"name"
 /hello/<int:id>  # 获取URL "/hello/5"中的参数"5"给变量"id"
 /hello/<float:num>  # 获取URL "/hello/2.3"中的参数"2.3"给变量"num"
 ```
+
 所以想要获取和处理URL中传递来的参数，就需要在对应的处理函数的参数列表中声明该参数：
-```
+```python
 from flask import Flask
 
 app = Flask(__name__)
@@ -119,13 +119,13 @@ app = Flask(__name__)
 def hello_name(name):
     return '你好%s!' % name
 
-@app.route('/blog/<int:ID>')
-def show_blog(ID):
-   return '我的年龄是：%d' % ID + '岁！'
+@app.route('/blog/<int:mid>')
+def show_blog(mid):
+   return '我的年龄是：%d' % mid + '岁！'
 
-@app.route('/rev/<float:No>')
-def revision(No):
-   return '我身上只有%f' % No + '元钱了！'
+@app.route('/rev/<float:no>')
+def revision(no):
+   return '我身上只有%f' % no + '元钱了！'
 
 if __name__ == '__main__':
    app.run()
@@ -141,12 +141,11 @@ if __name__ == '__main__':
 
 其他的方法呢？
 
-在Flask框架中，默认使用GET方法。
-通过URL装饰器的参数“methods”，可以让同一个URL的多种请求方法都映射到同一个函数上。
-```
-import flask  # 导入flask模块
+在Flask框架中，默认使用GET方法，通过URL装饰器的参数“methods”，可以让同一个URL的多种请求方法都映射到同一个函数上。
+```python
+import flask
 
-app = flask.Flask(__name__)  # 实例化类Flask
+app = flask.Flask(__name__)
 
 # 变量html初始化，作为GET请求的页面
 html = """        					
@@ -161,19 +160,20 @@ html = """
 </html>
 """
 
-# URL映射，不管是‘GET’方法还是‘POST’方法，都被映射到helo()函数
+# URL映射，不管是‘GET’方法还是‘POST’方法，都被映射到hello()函数
 @app.route('/aaa', methods=['GET', 'POST'])
-def helo():  # 定义业务处理函数helo()
-    if flask.request.method == 'GET':  # 如果接收到的请求是GET
-        return html  # 返回html的页面内容
-    else:  # 否则接收到的请求是POST
+def hello():  
+    if flask.request.method == 'GET': 
+        return html  
+    else:  
         return '我司已经收到POST请求！'
 
 if __name__ == '__main__':
-    app.run()  # 运行程序
+    app.run()  
 ```
+
 另外，在Flask Web程序中处理URL请求时，可以使用网页重定向方法url_for()跳转到指定的URL：
-```
+```python
 from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
@@ -206,7 +206,7 @@ url_for(endpoint,**values)
 
 ### 1.4.5 模拟实现用户登录系统
 index.html
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -223,7 +223,7 @@ index.html
 </html>
 ```
 login.py
-```
+```python
 from flask import Flask, redirect, url_for, request
 
 app = Flask(__name__)
@@ -257,7 +257,7 @@ Flask-Script主要为Flask Web应用程序提供一个命令行解释器。
 使用pip install flask-script安装。
 
 ### 1.5.2 使用Flask-Script扩展
-```
+```python
 from flask import Flask
 from flask_script import Manager  # 引用扩展
 
@@ -280,7 +280,7 @@ if __name__ == '__main__':
 ```
 
 ### 1.5.3 创建命令
-```
+```python
 from flask import Flask
 from flask_script import Manager, Server
 from flask_script import Command
@@ -305,7 +305,7 @@ if __name__ == '__main__':
 + hello：运行此命令可以调用函数Hello()
 + runserver：调用函数Server()
 
-```
+```python
 from flask import Flask
 from flask_script import Manager
 
@@ -314,7 +314,7 @@ app = Flask(__name__)
 manager = Manager(app)
 
 
-@manager.command  # 创建命令
+@manager.command  
 def hello():
     print('大江大河！')
 
@@ -323,7 +323,7 @@ if __name__ == '__main__':
     manager.run()
 ```
 
-```
+```python
 from flask import Flask
 from flask_script import Manager
 
@@ -332,12 +332,9 @@ manager = Manager(app)
 
 
 # 命令既可以用-n,也可以用--name，dest="name"用户输入的命令的名字作为参数传给了函数中的name
-@manager.option('-n', '--name', dest='name',
-                help='Your name',
-                default='world')
+@manager.option('-n', '--name', dest='name',help='Your name',default='world')               
 # 命令既可以用-u,也可以用--url,dest="url"用户输入的命令的url作为参数传给了函数中的url
-@manager.option('-u', '--url', dest='url',
-                default='www.csdn.com')
+@manager.option('-u', '--url', dest='url',default='www.csdn.com')             
 def hello(name, url):
     print('hello', name)
     print(url)

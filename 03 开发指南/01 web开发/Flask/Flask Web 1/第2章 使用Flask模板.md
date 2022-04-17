@@ -5,7 +5,7 @@
 
 ## 2.1 使用Jinja2模板引擎
 app.py
-```
+```python
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -46,7 +46,7 @@ index.html
 ```
 
 app.py
-```
+```python
 from flask import Flask
 from flask import render_template
 
@@ -121,7 +121,7 @@ index.html
 ```
 
 app.py
-```
+```python
 from flask import Flask
 from flask import render_template
 
@@ -236,7 +236,7 @@ yhong.html
 {% endmacro %}
 ```
 app.py
-```
+```python
 from flask import Flask, render_template, request, url_for
 
 app = Flask(__name__)
@@ -273,7 +273,7 @@ if __name__ == '__main__':
 
 ### 2.3.2 在Flask Web中使用Flask-Bootstrap扩展
 app.py
-```
+```python
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 
@@ -353,7 +353,7 @@ Moment.js是一个轻量级的JavaScript日期处理类库。开发者可以在�
 
 ### 2.4.2 使用Flask-Moment显示时间
 app.py
-```
+```python
 from datetime import datetime
 from flask import Flask, render_template
 from flask_script import Manager
@@ -494,7 +494,7 @@ user.html
 
 ### 2.5.2 使用静态文件
 app.py
-```
+```python
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -526,7 +526,7 @@ index.html
 
 ### 2.6.2 可插拔视图实战演练
 error_handlers.py
-```
+```python
 from flask import render_template, jsonify
 from routing import app
 from my_exceptions import *
@@ -543,7 +543,7 @@ def auth_error(error):
     return jsonify({'error': error.get_message()})
 ```
 my_exceptions.py
-```
+```python
 class AuthenticationException(Exception):
     """
         与身份验证相关的异常
@@ -556,7 +556,7 @@ class AuthenticationException(Exception):
 
 ```
 routing.py
-```
+```python
 from flask import Flask
 from views import UserView
 
@@ -572,7 +572,7 @@ if __name__ == '__main__':
     app.run()
 ```
 views.py
-```
+```python
 from flask.views import View
 from flask import render_template
 from my_exceptions import AuthenticationException

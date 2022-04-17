@@ -1,4 +1,4 @@
--i "https://mirrors.aliyun.com/pypi/simple"
+-i https://mirrors.aliyun.com/pypi/simple
 aiohttp==3.8.1
 aioredis==2.0.1
 
@@ -36,6 +36,8 @@ pillow==8.2.0
 
 requests==2.25.1
 redis==4.1.2
+requests_toolbelt==0.9.1
+python-redis-lock[flask]==3.7.0
 
 scipy==1.5.4
 selenium==3.14.1

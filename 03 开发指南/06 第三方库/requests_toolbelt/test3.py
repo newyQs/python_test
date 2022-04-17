@@ -1,6 +1,3 @@
-"""
-
-"""
 from clint.textui.progress import Bar as ProgressBar
 from requests_toolbelt import MultipartEncoder, MultipartEncoderMonitor
 

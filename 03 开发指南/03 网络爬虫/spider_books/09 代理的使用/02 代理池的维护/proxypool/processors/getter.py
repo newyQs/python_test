@@ -11,7 +11,7 @@ class Getter(object):
 
     def __init__(self):
         """
-        init db and crawlers
+        BASE db and crawlers
         """
         self.redis = RedisClient()
         self.crawlers_cls = crawlers_cls

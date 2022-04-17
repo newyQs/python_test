@@ -1,6 +1,3 @@
-"""
-
-"""
 import requests
 from requests_toolbelt import MultipartEncoder
 

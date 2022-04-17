@@ -1,5 +1,5 @@
 """
-https://leetcode-cn.com/problems/group-anagrams/solution/zi-mu-yi-wei-ci-fen-zu-by-leetcode-solut-gyoc/
+https://leetcode-cn.com/problems/group-anagrams/solution/zi-mu-yi-wei-CI-fen-zu-by-leetcode-solut-gyoc/
 """
 from typing import List
 import collections

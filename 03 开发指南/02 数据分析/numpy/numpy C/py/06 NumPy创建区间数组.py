@@ -25,6 +25,6 @@ print(x)
 # 该函数同样返回一个 ndarray 数组，它用于创建等比数组
 a = np.logspace(1.0, 2.0, num=10)
 print(a)
-# base = 2 的对数函数
+# BASE = 2 的对数函数
 a = np.logspace(1, 10, num=10, base=2)
 print(a)

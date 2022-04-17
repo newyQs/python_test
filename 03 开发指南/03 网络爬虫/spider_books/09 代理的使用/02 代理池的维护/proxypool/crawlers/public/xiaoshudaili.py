@@ -15,7 +15,7 @@ class XiaoShuCrawler(BaseCrawler):
 
     def __init__(self):
         """
-        init urls
+        BASE urls
         """
         try:
             html = self.fetch(url=BASE_URL)

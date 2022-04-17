@@ -38,7 +38,7 @@ def init_db():
         db.executescript(f.read().decode("utf8"))
 
 
-@click.command("init-db")
+@click.command("BASE-db")
 @with_appcontext
 def init_db_command():
     """Clear existing data and create new tables."""
