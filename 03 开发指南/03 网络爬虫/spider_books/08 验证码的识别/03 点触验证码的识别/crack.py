@@ -154,7 +154,7 @@ class CrackTouClick():
         self.touch_click_verify()
         # 判定是否成功
         success = self.wait.until(
-            EC.text_to_be_present_in_element((By.CLASS_NAME, 'touclick-hod-note'), '验证成功'))
+            EC.text_to_be_present_in_element((By.CLASS_NAME, 'touclick-hod-notebook'), '验证成功'))
         print(success)
 
         # 失败后重试

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-# This is note foe exception
+# This is notebook foe exception
 
 try:
     pass  # 需要判断是否会抛出异常的代码，如果没有异常处理，python会直接停止执行程序

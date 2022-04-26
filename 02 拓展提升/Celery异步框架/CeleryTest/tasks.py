@@ -1,6 +1,3 @@
-"""
-
-"""
 import time
 from celery import Celery
 

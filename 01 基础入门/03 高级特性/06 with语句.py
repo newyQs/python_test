@@ -16,12 +16,12 @@ with 语句：上下文管理器
 from contextlib import contextmanager
 
 # with语句可以确保我们的文件对象最终被关闭掉
-with open('testAPI.txt', 'r') as f:
+with open('test.txt', 'r') as f:
     print(f.read())
 
 # 等价于：
 try:
-    f = open('testAPI.txt', 'r')
+    f = open('test.txt', 'r')
     print(f.read())
 except Exception as e:
     print(e)
@@ -54,7 +54,7 @@ class File:
         return True
 
 
-with File('testAPI.txt') as f:
+with File('test.txt') as f:
     print('hello')
 
 """
@@ -78,5 +78,5 @@ def file(filename):
         ff.close()
 
 
-with file('testAPI.txt') as ff:
+with file('test.txt') as ff:
     print('hello')

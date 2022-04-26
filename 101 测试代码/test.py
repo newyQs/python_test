@@ -1,6 +1,3 @@
-"""
-
-"""
 import os
 
 file_path = "mod_fcgid-2.3.9.tar.gz"
