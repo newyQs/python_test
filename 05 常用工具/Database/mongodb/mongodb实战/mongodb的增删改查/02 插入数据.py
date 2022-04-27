@@ -1,19 +1,23 @@
 import pymongo
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-mydb = myclient["runoobdb"]  # 数据库
-mycol = mydb["sites"]  # 数据表
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+db = client["runoobdb"]  # 数据库
+col = db["sites"]  # 数据表
 
-# 1. 插入一个文档
-mydict = {"name": "RUNOOB", "alexa": "10000", "url": "https://www.runoob.com"}
+# 1. 插入一条数据
+mydict = {
+    "name": "RUNOOB",
+    "alexa": "10000",
+    "url": "https://www.runoob.com"
+}
 
-x = mycol.insert_one(mydict)
+x = col.insert_one(mydict)
 print(x)
 print(x.inserted_id)
-# insert_one() 方法返回 InsertOneResult 对象，该对象包含 inserted_id 属性，它是插入文档的 id 值。
+# insert_one() 方法返回 InsertOneResult 对象，该对象包含 inserted_id 属性，它是插入文档的 id 值
 
 
-# 2. 插入多个文档
+# 2. 插入多条数据
 mylist = [
     {"name": "Taobao", "alexa": "100", "url": "https://www.taobao.com"},
     {"name": "QQ", "alexa": "101", "url": "https://www.qq.com"},
@@ -22,13 +26,13 @@ mylist = [
     {"name": "Github", "alexa": "109", "url": "https://www.github.com"}
 ]
 
-x = mycol.insert_many(mylist)
-# 输出插入的所有文档对应的 _id 值
-print(x.inserted_ids)
-# insert_many() 方法返回 InsertManyResult 对象，该对象包含 inserted_ids 属性，该属性保存着所有插入文档的 id 值。
+xs = col.insert_many(mylist)
+print(xs)
+print(xs.inserted_ids)
+# insert_many() 方法返回 InsertManyResult 对象，该对象包含 inserted_ids 属性，该属性保存着所有插入文档的 id 值
 
 
-# 3. 插入指定 _id 的多个文档
+# 3. 插入指定 _id 的多条数据
 mylist = [
     {"_id": 1, "name": "RUNOOB", "cn_name": "菜鸟教程"},
     {"_id": 2, "name": "Google", "address": "Google 搜索"},
@@ -37,6 +41,7 @@ mylist = [
     {"_id": 5, "name": "Zhihu", "address": "知乎"}
 ]
 
-x = mycol.insert_many(mylist)
-# 输出插入的所有文档对应的 _id 值
-print(x.inserted_ids)
+xsi = col.insert_many(mylist)
+# 输出插入的所有数据对应的 _id 值
+print(xsi)
+print(xsi.inserted_ids)

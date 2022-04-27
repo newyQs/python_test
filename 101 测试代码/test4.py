@@ -11,3 +11,10 @@ while i < j - 1:
         i += 1
 
 print(a)
+
+
+def tt(a=None, b=None, c=None):
+    print(a, b, c)
+
+
+tt("dsd")
