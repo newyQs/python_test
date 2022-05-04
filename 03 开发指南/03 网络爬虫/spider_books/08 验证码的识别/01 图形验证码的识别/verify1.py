@@ -1,6 +1,3 @@
-"""
-
-"""
 import tesserocr
 from PIL import Image
 

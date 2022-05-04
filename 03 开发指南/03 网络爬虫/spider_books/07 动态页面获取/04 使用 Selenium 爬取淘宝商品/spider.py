@@ -1,6 +1,3 @@
-"""
-
-"""
 import pymongo
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -76,8 +73,8 @@ def save_to_mongo(result):
     try:
         if db[MONGO_COLLECTION].insert(result):
             print('存储到MongoDB成功')
-    except Exception:
-        print('存储到MongoDB失败')
+    except Exception as e:
+        print(f'存储到MongoDB失败,{e}')
 
 
 def main():

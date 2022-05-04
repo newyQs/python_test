@@ -1,6 +1,3 @@
-"""
-
-"""
 import os
 import time
 from io import BytesIO
@@ -11,7 +8,6 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from os import listdir
 
 USERNAME = '15874295385'
 PASSWORD = 'fpdpvx119'
@@ -127,7 +123,7 @@ class CrackWeiboSlide():
         :param image: 图片
         :return: 拖动顺序
         """
-        for template_name in listdir(TEMPLATES_FOLDER):
+        for template_name in os.listdir(TEMPLATES_FOLDER):
             print('正在匹配', template_name)
             template = Image.open(TEMPLATES_FOLDER + template_name)
             if self.same_image(image, template):

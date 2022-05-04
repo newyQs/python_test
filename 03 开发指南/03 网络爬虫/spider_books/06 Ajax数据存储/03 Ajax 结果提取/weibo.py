@@ -1,6 +1,3 @@
-"""
-
-"""
 import requests
 from urllib.parse import urlencode
 from pyquery import PyQuery as pq
@@ -44,7 +41,7 @@ def parse_page(json, page: int):
                 continue
             else:
                 item = item.get('mblog', {})
-                weibo = {}
+                weibo = dict()
                 weibo['id'] = item.get('id')
                 weibo['text'] = pq(item.get('text')).text()
                 weibo['attitudes'] = item.get('attitudes_count')
