@@ -1,12 +1,11 @@
-import pickle
-
-'''
+"""
 open() 只能处理字符（str）或字节（bytes）流类型的数据
 对于其他数据类型(int,float,dict,list...)，我们需要先将其序列化成字符或字节流类型
 于是，python中pickle模块出现了，但该模块只局限于python语言中
 
 序列化即把变量从内存中变成可存储或传输的过程（也就是变成字符流或字节流的过程）
-'''
+"""
+import pickle
 
 # 1.可序列化的数据
 # data = [1, True, "hello"]

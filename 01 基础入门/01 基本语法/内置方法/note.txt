@@ -1,5 +1,4 @@
-"""
-a=====>
+a=====>6
 abs()
 aiter() # 3.10 新版功能.
 all()
@@ -7,48 +6,48 @@ any()
 anext() # 3.10 新版功能.
 ascii()
 
-b=====>
+b=====>5
 bin()
 bool()
 breakpoint()
 bytearray()
 bytes()
 
-c=====>
+c=====>5
 callable()
 chr()
 classmethod()
 compile()
 complex()
 
-d=====>
+d=====>4
 delattr()
 dict()
 dir()
 divmod()
 
-e=====>
+e=====>3
 enumerate()
 eval()
 exec()
 
-f=====>
+f=====>4
 filter()
 filter()
 format()
 frozenset()
 
-g=====>
+g=====>2
 getattr()
 globals()
-
-h=====>
+4
+h=====>4
 hasattr()
 hash()
 help()
 hex()
 
-i=====>
+i=====>6
 id()
 input()
 int()
@@ -56,38 +55,38 @@ isinstance()
 issubclass()
 iter()
 
-l=====>
+l=====>3
 len()
 list()
 locals()
 
-m=====>
+m=====>4
 map()
 max()
 memoryview()
 min()
 
-n=====>
+n=====>1
 next()
 
-o=====>
+o=====>4
 object()
 oct()
 open()
 ord()
 
-p=====>
+p=====>3
 pow()
 print()
 property()
 
-r=====>
+r=====>4
 range()
 repr()
 reversed()
 round()
 
-s=====>
+s=====>8
 set()
 setattr()
 slice()
@@ -97,16 +96,15 @@ str()
 sum()
 super()
 
-t=====>
+t=====>2
 tuple()
 type()
 
-v=====>
+v=====>1
 vars()
 
-z=====>
+z=====>1
 zip()
 
-_=====>
+_=====>1
 __import__()
-"""

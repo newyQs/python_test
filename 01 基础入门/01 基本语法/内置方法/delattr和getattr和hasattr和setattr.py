@@ -31,3 +31,9 @@ print(getattr(a, "age"))
 
 print(hasattr(a, "name"))
 print(hasattr(a, "age"))
+
+setattr(a, "sex", "male")
+print(getattr(a, "sex"))
+
+delattr(a, "sex")
+# print(getattr(a, "sex")) AttributeError: 'A' object has no attribute 'sex'

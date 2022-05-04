@@ -23,7 +23,7 @@ https://www.cnblogs.com/a735882640/p/13755428.html
     3.卸载旧版本（如果之前安装过的话）
     yum remove docker  docker-common docker-selinux docker-engine
 
-安装Docker的详细步骤
+安装Docker的详细步骤:
     1.安装需要的软件包， yum-util 提供yum-config-manager功能，另两个是devicemapper驱动依赖
         yum install -y yum-utils device-mapper-persistent-data lvm2
 

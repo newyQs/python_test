@@ -24,3 +24,9 @@ systemctl start firewalld
 
 systemctl disable firewalld.service 开机禁止防火墙服务器
 systemctl enable firewalld.service 开机启动防火墙服务器
+
+# DNS的配置文件
+/etc/hosts：负责ip地址与域名快速解析的文件，hosts文件包含了IP地址和主机名之间的映射，在域名解析的过程中，
+会先查看hosts文件中是否有域名和ip地址之间的映射关系，如果没有则向DNS服务器发起域名解析的请求：
+
+/etc/resolv.conf：配置的是DNS服务器的地址，当主机要访问某个域名的时候，就会向resolv.conf的中的DNS服务器发起解析的请求：

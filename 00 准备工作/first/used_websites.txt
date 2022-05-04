@@ -3,6 +3,7 @@ linux公社：
 
 linux cool:
     https://www.linuxcool.com/
+    https://www.linuxprobe.com/
 
 docker hub：
     https://registry.hub.docker.com/
@@ -27,5 +28,9 @@ requests官方中文文档：
 问题
 https://stackoverflow.com/
 
-
 https://help.sonatype.com/repomanager3
+
+
+redis:
+    http://redisdoc.com/
+    http://doc.redisfans.com/

@@ -1,6 +1,4 @@
-"""
 
-"""
 import aiohttp
 
 async with aiohttp.ClientSession(headers={'User-Agent': 'your agent'}) as session:

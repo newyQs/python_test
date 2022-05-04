@@ -11,13 +11,15 @@ dic = {"name": "lee", "age": 18, "city": "sz"}
 
 ret = dic.pop("name")
 
-print(ret)  # D.pop(k[,d]) -> v
+print(ret)  # D.pop(k[,d]) -> v 返回被删除键的值
 print(dic)
+
+print(dic.pop("sex", None))  # pop(key) 中 key不存在将会报错，除非给个默认值，如None
 
 ################################################
 dic = {"name": "lee", "age": 18, "city": "sz"}
 
 ret = dic.popitem()
 
-print(ret)
+print(ret)  # 返回被删除的键值对
 print(dic)

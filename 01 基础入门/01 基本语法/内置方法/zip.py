@@ -15,3 +15,5 @@ for item in zip([1, 2, 3], ['sugar', 'spice', 'everything nice']):
 
 for item in zip([1, 2, 3]):
     print(item)
+
+print(zip([1, 2, 3], ['sugar', 'spice', 'everything nice']))

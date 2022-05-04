@@ -1,9 +1,13 @@
 """
+ copy()
 
+ clear()
+
+ get()
 """
 dic = {"name": "lee", "age": 18, "city": "sz"}
 
-d = dic.copy()  # D.copy() -> a shallow copy of D "
+d = dic.copy()  # D.copy() -> a shallow copy of D
 print(d)
 
 d["name"] = "jack"
@@ -29,7 +33,7 @@ print(dic.get("job", {}))
 
 ###############################################
 dic = {"a": 1, "b": 2}
-dc = d.clear()  # D.clear() -> None
+dc = dic.clear()  # D.clear() -> None
 
-print(d)
+print(dic)
 print(dc)
