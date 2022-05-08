@@ -2,7 +2,7 @@ import pymongo
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["runoobdb"]  # 数据库
-col = db["sites"]  # 数据表
+col = db["sites"]  # 集合
 
 # 1. 插入一条数据
 mydict = {
