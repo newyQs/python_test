@@ -5,6 +5,9 @@ linux cool:
     https://www.linuxcool.com/
     https://www.linuxprobe.com/
 
+鸟哥linux:
+    https://man.niaoge.com/
+
 docker hub：
     https://registry.hub.docker.com/
 
@@ -24,12 +27,6 @@ python教程：
 
 requests官方中文文档：
     https://docs.python-requests.org/zh_CN/latest/
-
-问题
-https://stackoverflow.com/
-
-https://help.sonatype.com/repomanager3
-
 
 redis:
     http://redisdoc.com/
