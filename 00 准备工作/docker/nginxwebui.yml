@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  nginxwebui:
+    image: docker.sangfor.com/eedocker/nginxwebui:2.9.1
+    restart: always
+    environment:
+      - NGINX_STATUS_HTTP_PATH: nginxStatus2
+    volumes:
+      - /home/zyj/elk/html:/usr/share/nginx/html:Z
+      - type: bind
+        source: "/home/nginxWebUI"
+        target: "/home/nginxWebUI"
+    environment:
+      BOOT_OPTIONS: "--server.port=8080"
+    privileged: true
+    network_mode: "host"

@@ -12,6 +12,7 @@ redis 127.0.0.1:6379> GET javatpoint
 "redis"  
 ```
 
+## 命令大全
 
 命令	    描述
 SET	        设置指定 key 的值

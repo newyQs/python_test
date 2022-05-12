@@ -1,0 +1,11 @@
+version: '3'
+services:
+  es:
+    image: elasticsearch:7.17.1
+    restart: always
+    ports:
+      - "9200:9200"
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - ./9200esdata:/usr/share/elasticsearch/data

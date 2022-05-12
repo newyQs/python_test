@@ -1,6 +1,6 @@
 '''
 signal.alarm()
-注意两点：一是signal信号机制要在linux上才能运行； 二是signal信号在主线程中才会会起作用
+注意两点：一是signal信号机制要在linux上才能运行； 二是signal信号在主线程中才会起作用
 '''
 import time
 import signal
