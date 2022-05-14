@@ -1,3 +1,5 @@
+
+
 (1) tail
 
 tail [参数]
@@ -31,19 +33,29 @@ ssh -p 8081 10.61.67.8
 (4) scp
 
 从远程复制文件到本地目录：
-    scp root@192.168.10.10:/opt/soft/rhel-server-7.3-x86_64.tar.gz /opt/soft/
+```
+scp root@192.168.10.10:/opt/soft/rhel-server-7.3-x86_64.tar.gz /opt/soft/
+```
 
 从远程复制目录到本地：
-    scp -r root@10.10.10.10:/opt/soft/mysql /opt/soft/
+```
+scp -r root@10.10.10.10:/opt/soft/mysql /opt/soft/
+```
 
 上传本地文件到远程机器指定目录：
-    scp /opt/soft/rhel-server-7.3-x86_64.tar.gz root@192.168.10.10:/opt/soft/scptest
+```
+scp /opt/soft/rhel-server-7.3-x86_64.tar.gz root@192.168.10.10:/opt/soft/scptest
+```
 
 上传本地目录到远程机器指定目录：
-    scp -r /opt/soft/mysql root@192.168.10.10:/opt/soft/scptest
+```
+scp -r /opt/soft/mysql root@192.168.10.10:/opt/soft/scptest
+```
 
 保留文件的最后修改时间，最后访问时间和权限模式：
-    scp -p /root/install.log root@192.168.10.10:/tmp
+```
+scp -p /root/install.log root@192.168.10.10:/tmp
+```
 
 (5) ps
 
