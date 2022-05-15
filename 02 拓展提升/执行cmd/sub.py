@@ -38,10 +38,10 @@ os.path.isfile()：是否为文件
 import subprocess
 import os
 
-# file_path = "./sub.py"
-#
-# cmd = f"file {file_path}"
-# status, output = subprocess.run(cmd)
-# print(status, output)
+file_path = "./sub.py"
+
+cmd = f"file {file_path}"
+status, output = subprocess.getstatusoutput(cmd)
+print(status, output)
 
 print(os.getcwd())

@@ -3,7 +3,7 @@
 2.MySQL数据库默认端口号为，3306；
 3.SQLServer数据库默认端口号为，1433;
 
-NOSQL数据库：
+NoSQL数据库：
 1.MongoDB默认端口号为：27017；
 2.Redis默认端口号为：6379；
 3.memcached默认端口号为：11211；

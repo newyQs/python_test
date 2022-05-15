@@ -126,3 +126,9 @@ tar [参数] [文件或目录]
 
 打包文件以后，以 gzip 压缩：
     tar -zcvf log.tar.gz linuxcool.log
+    
+(8) 添加软连接
+
+示例：
+ln -s /usr/software/nodejs/bin/npm  /usr/local/bin/
+ln -s /usr/software/nodejs/bin/node  /usr/local/bin/

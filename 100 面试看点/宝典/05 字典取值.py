@@ -1,10 +1,13 @@
+"""
+
+"""
 # 01 字典排序:按照值
 d = {'a': 23, 'g': 43, 'f': 29, 'e': 10}
 print(d.items())
 s = sorted(d.items(), key=lambda x: x[1], reverse=False)
 
 
-# 02 将字符串“k:1|k1:2|k2:3|k3:4”处理成字典：{k:1,k1:2,k2:3,k3:4}
+# 02 将字符串“k:1|k1:2|k2:3|k3:4”处理成字典：{k:1, k1:2, k2:3, k3:4}
 def str2dict(string):
     dic = dict()
     for items in string.split('|'):

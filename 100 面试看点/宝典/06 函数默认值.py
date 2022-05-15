@@ -1,3 +1,8 @@
+"""
+
+"""
+
+
 # 如下代码的输出结果
 def extend_list(val, lis=[]):
     lis.append(val)
