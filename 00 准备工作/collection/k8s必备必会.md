@@ -161,7 +161,6 @@ kubectl get rs <ReplicaSet-name> -o yaml> xx.yaml
 ```
 kubectl get deployments
 kubectl get deploy
-
 ```
 
 ### 2.5.2、显示某个deployment的信息：
