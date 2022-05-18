@@ -42,7 +42,6 @@ def open_func(file_name):
     finally:
         print('close file:', file_name, 'in __exit__')
         file_handler.close()
-
         return
 
 

@@ -104,7 +104,6 @@ A, L, and U are mutually exclusive.
 This module also defines an exception 'error'.
 
 """
-
 import enum
 import sre_compile
 import sre_parse

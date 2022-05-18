@@ -4,10 +4,7 @@ import json
 import time
 import math
 import hashlib
-
 import requests
-
-from log import log
 
 hostName = "http://abc.example.com"
 
