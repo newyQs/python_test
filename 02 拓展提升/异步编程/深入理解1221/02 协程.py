@@ -1,5 +1,5 @@
 """
-一般异步方法就被称为一个协程（Coroutine）
+一个异步方法就被称为一个协程（Coroutine）
 """
 import asyncio
 

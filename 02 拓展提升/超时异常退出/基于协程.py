@@ -14,8 +14,6 @@ def time_out(interval, callback=None):
             import gevent
             from gevent import monkey
             monkey.patch_all()
-            #
-
             try:
                 gevent.with_timeout(interval, func, *args, **kwargs)
             except gevent.timeout.Timeout as e:
@@ -33,4 +31,5 @@ def func(a, b):
     print(a, b)
 
 
-func(1, 2)
+if __name__ == '__main__':
+    func(1, 2)
