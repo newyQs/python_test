@@ -1,8 +1,10 @@
 # 第3章 使用docker镜像
+
 docker运行容器前需要本地存在对应的镜像，如果镜像不存在，docker会尝试先从默认镜像仓库下载，
 （默认使用Docker Hub公共注册服务器中的仓库），用户也可以配置使用自定义的镜像仓库。
 
 ### 问题？
+
 1. 如何使用pull命令从Docker Hub仓库下载镜像至本地；
 2. 如何查看本地已有的镜像信息和管理镜像标签；
 3. 如何在远端仓库用search命令进行搜索和过滤；
@@ -11,6 +13,7 @@ docker运行容器前需要本地存在对应的镜像，如果镜像不存在�
 6. 如何往Docker Hub仓库中推送自己的镜像；
 
 ## 3.1 获取镜像
+
 镜像是运行容器的前提，可以使用docker [image] pull 命令直接从Docker Hub仓库下载镜像：
 ```
 docker [image] pull NAME[:TAG]
@@ -56,6 +59,7 @@ docker run -it ubuntu:18.04 bash
 ```
 
 ## 3.2 查看镜像信息
+
 1. 使用docker images或者docker image ls命令可以列出本地主机上已有的镜像的基础信息
     ```
     docker images
@@ -103,6 +107,7 @@ docker run -it ubuntu:18.04 bash
     注意：过长的命令被自动截断了，可以使用前面的--no-trunc选项输出完整命令。
 
 ## 3.3 搜寻镜像
+
 ```
 docker search [option] keyword
 ```
@@ -124,7 +129,9 @@ docker search --filter=starts=4 tensorflow
 ```
 
 ## 3.4 删除镜像
+
 1. 使用**镜像TAG**删除镜像
+
     使用docker rmi 或者docker image rm命令可以删除镜像。
     ```
     docker rmi IMAGE [IMAGE...]
@@ -162,6 +169,7 @@ docker search --filter=starts=4 tensorflow
    注意，通常不推荐直接使用 -f 参数删除一个存在容器依赖的镜像，正确的步骤是先删除依赖该镜像的所有容器，再来删除镜像。
    
 ## 3.5 清理镜像
+
 ```
 docker image prune 
 ```
@@ -171,6 +179,7 @@ docker image prune
 + -f, -force：强制删除镜像，而不进行提示确认；
 
 ## 3.6 创建镜像
+
 1. 基于已有容器创建
     ```
     docker [container] commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
@@ -201,6 +210,7 @@ docker image prune
     ```
     
 ## 3.7 存出和载入镜像
+
 1. 存出镜像
     如果要导出镜像到本地文件，可以使用docker [image] save命令。该命令支持-o 、-output string参数，导出镜像到指定的文件中。
     ```
@@ -228,6 +238,7 @@ docker image prune
     这将导入镜像及其相关的元数据信息（包括标签等）。
 
 ## 3.8 上传镜像
+
 可以使用docker [image] push命令上传镜像到仓库，默认上传到Docker Hub官方仓库（需要登录）：
 ```
 docker [image] push NAME[:TAG] | [REGISTRY_HOST[:REGISTRY_PROT]/]NAME[:TAG]
@@ -240,6 +251,7 @@ docker push user/test:latest
 第一次上传时，会提示输入登录信息或进行注册，之后登录信息会记录到本地~/.docker目录下。
 
 ## 本章小结
+
 ```
 docker pull
 docker search

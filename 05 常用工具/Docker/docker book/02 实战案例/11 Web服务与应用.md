@@ -1,9 +1,11 @@
 # 第11章 Web服务与应用
 
 ## 11.1 Apache
+
 Apache是一种高稳定性、商业级别的开源web服务器。跨平台性和安全性。
 
 1. 使用DockerHub镜像
+
     (1) 创建Dockerfile文件：
     ```
     FROM httpd:2.4
@@ -35,6 +37,7 @@ Apache是一种高稳定性、商业级别的开源web服务器。跨平台性�
     ```
 
 2. 使用自定义镜像
+
     (1) 创建apache_ubuntu工作目录，在其中创建Dockerfile文件，run.sh文件和sample目录。
     ```
     mkdir apache_ubuntu && cd apache_ubuntu
@@ -117,6 +120,7 @@ Apache是一种高稳定性、商业级别的开源web服务器。跨平台性�
 
 
 ## 11.2 Nginx
+
 Nginx是一款开源强大的反向代理服务器，支持HTTP、HTTPS、SMTP、POP3、IMAP等协议。它可以作为负载均衡器、HTTP缓存或Web服务器。
 专注于高性能、高并发。
 
@@ -162,6 +166,7 @@ docker run -d -p 80:8080 -p 443:8443 jetty
 
 
 ## 11.5 LAMP
+
 LAMP(Linux-Apache-MySQL-PHP)是目前流行的Web工具栈。
 
 1. 使用官方镜像
